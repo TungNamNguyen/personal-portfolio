@@ -31,9 +31,9 @@ export const SKILL_CATEGORIES: { name: string; icon: ReactNode; skills: string[]
     skills: ["SQL", "Python", "Bash"]
   },
   {
-    name: "Data Platforms & Storage",
-    icon: <Database size={20} />,
-    skills: ["Postgres", "MySQL", "SQL Server", "Snowflake", "Databricks", "Fabric"]
+    name: "Data Engineering",
+    icon: <GitBranch size={20} />,
+    skills: ["dbt", "Spark", "Airflow"]
   },
   {
     name: "BI & Analytic",
@@ -41,9 +41,9 @@ export const SKILL_CATEGORIES: { name: string; icon: ReactNode; skills: string[]
     skills: ["Power BI", "Tableau", "Superset", "Metabase"]
   },
   {
-    name: "Data Engineering",
-    icon: <GitBranch size={20} />,
-    skills: ["dbt", "Spark", "Airflow"]
+    name: "Data Platforms & Storage",
+    icon: <Database size={20} />,
+    skills: ["Postgres", "MySQL", "SQL Server", "Snowflake", "Databricks", "Fabric"]
   },
   {
     name: "Devops & Cloud",

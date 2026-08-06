@@ -93,8 +93,9 @@ export default function Skills() {
   const reduceMotion = useReducedMotion();
 
   return (
-    // items-start stops short cards being stretched to the tallest in the row.
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+    // Cards stretch to a uniform height per row. SKILL_CATEGORIES is ordered so
+    // that same-height cards share a row, which keeps the stretch from showing.
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {SKILL_CATEGORIES.map((category, i) => (
         <motion.div
           key={i}
