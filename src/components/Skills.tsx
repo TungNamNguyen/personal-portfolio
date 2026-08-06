@@ -4,7 +4,7 @@ import { SKILL_CATEGORIES } from "../constants";
 import {
   SiGnubash, SiMysql, SiSnowflake, SiDbt, SiApachespark,
   SiMetabase, SiDatabricks, SiApachesuperset, SiDocker,
-  SiTerraform, SiGit, SiJira, SiConfluence, SiTrello
+  SiTerraform, SiGit, SiJira, SiConfluence, SiTrello, SiDbeaver
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa6";
 import { DiMsqlServer } from "react-icons/di";
@@ -55,6 +55,16 @@ const SlackIcon = () => (
   </svg>
 );
 
+/**
+ * dlthub. Simple Icons carries this mark, but the react-icons build pinned here
+ * predates it, so the path is inlined. currentColor lets it theme like the rest.
+ */
+const DltIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
+    <path d="M24 11.498h-1.008v3.01H24Zm-3.024 0h2.016v-1.004h-2.016V8.487h-1.008v7.025h3.024v-1.004h-2.016zm-2.986 3.01h-2.016v1.004h3.024v-5.017H17.99zm-2.016-4.013h-1.008v4.014h1.008zm-2.985 1.003h-2.016v-3.01H9.965v7.024h1.008v-3.01h2.016v3.01h1.008V8.488h-1.008zm-11.981 0H0v3.01h1.008zm2.016-1.003H1.008v1.003h2.016v3.01H1.008v1.004h3.024V8.488H3.024zM5 15.512h1.01V8.488H5.001Zm2.986-7.024H6.98v6.02h1.008v-3.01h1.008v-1.003H7.987zm1.008 6.02H7.987v1.004h1.008z" />
+  </svg>
+);
+
 /** Bitmap/vector logos served from public/icons — no third-party hotlinking. */
 const LocalIcon = ({ src, alt }: { src: string; alt: string }) => (
   <img src={src} alt={alt} width={16} height={16} className="w-[1em] h-[1em] object-contain" />
@@ -75,6 +85,7 @@ const SKILL_ICON_MAP: Record<string, ReactNode> = {
   "Superset": <span className="text-[#20A7C9] dark:text-[#4BC4F0]"><SiApachesuperset /></span>,
   "Metabase": <span className="text-[#509EE3] dark:text-[#73B4F0]"><SiMetabase /></span>,
   "dbt": <span className="text-[#FF694B] dark:text-[#FF846B]"><SiDbt /></span>,
+  "dlt": <span className="text-[#59C1D5] dark:text-[#7BD3E3]"><DltIcon /></span>,
   "Spark": <span className="text-[#E25A1C] dark:text-[#F97B45]"><SiApachespark /></span>,
   "Airflow": <AirflowIcon />,
   "Git": <span className="text-[#F05032] dark:text-[#F36B53]"><SiGit /></span>,
@@ -82,6 +93,7 @@ const SKILL_ICON_MAP: Record<string, ReactNode> = {
   "AWS": <span className="text-[#FF9900] dark:text-[#FFB340]"><FaAws /></span>,
   "Azure": <span className="text-[#0089D6] dark:text-[#33A1FD]"><VscAzure /></span>,
   "Terraform": <span className="text-[#844FBA] dark:text-[#9D68D3]"><SiTerraform /></span>,
+  "DBeaver": <span className="text-[#382923] dark:text-[#E3D5CA]"><SiDbeaver /></span>,
   "Jira": <span className="text-[#0052CC] dark:text-[#4C9AFF]"><SiJira /></span>,
   "Confluence": <span className="text-[#0052CC] dark:text-[#4C9AFF]"><SiConfluence /></span>,
   "Trello": <span className="text-[#0079BF] dark:text-[#61BDFA]"><SiTrello /></span>,

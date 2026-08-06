@@ -33,7 +33,7 @@ export const SKILL_CATEGORIES: { name: string; icon: ReactNode; skills: string[]
   {
     name: "Data Engineering",
     icon: <GitBranch size={20} />,
-    skills: ["dbt", "Spark", "Airflow"]
+    skills: ["dbt", "dlt", "Spark", "Airflow"]
   },
   {
     name: "BI & Analytic",
@@ -53,7 +53,7 @@ export const SKILL_CATEGORIES: { name: string; icon: ReactNode; skills: string[]
   {
     name: "Tools & Collaboration",
     icon: <Wrench size={20} />,
-    skills: ["Jira", "Confluence", "Trello", "Teams", "Slack"]
+    skills: ["DBeaver", "Jira", "Confluence", "Trello", "Teams", "Slack"]
   }
 ];
 
