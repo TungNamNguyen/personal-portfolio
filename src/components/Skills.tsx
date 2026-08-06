@@ -106,7 +106,7 @@ export default function Skills() {
         >
           <div className="flex items-center gap-3 text-slate-900 dark:text-white">
             <div className="text-blue-600 dark:text-blue-400">{category.icon}</div>
-            <h3 className="font-mono text-xs font-semibold uppercase tracking-wider">{category.name}</h3>
+            <h3 className="font-mono text-sm font-semibold uppercase tracking-wide">{category.name}</h3>
           </div>
           <div className="flex flex-wrap gap-2">
             {category.skills.map((skill, j) => (

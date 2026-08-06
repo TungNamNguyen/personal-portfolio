@@ -43,7 +43,7 @@ export default function Projects() {
             <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
               {project.title}
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-8 text-sm leading-relaxed flex-1">
+            <p className="text-slate-600 dark:text-slate-400 mb-8 text-sm sm:text-base leading-relaxed flex-1">
               {project.description}
             </p>
             <div className="flex flex-wrap gap-2 mt-auto">
