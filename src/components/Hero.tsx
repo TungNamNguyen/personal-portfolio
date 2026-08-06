@@ -9,7 +9,7 @@ import { SITE } from "../constants";
 const ROLES = ["Data Analyst", "BI Analyst", "Data Engineer", "Analytics Engineer"];
 
 const buttonBase =
-  "justify-center inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950";
+  "justify-center inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900";
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -90,7 +90,7 @@ export default function Hero() {
               whileTap={reduceMotion ? undefined : { scale: 0.95 }}
               href={SITE.cvUrl}
               download
-              className={`w-full sm:w-auto ${buttonBase} bg-blue-50 dark:bg-slate-800 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-slate-700`}
+              className={`w-full sm:w-auto ${buttonBase} bg-blue-50 dark:bg-slate-700 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-slate-600`}
             >
               <Download size={18} />
               Download CV
@@ -104,7 +104,7 @@ export default function Hero() {
               href={SITE.github}
               target="_blank"
               rel="noreferrer"
-              className={`flex-1 sm:flex-none ${buttonBase} bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800`}
+              className={`flex-1 sm:flex-none ${buttonBase} bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700`}
             >
               <SiGithub width={18} height={18} />
               GitHub
@@ -115,7 +115,7 @@ export default function Hero() {
               href={SITE.linkedin}
               target="_blank"
               rel="noreferrer"
-              className={`flex-1 sm:flex-none ${buttonBase} bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800`}
+              className={`flex-1 sm:flex-none ${buttonBase} bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700`}
             >
               <FaLinkedin width={18} height={18} />
               LinkedIn
@@ -140,7 +140,7 @@ export default function Hero() {
             alt={SITE.name}
             width={256}
             height={256}
-            className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-white dark:border-slate-800 shadow-xl shadow-slate-200 dark:shadow-none"
+            className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-white dark:border-slate-700 shadow-xl shadow-slate-200 dark:shadow-none"
           />
         </div>
       </motion.div>

@@ -4,11 +4,11 @@ import FaLinkedin from "~icons/simple-icons/linkedin";
 import { SITE } from "../constants";
 
 const iconLink =
-  "rounded-sm hover:text-slate-900 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950";
+  "rounded-sm hover:text-slate-900 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 py-10 sm:py-12 mt-20 sm:mt-24 transition-colors duration-300">
+    <footer className="border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 py-10 sm:py-12 mt-20 sm:mt-24 transition-colors duration-300">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center gap-2 font-mono font-bold text-lg tracking-tighter text-slate-900 dark:text-white">
           <img src="/icons/logo.gif" alt="" className="w-8 h-8 object-contain" />

@@ -38,7 +38,7 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={reduceMotion ? undefined : { y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }}
             viewport={{ once: true, margin: "-100px" }}
-            className="group flex flex-col md:flex-row gap-2 md:gap-8 p-5 sm:p-6 -mx-5 sm:-mx-6 rounded-2xl hover:bg-white dark:hover:bg-slate-900/50 hover:shadow-xl hover:shadow-blue-900/5 dark:hover:shadow-none border border-transparent hover:border-slate-200 dark:hover:border-slate-800 transition-all duration-200"
+            className="group flex flex-col md:flex-row gap-2 md:gap-8 p-5 sm:p-6 -mx-5 sm:-mx-6 rounded-2xl hover:bg-white dark:hover:bg-slate-800/50 hover:shadow-xl hover:shadow-blue-900/5 dark:hover:shadow-none border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all duration-200"
           >
             <div className="text-sm font-mono text-slate-500 dark:text-slate-400 md:pt-1 w-full md:w-48 shrink-0 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
               {entry.period}

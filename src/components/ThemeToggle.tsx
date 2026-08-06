@@ -25,7 +25,7 @@ export default function ThemeToggle() {
       role="switch"
       aria-checked={isDark}
       aria-label="Dark mode"
-      className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 ${
+      className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 ${
         isDark ? "bg-blue-600" : "bg-slate-300"
       }`}
     >

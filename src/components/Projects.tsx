@@ -19,7 +19,7 @@ export default function Projects() {
             whileHover={reduceMotion ? undefined : { y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: reduceMotion ? 0 : 0.3 }}
-            className="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 hover:shadow-2xl hover:shadow-blue-900/10 dark:hover:shadow-none hover:border-blue-300 dark:hover:border-blue-900/50 transition-all duration-200"
+            className="group flex flex-col bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-2xl p-6 hover:shadow-2xl hover:shadow-blue-900/10 dark:hover:shadow-none hover:border-blue-300 dark:hover:border-blue-900/50 transition-all duration-200"
           >
             <div className="flex justify-between items-start mb-6">
               <div className="p-3 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-xl group-hover:bg-blue-600 dark:group-hover:bg-blue-500 group-hover:text-white group-hover:scale-110 transition-all duration-300">
@@ -50,7 +50,7 @@ export default function Projects() {
               {project.tech.map((t, j) => (
                 <span
                   key={j}
-                  className="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-mono rounded-md group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors"
+                  className="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm font-mono rounded-md group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors"
                 >
                   {t}
                 </span>

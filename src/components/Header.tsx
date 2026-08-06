@@ -5,7 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 import { NAV_ITEMS } from "../constants";
 
 const linkClass =
-  "rounded-sm transition-colors hover:text-slate-900 dark:hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950";
+  "rounded-sm transition-colors hover:text-slate-900 dark:hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900";
 
 /** Highlights whichever section currently occupies the top of the viewport. */
 function useActiveSection() {
@@ -75,7 +75,7 @@ export default function Header() {
   }, [isMobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+    <header className="sticky top-0 z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 transition-colors duration-300">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         <a
           href="#about"
@@ -101,7 +101,7 @@ export default function Header() {
               {item.label}
             </a>
           ))}
-          <div className="h-4 w-px bg-slate-200 dark:bg-slate-800 mx-1"></div>
+          <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 mx-1"></div>
           <ThemeToggle />
         </nav>
 
@@ -131,7 +131,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={reduceMotion ? { duration: 0 } : undefined}
-            className="md:hidden overflow-hidden bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800"
+            className="md:hidden overflow-hidden bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700"
           >
             <nav className="flex flex-col px-4 sm:px-6 py-4 space-y-4 text-sm font-medium text-slate-600 dark:text-slate-400">
               {NAV_ITEMS.map((item) => (

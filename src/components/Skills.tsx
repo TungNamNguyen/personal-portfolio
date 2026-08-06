@@ -39,15 +39,6 @@ import IconDatabricks from "~icons/simple-icons/databricks";
 const ICON_SIZE = "text-[16px]";
 
 /**
- * Brand marks drawn in near-black. They read fine on the light theme but vanish
- * against slate-950, so in dark mode only they sit on a light chip — which is
- * how these logos are meant to be placed on dark backgrounds anyway.
- */
-const NEEDS_LIGHT_CHIP = new Set([
-  "Bash", "dlt", "Superset", "Postgres", "MySQL", "SQL Server", "AWS", "DBeaver"
-]);
-
-/**
  * Marks that no icon set carries, taken from the vendor's own brand assets and
  * served from public/icons.
  */
@@ -102,7 +93,7 @@ export default function Skills() {
           whileHover={reduceMotion ? undefined : { y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
           viewport={{ once: true }}
           transition={{ delay: reduceMotion ? 0 : i * 0.1, duration: 0.3 }}
-          className="space-y-4 bg-white dark:bg-slate-900/50 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900/50 hover:shadow-xl hover:shadow-blue-900/10 dark:hover:shadow-none transition-all duration-200"
+          className="space-y-4 bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:border-blue-200 dark:hover:border-blue-900/50 hover:shadow-xl hover:shadow-blue-900/10 dark:hover:shadow-none transition-all duration-200"
         >
           <div className="flex items-center gap-3 text-slate-900 dark:text-white">
             <div className="text-blue-600 dark:text-blue-400">{category.icon}</div>
@@ -112,17 +103,10 @@ export default function Skills() {
             {category.skills.map((skill, j) => (
               <span
                 key={j}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium border border-slate-200 dark:border-slate-700 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium border border-slate-200 dark:border-slate-600 hover:text-blue-600 dark:hover:text-blue-300 hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors"
               >
                 {SKILL_ICON_MAP[skill] && (
-                  <span
-                    aria-hidden="true"
-                    className={`${ICON_SIZE} flex items-center shrink-0 ${
-                      NEEDS_LIGHT_CHIP.has(skill)
-                        ? "dark:bg-white dark:rounded-[4px] dark:p-0.5 dark:box-content"
-                        : ""
-                    }`}
-                  >
+                  <span className={`${ICON_SIZE} flex items-center shrink-0`} aria-hidden="true">
                     {SKILL_ICON_MAP[skill]}
                   </span>
                 )}
