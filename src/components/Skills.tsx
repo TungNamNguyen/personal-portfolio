@@ -16,7 +16,7 @@ import { Database, BarChart3 } from "lucide-react";
  * Icons are sized by the wrapper's font-size (see ICON_SIZE below), so every
  * glyph here must scale off `1em` rather than a hard-coded pixel size.
  */
-const ICON_SIZE = "text-[14px]";
+const ICON_SIZE = "text-[16px]";
 
 const AirflowIcon = () => (
   <svg viewBox="0 0 175 175" fill="none" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
@@ -57,7 +57,7 @@ const SlackIcon = () => (
 
 /** Bitmap/vector logos served from public/icons — no third-party hotlinking. */
 const LocalIcon = ({ src, alt }: { src: string; alt: string }) => (
-  <img src={src} alt={alt} width={14} height={14} className="w-[1em] h-[1em] object-contain" />
+  <img src={src} alt={alt} width={16} height={16} className="w-[1em] h-[1em] object-contain" />
 );
 
 const SKILL_ICON_MAP: Record<string, ReactNode> = {
@@ -108,11 +108,11 @@ export default function Skills() {
             <div className="text-blue-600 dark:text-blue-400">{category.icon}</div>
             <h3 className="font-mono text-sm font-semibold uppercase tracking-wide">{category.name}</h3>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2.5">
             {category.skills.map((skill, j) => (
               <span
                 key={j}
-                className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium border border-slate-100 dark:border-slate-700 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium border border-slate-200 dark:border-slate-700 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors"
               >
                 {SKILL_ICON_MAP[skill] && (
                   <span className={`${ICON_SIZE} flex items-center shrink-0`} aria-hidden="true">
