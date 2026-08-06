@@ -1,21 +1,21 @@
 import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { SKILL_CATEGORIES } from "../constants";
-import { Database } from "lucide-react";
+import { Database, Import } from "lucide-react";
 
 // Full-colour brand marks. `~icons/*` is resolved by unplugin-icons at build
 // time (see vite.config.ts) and inlined as SVG — no runtime icon library.
 import IconPython from "~icons/logos/python";
-import IconBash from "~icons/logos/bash";
-import IconDbt from "~icons/logos/dbt";
-import IconSpark from "~icons/logos/apache-spark";
-import IconAirflow from "~icons/logos/airflow";
+import IconBash from "~icons/logos/bash-icon";
+import IconDbt from "~icons/logos/dbt-icon";
+import IconSpark from "~icons/devicon/apachespark";
+import IconAirflow from "~icons/logos/airflow-icon";
 import IconPowerBi from "~icons/logos/microsoft-power-bi";
-import IconTableau from "~icons/logos/tableau";
-import IconSuperset from "~icons/logos/apache-superset";
+import IconTableau from "~icons/logos/tableau-icon";
+import IconSuperset from "~icons/logos/apache-superset-icon";
 import IconMetabase from "~icons/logos/metabase";
 import IconPostgres from "~icons/logos/postgresql";
-import IconMysql from "~icons/logos/mysql";
+import IconMysql from "~icons/logos/mysql-icon";
 import IconSnowflake from "~icons/logos/snowflake-icon";
 import IconGit from "~icons/logos/git-icon";
 import IconDocker from "~icons/logos/docker-icon";
@@ -30,10 +30,8 @@ import IconSlack from "~icons/logos/slack-icon";
 import IconSqlServer from "~icons/devicon/microsoftsqlserver";
 import IconDbeaver from "~icons/devicon/dbeaver";
 
-// These two exist only as monochrome marks, so they inherit colour from the
-// wrapper and are tinted to their brand hue instead.
+// Monochrome mark: inherits colour from the wrapper, tinted to the brand hue.
 import IconDatabricks from "~icons/simple-icons/databricks";
-import IconDlt from "~icons/simple-icons/dlthub";
 
 /**
  * Icons are sized by the wrapper's font-size, so every glyph scales off `1em`.
@@ -57,7 +55,7 @@ const SKILL_ICON_MAP: Record<string, ReactNode> = {
   "Python": <IconPython />,
   "Bash": <IconBash />,
   "dbt": <IconDbt />,
-  "dlt": <span className="text-[#59C1D5]"><IconDlt /></span>,
+  "dlt": <span className="text-[#59C1D5]"><Import size="1em" /></span>,
   "Spark": <IconSpark />,
   "Airflow": <IconAirflow />,
   "Power BI": <IconPowerBi />,
