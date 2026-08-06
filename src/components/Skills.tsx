@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { SKILL_CATEGORIES } from "../constants";
-import { Database, Import } from "lucide-react";
+import { Database } from "lucide-react";
 
 // Full-colour brand marks. `~icons/*` is resolved by unplugin-icons at build
 // time (see vite.config.ts) and inlined as SVG — no runtime icon library.
@@ -38,15 +38,12 @@ import IconDatabricks from "~icons/simple-icons/databricks";
  */
 const ICON_SIZE = "text-[16px]";
 
-/** Microsoft Fabric is absent from every icon set; served from public/icons. */
-const FabricIcon = () => (
-  <img
-    src="/icons/microsoft-fabric.svg"
-    alt=""
-    width={16}
-    height={16}
-    className="w-[1em] h-[1em] object-contain"
-  />
+/**
+ * Marks that no icon set carries, taken from the vendor's own brand assets and
+ * served from public/icons.
+ */
+const LocalIcon = ({ src }: { src: string }) => (
+  <img src={src} alt="" width={16} height={16} className="w-[1em] h-[1em] object-contain" />
 );
 
 const SKILL_ICON_MAP: Record<string, ReactNode> = {
@@ -55,7 +52,7 @@ const SKILL_ICON_MAP: Record<string, ReactNode> = {
   "Python": <IconPython />,
   "Bash": <IconBash />,
   "dbt": <IconDbt />,
-  "dlt": <span className="text-[#59C1D5]"><Import size="1em" /></span>,
+  "dlt": <LocalIcon src="/icons/dlt.svg" />,
   "Spark": <IconSpark />,
   "Airflow": <IconAirflow />,
   "Power BI": <IconPowerBi />,
@@ -67,7 +64,7 @@ const SKILL_ICON_MAP: Record<string, ReactNode> = {
   "SQL Server": <IconSqlServer />,
   "Snowflake": <IconSnowflake />,
   "Databricks": <span className="text-[#FF3621]"><IconDatabricks /></span>,
-  "Fabric": <FabricIcon />,
+  "Fabric": <LocalIcon src="/icons/microsoft-fabric.svg" />,
   "Git": <IconGit />,
   "Docker": <IconDocker />,
   "AWS": <IconAws />,
