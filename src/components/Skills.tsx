@@ -10,7 +10,7 @@ import { FaAws } from "react-icons/fa6";
 import { DiMsqlServer } from "react-icons/di";
 import { VscAzure } from "react-icons/vsc";
 import { BsMicrosoftTeams } from "react-icons/bs";
-import { Database, BarChart3 } from "lucide-react";
+import { Database } from "lucide-react";
 
 /**
  * Icons are sized by the wrapper's font-size (see ICON_SIZE below), so every
@@ -66,13 +66,13 @@ const SKILL_ICON_MAP: Record<string, ReactNode> = {
   "Bash": <span className="text-slate-900 dark:text-white"><SiGnubash /></span>,
   "Postgres": <LocalIcon src="/icons/postgresql.svg" alt="" />,
   "MySQL": <span className="text-[#4479A1] dark:text-[#5DA5DA]"><SiMysql /></span>,
-  "Microsoft SQL Server": <span className="text-[#CC292B] dark:text-[#E84D4A]"><DiMsqlServer /></span>,
+  "SQL Server": <span className="text-[#CC292B] dark:text-[#E84D4A]"><DiMsqlServer /></span>,
   "Snowflake": <span className="text-[#29B5E8] dark:text-[#4BC4F0]"><SiSnowflake /></span>,
   "Databricks": <span className="text-[#FF3621] dark:text-[#FF5C4A]"><SiDatabricks /></span>,
-  "Microsoft Fabric": <LocalIcon src="/icons/microsoft-fabric.svg" alt="" />,
-  "Power BI": <span className="text-[#F2C811] dark:text-[#FAD839]"><BarChart3 size="1em" /></span>,
+  "Fabric": <LocalIcon src="/icons/microsoft-fabric.svg" alt="" />,
+  "Power BI": <LocalIcon src="/icons/powerbi.svg" alt="" />,
   "Tableau": <TableauIcon />,
-  "Apache Superset": <span className="text-[#20A7C9] dark:text-[#4BC4F0]"><SiApachesuperset /></span>,
+  "Superset": <span className="text-[#20A7C9] dark:text-[#4BC4F0]"><SiApachesuperset /></span>,
   "Metabase": <span className="text-[#509EE3] dark:text-[#73B4F0]"><SiMetabase /></span>,
   "dbt": <span className="text-[#FF694B] dark:text-[#FF846B]"><SiDbt /></span>,
   "Spark": <span className="text-[#E25A1C] dark:text-[#F97B45]"><SiApachespark /></span>,
@@ -93,7 +93,8 @@ export default function Skills() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    // items-start stops short cards being stretched to the tallest in the row.
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
       {SKILL_CATEGORIES.map((category, i) => (
         <motion.div
           key={i}

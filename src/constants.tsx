@@ -33,12 +33,12 @@ export const SKILL_CATEGORIES: { name: string; icon: ReactNode; skills: string[]
   {
     name: "Data Platforms & Storage",
     icon: <Database size={20} />,
-    skills: ["Postgres", "MySQL", "Microsoft SQL Server", "Snowflake", "Databricks", "Microsoft Fabric"]
+    skills: ["Postgres", "MySQL", "SQL Server", "Snowflake", "Databricks", "Fabric"]
   },
   {
     name: "BI & Analytic",
     icon: <LineChart size={20} />,
-    skills: ["Power BI", "Tableau", "Apache Superset", "Metabase"]
+    skills: ["Power BI", "Tableau", "Superset", "Metabase"]
   },
   {
     name: "Data Engineering",
