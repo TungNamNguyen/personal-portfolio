@@ -21,3 +21,27 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Keeps anchor targets clear of the sticky header (~65px tall). */
+[id] {
+  scroll-margin-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /*
+    Motion components are handled in JS via useReducedMotion; this is the
+    backstop for CSS transitions and the avatar's pulsing glow.
+  */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

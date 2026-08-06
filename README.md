@@ -2,7 +2,7 @@
 
 Portfolio site for a Data / Analytics Engineer — single-page, responsive, with a dark/light theme toggle.
 
-Built with React 19, Vite 6, Tailwind CSS v4, Motion for animations, and lucide-react for icons.
+Built with React 19, Vite 6, Tailwind CSS v4, Motion for animations, and lucide-react / react-icons for icons.
 
 ## Run locally
 
@@ -29,15 +29,55 @@ Opens at http://localhost:3000.
 
 ```
 src/
-  App.tsx          Page layout and section order
-  constants.tsx    All content: skills, experience, education, projects
-  components/      Header, Hero, Skills, Competencies, Experience,
-                   Education, Projects, Footer, ThemeToggle
+  App.tsx                Page layout and section order
+  constants.tsx          All content: profile links, skills, experience, education, projects
+  components/
+    Header.tsx           Sticky nav with active-section highlighting
+    Hero.tsx             Intro, rotating role, contact buttons
+    Skills.tsx           Skill categories and the technology icon map
+    Competencies.tsx     Core competency cards
+    TimelineSection.tsx  Shared layout for Experience and Education
+    Experience.tsx       Timeline data binding
+    Education.tsx        Timeline data binding
+    Projects.tsx         Project cards
+    SectionHeading.tsx   One heading style for every section
+    Footer.tsx           Social links
+    ThemeToggle.tsx      Dark/light switch
+public/
+  icons/                 Self-hosted technology logos
 ```
 
-Edit `src/constants.tsx` to change the content — the components render from it.
+### Editing content
 
-## Notes
+Everything you'd normally want to change lives in [`src/constants.tsx`](src/constants.tsx):
 
-No API keys or environment variables are needed; the site is fully static. `.env.example` and the
-`GEMINI_API_KEY` wiring in `vite.config.ts` are leftovers from the project scaffold and are unused.
+- `SITE` — name, email, GitHub, LinkedIn, and CV link. **Set a field to `""` to hide the
+  corresponding button.** `cvUrl` starts empty; drop a PDF at `public/cv.pdf` and set it to
+  `"/cv.pdf"` to show the download button.
+- `NAV_ITEMS` — nav entries. Each `id` must match a section `id` in the markup.
+- `SKILL_CATEGORIES`, `COMPETENCIES`, `EXPERIENCE`, `EDUCATION`, `PROJECTS` — page content.
+
+To give a skill an icon, add an entry to `SKILL_ICON_MAP` in
+[`src/components/Skills.tsx`](src/components/Skills.tsx) keyed by the exact skill string.
+Icons scale off `1em`, so use `size="1em"` rather than a pixel size.
+
+## Deployment
+
+Pushes to `main` deploy automatically to Vercel; pull requests get their own preview URL.
+
+**Theme colours** are Tailwind utilities applied inline. The accent is `blue-600` (light) /
+`blue-400` (dark) — search and replace those to re-theme.
+
+### CI
+
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs `npm ci`, `npm run lint`, and
+`npm run build` on every push and pull request to `main`, and uploads `dist/` as an artifact.
+
+### First-time Vercel setup
+
+1. Go to [vercel.com/new](https://vercel.com/new) and sign in with GitHub.
+2. Import `TungNamNguyen/personal-portfolio` (grant repo access if prompted).
+3. Vercel reads [`vercel.json`](vercel.json) — leave the detected settings alone and deploy.
+4. Optional: add a custom domain under **Settings → Domains**.
+
+No environment variables are required; the site is fully static.

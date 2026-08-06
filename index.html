@@ -3,11 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+
+    <title>Tung Nguyen — Data & Analytics Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Tung Nguyen, a Data and Analytics Engineer building data pipelines, warehouses, and business intelligence."
+    />
+    <link rel="icon" href="/icons/logo.gif" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tung Nguyen — Data & Analytics Engineer" />
+    <meta
+      property="og:description"
+      content="Portfolio of Tung Nguyen, a Data and Analytics Engineer building data pipelines, warehouses, and business intelligence."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+      Applies the stored theme before first paint so dark-mode visitors never
+      see a flash of the light theme. Must stay inline and ahead of the bundle.
+    -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var dark =
+            stored === 'dark' ||
+            (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {
+          /* localStorage unavailable (private mode) — fall back to light */
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

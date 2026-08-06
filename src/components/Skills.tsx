@@ -1,23 +1,25 @@
-import React from "react";
-import { motion } from "motion/react";
+import type { ReactNode } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import { SKILL_CATEGORIES } from "../constants";
-import { 
-  SiPython, SiR, SiGnubash, SiScala, SiPostgresql, SiMysql,
-  SiSnowflake, SiGooglecloud, SiGooglebigquery, SiMongodb,
-  SiDbt, SiApacheairflow, SiApachespark, SiApachekafka,
-  SiLooker, SiMetabase, SiDatabricks, SiApachesuperset,
-  SiDocker, SiKubernetes, SiTerraform,
-  SiGit, SiJira, SiConfluence, SiTrello, SiApache,
-  SiRedis, SiElasticsearch, SiSlack
+import {
+  SiGnubash, SiMysql, SiSnowflake, SiDbt, SiApachespark,
+  SiMetabase, SiDatabricks, SiApachesuperset, SiDocker,
+  SiTerraform, SiGit, SiJira, SiConfluence, SiTrello
 } from "react-icons/si";
-import { FaAws } from "react-icons/fa";
+import { FaAws } from "react-icons/fa6";
 import { DiMsqlServer } from "react-icons/di";
 import { VscAzure } from "react-icons/vsc";
-import { BsMicrosoftTeams, BsMicrosoft } from "react-icons/bs";
-import { Database, Zap, BarChart3, MessageSquare } from "lucide-react";
+import { BsMicrosoftTeams } from "react-icons/bs";
+import { Database, BarChart3 } from "lucide-react";
 
-const AirflowIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 175 175" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} width="1em" height="1em">
+/**
+ * Icons are sized by the wrapper's font-size (see ICON_SIZE below), so every
+ * glyph here must scale off `1em` rather than a hard-coded pixel size.
+ */
+const ICON_SIZE = "text-[14px]";
+
+const AirflowIcon = () => (
+  <svg viewBox="0 0 175 175" fill="none" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
     <path d="M4.18587 172.44L86.3959 88.1685C86.9109 87.6406 87.0096 86.8244 86.5801 86.2249C81.5792 79.2442 72.3564 78.0343 68.9375 73.3445C58.8101 59.4522 56.2405 51.5891 51.8887 52.0768C51.5847 52.1109 51.3137 52.2745 51.1001 52.4934L21.4015 82.9367C4.31645 100.45 1.86636 139.01 1.41703 171.298C1.39673 172.757 3.1669 173.484 4.18587 172.44Z" fill="#017CEE"/>
     <path d="M172.44 170.357L88.1685 88.1466C87.6406 87.6316 86.8244 87.5328 86.2249 87.9623C79.2443 92.9633 78.0344 102.186 73.3445 105.605C59.4522 115.732 51.5891 118.302 52.0768 122.654C52.1109 122.958 52.2745 123.229 52.4935 123.442L82.9367 153.141C100.45 170.226 139.01 172.676 171.298 173.125C172.757 173.146 173.484 171.376 172.44 170.357Z" fill="#00AD46"/>
     <path fillRule="evenodd" clipRule="evenodd" d="M82.9363 153.141C73.3696 143.809 68.9312 125.346 87.2715 87.2725C57.4647 100.593 47.0194 118.103 52.1578 123.116L82.9363 153.141Z" fill="#04D659"/>
@@ -30,8 +32,8 @@ const AirflowIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const TableauIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} width="1em" height="1em">
+const TableauIcon = () => (
+  <svg viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
     <path fill="#7099a6" d="M26.19 2.45L26.19 4.91L21.79 4.91L21.79 6.51L26.19 6.51L26.19 11.41L27.91 11.41L27.91 6.51L32.42 6.51L32.42 4.91L27.91 4.91L27.91 0L26.19 0L26.19 2.45Z" />
     <path fill="#eb912c" d="M11.81 8.69L11.81 12.26L5.15 12.26L5.15 14.5L11.81 14.5L11.81 21.75L14.28 21.75L14.28 14.5L21.04 14.5L21.04 12.26L14.28 12.26L14.28 5.12L11.81 5.12L11.81 8.69Z" />
     <path fill="#59879b" d="M39.72 8.69L39.72 12.26L33.06 12.26L33.06 14.61L39.72 14.61L39.72 21.75L42.29 21.75L42.29 14.61L48.95 14.61L48.95 12.26L42.29 12.26L42.29 5.12L39.72 5.12L39.72 8.69Z" />
@@ -44,26 +46,8 @@ const TableauIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const PythonIcon = ({ className }: { className?: string }) => (
-  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" className={className} style={{ width: '1em', height: '1em' }} />
-);
-
-const PostgresIcon = ({ className }: { className?: string }) => (
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL" className={className} style={{ width: '1em', height: '1em' }} />
-);
-
-const FabricIcon = ({ className }: { className?: string }) => (
-  <img src="https://tomkiljo.github.io/ms-icons/icons/Azure_UX_Patterns_icons/microsoft-fabric.svg" alt="Microsoft Fabric" className={className} style={{ width: '1em', height: '1em', objectFit: 'contain' }} />
-);
-
-const DeltaLakeIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} width="1em" height="1em">
-    <path d="M12 2L2 22h20L12 2zm0 4.5l7 14H5l7-14z" fill="currentColor" />
-  </svg>
-);
-
-const SlackIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className={className} width="1em" height="1em">
+const SlackIcon = () => (
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
     <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313z" fill="#E01E5A"/>
     <path d="M8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312z" fill="#36C5F0"/>
     <path d="M18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312z" fill="#2EB67D"/>
@@ -71,75 +55,67 @@ const SlackIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const SKILL_ICON_MAP: Record<string, React.ReactNode> = {
-  "Python": <span><PythonIcon /></span>,
-  "R": <span className="text-[#276DC3] dark:text-[#4A8BDE]"><SiR /></span>,
+/** Bitmap/vector logos served from public/icons — no third-party hotlinking. */
+const LocalIcon = ({ src, alt }: { src: string; alt: string }) => (
+  <img src={src} alt={alt} width={14} height={14} className="w-[1em] h-[1em] object-contain" />
+);
+
+const SKILL_ICON_MAP: Record<string, ReactNode> = {
+  "SQL": <span className="text-[#4479A1] dark:text-[#5DA5DA]"><Database size="1em" /></span>,
+  "Python": <LocalIcon src="/icons/python.svg" alt="" />,
   "Bash": <span className="text-slate-900 dark:text-white"><SiGnubash /></span>,
-  "Scala": <span className="text-[#DC322F] dark:text-[#E84D4A]"><SiScala /></span>,
-  "SQL": <span className="text-[#4479A1] dark:text-[#5DA5DA]"><Database size={12} /></span>,
+  "Postgres": <LocalIcon src="/icons/postgresql.svg" alt="" />,
+  "MySQL": <span className="text-[#4479A1] dark:text-[#5DA5DA]"><SiMysql /></span>,
+  "Microsoft SQL Server": <span className="text-[#CC292B] dark:text-[#E84D4A]"><DiMsqlServer /></span>,
   "Snowflake": <span className="text-[#29B5E8] dark:text-[#4BC4F0]"><SiSnowflake /></span>,
   "Databricks": <span className="text-[#FF3621] dark:text-[#FF5C4A]"><SiDatabricks /></span>,
-  "Microsoft Fabric": <span><FabricIcon /></span>,
-  "Amazon S3": <span className="text-[#569A31] dark:text-[#68B93C]"><FaAws /></span>,
-  "Delta Lake": <span className="text-[#00A4E4] dark:text-[#33B6E9]"><DeltaLakeIcon /></span>,
-  "Redis": <span className="text-[#DC382D] dark:text-[#E84D4A]"><SiRedis /></span>,
-  "Elasticsearch": <span className="text-[#005571] dark:text-[#00BFB3]"><SiElasticsearch /></span>,
-  "BigQuery": <span className="text-[#4285F4] dark:text-[#669DF6]"><SiGooglebigquery /></span>,
-  "Postgres": <span><PostgresIcon /></span>,
-  "MySQL": <span className="text-[#4479A1] dark:text-[#5DA5DA]"><SiMysql /></span>,
-  "Microsoft SQL Server": <span className="text-[#CC292B] dark:text-[#E84D4A]"><DiMsqlServer size={16} /></span>,
-  "MongoDB": <span className="text-[#47A248] dark:text-[#5DBE54]"><SiMongodb /></span>,
-  "dbt": <span className="text-[#FF694B] dark:text-[#FF846B]"><SiDbt /></span>,
-  "Airflow": <span><AirflowIcon className="text-[14px]" /></span>,
-  "Spark": <span className="text-[#E25A1C] dark:text-[#F97B45]"><SiApachespark /></span>,
-  "Kafka": <span className="text-[#231F20] dark:text-white"><SiApachekafka /></span>,
-  "Fivetran": <span className="text-[#0072FF] dark:text-[#3391FF]"><Zap size={12} /></span>,
-  "Tableau": <span><TableauIcon className="text-[14px]" /></span>,
-  "Looker": <span className="text-[#4285F4] dark:text-[#669DF6]"><SiLooker /></span>,
-  "Power BI": <span className="text-[#F2C811] dark:text-[#FAD839]"><BarChart3 size={12} /></span>,
+  "Microsoft Fabric": <LocalIcon src="/icons/microsoft-fabric.svg" alt="" />,
+  "Power BI": <span className="text-[#F2C811] dark:text-[#FAD839]"><BarChart3 size="1em" /></span>,
+  "Tableau": <TableauIcon />,
   "Apache Superset": <span className="text-[#20A7C9] dark:text-[#4BC4F0]"><SiApachesuperset /></span>,
   "Metabase": <span className="text-[#509EE3] dark:text-[#73B4F0]"><SiMetabase /></span>,
-  "AWS": <span className="text-[#FF9900] dark:text-[#FFB340]"><FaAws /></span>,
-  "GCP": <span className="text-[#4285F4] dark:text-[#669DF6]"><SiGooglecloud /></span>,
-  "Azure": <span className="text-[#0089D6] dark:text-[#33A1FD]"><VscAzure /></span>,
-  "Docker": <span className="text-[#2496ED] dark:text-[#4EABF2]"><SiDocker /></span>,
-  "Kubernetes": <span className="text-[#326CE5] dark:text-[#5C8DF0]"><SiKubernetes /></span>,
-  "Terraform": <span className="text-[#844FBA] dark:text-[#9D68D3]"><SiTerraform /></span>,
+  "dbt": <span className="text-[#FF694B] dark:text-[#FF846B]"><SiDbt /></span>,
+  "Spark": <span className="text-[#E25A1C] dark:text-[#F97B45]"><SiApachespark /></span>,
+  "Airflow": <AirflowIcon />,
   "Git": <span className="text-[#F05032] dark:text-[#F36B53]"><SiGit /></span>,
+  "Docker": <span className="text-[#2496ED] dark:text-[#4EABF2]"><SiDocker /></span>,
+  "AWS": <span className="text-[#FF9900] dark:text-[#FFB340]"><FaAws /></span>,
+  "Azure": <span className="text-[#0089D6] dark:text-[#33A1FD]"><VscAzure /></span>,
+  "Terraform": <span className="text-[#844FBA] dark:text-[#9D68D3]"><SiTerraform /></span>,
   "Jira": <span className="text-[#0052CC] dark:text-[#4C9AFF]"><SiJira /></span>,
   "Confluence": <span className="text-[#0052CC] dark:text-[#4C9AFF]"><SiConfluence /></span>,
   "Trello": <span className="text-[#0079BF] dark:text-[#61BDFA]"><SiTrello /></span>,
   "Teams": <span className="text-[#6264A7] dark:text-[#7A7CBF]"><BsMicrosoftTeams /></span>,
-  "Slack": <span><SlackIcon /></span>,
+  "Slack": <SlackIcon />
 };
 
 export default function Skills() {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <div id="skills" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {SKILL_CATEGORIES.map((category, i) => (
-        <motion.div 
+        <motion.div
           key={i}
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          whileHover={{ y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
+          whileHover={reduceMotion ? undefined : { y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
           viewport={{ once: true }}
-          transition={{ delay: i * 0.1, duration: 0.3 }}
+          transition={{ delay: reduceMotion ? 0 : i * 0.1, duration: 0.3 }}
           className="space-y-4 bg-white dark:bg-slate-900/50 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900/50 hover:shadow-xl hover:shadow-blue-900/10 dark:hover:shadow-none transition-all duration-200"
         >
           <div className="flex items-center gap-3 text-slate-900 dark:text-white">
-            <div className="text-blue-600 dark:text-blue-400">
-              {category.icon}
-            </div>
+            <div className="text-blue-600 dark:text-blue-400">{category.icon}</div>
             <h3 className="font-mono text-xs font-semibold uppercase tracking-wider">{category.name}</h3>
           </div>
           <div className="flex flex-wrap gap-2">
             {category.skills.map((skill, j) => (
-              <span 
+              <span
                 key={j}
-                className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium border border-slate-100 dark:border-slate-700 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors"
+                className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium border border-slate-100 dark:border-slate-700 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors"
               >
                 {SKILL_ICON_MAP[skill] && (
-                  <span className="text-[14px]">
+                  <span className={`${ICON_SIZE} flex items-center shrink-0`} aria-hidden="true">
                     {SKILL_ICON_MAP[skill]}
                   </span>
                 )}
