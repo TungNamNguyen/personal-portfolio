@@ -11,7 +11,6 @@ import Education from "./components/Education";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import SectionHeading from "./components/SectionHeading";
-import Competencies from "./components/Competencies";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -43,7 +42,6 @@ export default function App() {
           <Skills />
         </section>
 
-        <Competencies />
         <Experience />
         <Education />
         <Projects />

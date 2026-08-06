@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Terminal, Database, GitBranch, LineChart, Target, Zap, Users, Brain, Layers, BarChart3, Wrench, Cloud, Radio } from "lucide-react";
+import { Terminal, Database, GitBranch, LineChart, Zap, Brain, BarChart3, Wrench, Cloud, Radio } from "lucide-react";
 import type { TimelineEntry } from "./components/TimelineSection";
 
 /**
@@ -15,10 +15,10 @@ export const SITE = {
   cvUrl: ""
 };
 
+/** Order must match the section order rendered in App.tsx. */
 export const NAV_ITEMS = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
-  { id: "competencies", label: "Competencies" },
   { id: "experience", label: "Experience" },
   { id: "education", label: "Education" },
   { id: "projects", label: "Projects" }
@@ -54,39 +54,6 @@ export const SKILL_CATEGORIES: { name: string; icon: ReactNode; skills: string[]
     name: "Tools & Collaboration",
     icon: <Wrench size={20} />,
     skills: ["Jira", "Confluence", "Trello", "Teams", "Slack"]
-  }
-];
-
-export const COMPETENCIES: { title: string; description: string; icon: ReactNode }[] = [
-  {
-    title: "Data Architecture",
-    description: "Designing scalable, resilient, and cost-effective data warehouses and data lakes.",
-    icon: <Layers size={24} />
-  },
-  {
-    title: "ETL/ELT Pipelines",
-    description: "Building automated, reliable data pipelines to extract, transform, and load massive datasets.",
-    icon: <Zap size={24} />
-  },
-  {
-    title: "Business Intelligence",
-    description: "Translating complex data into intuitive dashboards and actionable business metrics.",
-    icon: <BarChart3 size={24} />
-  },
-  {
-    title: "Machine Learning",
-    description: "Developing predictive models and deploying them into production environments.",
-    icon: <Brain size={24} />
-  },
-  {
-    title: "Stakeholder Management",
-    description: "Bridging the gap between technical teams and business leaders to align data strategy.",
-    icon: <Users size={24} />
-  },
-  {
-    title: "Problem Solving",
-    description: "Tackling ambiguous data challenges and finding optimized, innovative solutions.",
-    icon: <Target size={24} />
   }
 ];
 
