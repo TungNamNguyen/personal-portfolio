@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { Mail, Download } from "lucide-react";
-// lucide deprecated its brand icons; react-icons still maintains them.
-import { SiGithub } from "react-icons/si";
-import { FaLinkedin } from "react-icons/fa6";
+// Monochrome marks so they inherit the button's text colour in both themes.
+import SiGithub from "~icons/simple-icons/github";
+import FaLinkedin from "~icons/simple-icons/linkedin";
 import { SITE } from "../constants";
 
 const ROLES = ["Data Analyst", "BI Analyst", "Data Engineer", "Analytics Engineer"];
@@ -106,7 +106,7 @@ export default function Hero() {
               rel="noreferrer"
               className={`flex-1 sm:flex-none ${buttonBase} bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800`}
             >
-              <SiGithub size={18} />
+              <SiGithub width={18} height={18} />
               GitHub
             </motion.a>
             <motion.a
@@ -117,7 +117,7 @@ export default function Hero() {
               rel="noreferrer"
               className={`flex-1 sm:flex-none ${buttonBase} bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800`}
             >
-              <FaLinkedin size={18} />
+              <FaLinkedin width={18} height={18} />
               LinkedIn
             </motion.a>
           </div>

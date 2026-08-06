@@ -1,6 +1,6 @@
 import { Mail } from "lucide-react";
-import { SiGithub } from "react-icons/si";
-import { FaLinkedin } from "react-icons/fa6";
+import SiGithub from "~icons/simple-icons/github";
+import FaLinkedin from "~icons/simple-icons/linkedin";
 import { SITE } from "../constants";
 
 const iconLink =
@@ -25,7 +25,7 @@ export default function Footer() {
             className={iconLink}
             aria-label="GitHub"
           >
-            <SiGithub size={20} />
+            <SiGithub width={20} height={20} />
           </a>
           <a
             href={SITE.linkedin}
@@ -34,7 +34,7 @@ export default function Footer() {
             className={iconLink}
             aria-label="LinkedIn"
           >
-            <FaLinkedin size={20} />
+            <FaLinkedin width={20} height={20} />
           </a>
           <a href={`mailto:${SITE.email}`} className={iconLink} aria-label="Email">
             <Mail size={20} />
