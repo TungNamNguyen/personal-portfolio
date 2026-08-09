@@ -104,6 +104,7 @@ export const EXPERIENCE: TimelineEntry[] = [
   {
     title: "Business Intelligence Engineer",
     subtitle: "VPBank",
+    logo: "/icons/vpbank.png",
     url: "https://www.vpbank.com.vn",
     meta: "Full-time \u00b7 On-site",
     location: "Hanoi Capital Region, Vietnam",
@@ -113,6 +114,7 @@ export const EXPERIENCE: TimelineEntry[] = [
   {
     title: "Data Engineer",
     subtitle: "CMC Global",
+    logo: "/icons/cmcglobal.png",
     url: "https://cmcglobal.com.vn",
     meta: "Full-time \u00b7 On-site",
     location: "Hanoi Capital Region, Vietnam",
@@ -121,6 +123,7 @@ export const EXPERIENCE: TimelineEntry[] = [
   {
     title: "Data Engineer",
     subtitle: "Prompcorp",
+    logo: "/icons/prompcorp.png",
     url: "https://www.prompcorp.com.au",
     meta: "Internship \u00b7 On-site",
     location: "North Melbourne, VIC, Australia",
@@ -130,6 +133,7 @@ export const EXPERIENCE: TimelineEntry[] = [
   {
     title: "Data Engineer",
     subtitle: "NaviWorld Australia",
+    logo: "/icons/naviworld.png",
     url: "https://naviworld.com.au",
     meta: "Internship \u00b7 Hybrid",
     location: "Melbourne, VIC, Australia",
@@ -142,6 +146,7 @@ export const EDUCATION: TimelineEntry[] = [
   {
     title: "Bachelor of Data Science",
     subtitle: "Swinburne University of Technology",
+    logo: "/icons/swinburne.svg",
     url: "https://www.swinburne.edu.au",
     location: "Melbourne, VIC, Australia",
     period: "Feb 2022 \u2014 Dec 2024",
@@ -153,6 +158,7 @@ export const EDUCATION: TimelineEntry[] = [
   {
     title: "High School Diploma",
     subtitle: "Hanoi-Amsterdam High School for the Gifted",
+    logo: "/icons/hnams.png",
     url: "https://hn-ams.edu.vn/",
     location: "Hanoi, Vietnam",
     period: "Sep 2018 \u2014 May 2021",

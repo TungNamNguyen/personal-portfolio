@@ -10,6 +10,8 @@ export type TimelineEntry = {
   subtitle: string;
   /** Company/school homepage. Omit to render the name as plain text. */
   url?: string;
+  /** Path under public/icons. Falls back to the section's generic icon. */
+  logo?: string;
   /** Employment type and work mode, e.g. "Full-time · On-site". */
   meta?: string;
   location: string;
@@ -52,9 +54,27 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
             <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-3">
               <div className="min-w-0 space-y-1.5">
                 <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/25 dark:text-blue-400">
-                    {subtitleIcon}
-                  </span>
+                  {/*
+                    Logos keep a white ground in both themes — brand marks are
+                    drawn for light backgrounds and several would vanish on the
+                    dark card otherwise.
+                  */}
+                  {entry.logo ? (
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-slate-200 bg-white dark:border-slate-600">
+                      <img
+                        src={entry.logo}
+                        alt=""
+                        width={24}
+                        height={24}
+                        loading="lazy"
+                        className="h-6 w-6 object-contain"
+                      />
+                    </span>
+                  ) : (
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/25 dark:text-blue-400">
+                      {subtitleIcon}
+                    </span>
+                  )}
 
                   {entry.url ? (
                     <a
