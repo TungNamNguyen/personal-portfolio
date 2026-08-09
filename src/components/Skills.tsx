@@ -12,7 +12,9 @@ import IconSpark from "~icons/devicon/apachespark";
 import IconAirflow from "~icons/logos/airflow-icon";
 import IconPowerBi from "~icons/logos/microsoft-power-bi";
 import IconTableau from "~icons/logos/tableau-icon";
-import IconSuperset from "~icons/logos/apache-superset-icon";
+// The full-colour Superset mark is 2:1, so it renders twice as wide as every
+// other icon. The monochrome one is square and tints to the same brand cyan.
+import IconSuperset from "~icons/simple-icons/apachesuperset";
 import IconMetabase from "~icons/logos/metabase";
 import IconPostgres from "~icons/logos/postgresql";
 import IconMysql from "~icons/logos/mysql-icon";
@@ -57,7 +59,7 @@ const SKILL_ICON_MAP: Record<string, ReactNode> = {
   "Airflow": <IconAirflow />,
   "Power BI": <IconPowerBi />,
   "Tableau": <IconTableau />,
-  "Superset": <IconSuperset />,
+  "Superset": <span className="text-[#20A6C9]"><IconSuperset /></span>,
   "Metabase": <IconMetabase />,
   "Postgres": <IconPostgres />,
   "MySQL": <IconMysql />,

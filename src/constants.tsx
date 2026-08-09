@@ -156,6 +156,7 @@ export const EDUCATION: TimelineEntry[] = [
   {
     title: "High School Diploma",
     subtitle: "Hanoi-Amsterdam High School for the Gifted",
+    url: "https://hn-ams.edu.vn/",
     location: "Hanoi, Vietnam",
     period: "Sep 2018 \u2014 May 2021",
     points: [
