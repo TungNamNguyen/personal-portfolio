@@ -24,8 +24,6 @@ export type TimelineEntry = {
    * instead — the artwork must already carry its own ground.
    */
   logoWide?: boolean;
-  /** Employment type and work mode, e.g. "Full-time · On-site". */
-  meta?: string;
   location: string;
   period: string;
   /** Marks the ongoing role so it reads at a glance. */
@@ -122,12 +120,6 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
                 </div>
 
                 <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-500 dark:text-slate-400">
-                  {entry.meta && (
-                    <>
-                      <span>{entry.meta}</span>
-                      <span aria-hidden="true" className="text-slate-300 dark:text-slate-600">•</span>
-                    </>
-                  )}
                   <span className="inline-flex items-center gap-1">
                     <MapPin size={14} aria-hidden="true" className="shrink-0" />
                     {entry.location}

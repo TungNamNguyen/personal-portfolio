@@ -135,7 +135,6 @@ export const EXPERIENCE: TimelineEntry[] = [
     subtitle: "VPBank",
     logo: "/icons/vpbank.svg",
     url: "https://www.vpbank.com.vn",
-    meta: "Full-time \u00b7 On-site",
     location: "Hanoi Capital Region, Vietnam",
     period: "Dec 2025 \u2014 Present",
     current: true,
@@ -146,30 +145,27 @@ export const EXPERIENCE: TimelineEntry[] = [
     subtitle: "CMC Global",
     logo: "/icons/cmcglobal.svg",
     url: "https://cmcglobal.com.vn",
-    meta: "Full-time \u00b7 On-site",
     location: "Hanoi Capital Region, Vietnam",
     period: "Jul 2025 \u2014 Dec 2025",
     description: "Spark transformation jobs on a MinIO and Delta Lake lakehouse for a global manufacturing client, served through Trino and Power BI."
   },
   {
-    title: "Data Engineer",
+    title: "Data Engineer Internship",
     subtitle: "Prompcorp",
     // Prompcorp has no symbol, only a 2.69:1 wordmark on their brand dark. Kept
     // at that ratio because squaring it drops the lettering to 3.5px tall.
     logo: "/icons/prompcorp.png",
     logoWide: true,
     url: "https://www.prompcorp.com.au",
-    meta: "Internship \u00b7 On-site",
     location: "North Melbourne, VIC, Australia",
     period: "Mar 2024 \u2014 May 2024",
     description: "Python, Spark and Airflow ETL from the HubSpot API into a MariaDB single source of truth, feeding the Superset dashboards built on top of it."
   },
   {
-    title: "Data Engineer",
+    title: "Data Engineer Internship",
     subtitle: "NaviWorld Australia",
     logo: "/icons/naviworld.png",
     url: "https://naviworld.com.au",
-    meta: "Internship \u00b7 Hybrid",
     location: "Melbourne, VIC, Australia",
     period: "Jan 2024 \u2014 Mar 2024",
     description: "ELT from Microsoft Business Central into Fabric Synapse, with custom DAX measures powering the Power BI reporting layer above it."
