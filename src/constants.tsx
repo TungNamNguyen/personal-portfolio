@@ -14,20 +14,17 @@ export const SITE = {
   email: "nguyennamtung123@gmail.com",
   github: "https://github.com/TungNamNguyen",
   linkedin: "https://www.linkedin.com/in/nguyennamtung2003/",
+  /**
+   * Two sentences for the hero. Deliberately free of project specifics — the
+   * Projects section carries those — and it never repeats the role or location
+   * printed directly above it.
+   */
+  bio: "I work where raw data turns into something a business can act on \u2014 modelling it, testing it, and making sure the number on a dashboard means what people think it means. Outside work I build data platforms end to end, which keeps me honest about the layers sitting underneath.",
+  /** Short availability line. Set to "" to hide the badge. */
+  openTo: "Open to BI, Analytics & Data Engineering roles",
   /** Drop a PDF at public/cv.pdf and set this to "/cv.pdf" to show the download button. */
   cvUrl: ""
 };
-
-/**
- * About copy, one string per paragraph. Deliberately free of project specifics
- * — the Projects section already carries those, and repeating them here would
- * date this copy every time the project list changes.
- */
-export const ABOUT = [
-  "I'm a Business Intelligence Engineer at VPBank, based in Hanoi. My work sits where raw data turns into something a business can act on — modelling it, testing it, and making sure the number on a dashboard means what people think it means.",
-  "That middle layer is what I care about most, and it pulls in both directions: upstream into ingestion and orchestration, downstream into how a metric actually gets read. It is why I am as comfortable in a transformation layer as I am in a reporting one.",
-  "Outside work I build data platforms end to end, mostly to stay honest about what the layers underneath a dashboard really cost to run. I'm open to Business Intelligence, Analytics Engineering and Data Engineering roles."
-];
 
 /** Order must match the section order rendered in App.tsx. */
 export const NAV_ITEMS = [

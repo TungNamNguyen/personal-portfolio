@@ -10,7 +10,6 @@ import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
-import About from "./components/About";
 import SectionHeading from "./components/SectionHeading";
 import BackToTop from "./components/BackToTop";
 import Footer from "./components/Footer";
@@ -37,7 +36,6 @@ export default function App() {
       {/* Lighter padding at the top so the hero is not pushed below the fold. */}
       <main className="max-w-5xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10 md:pt-14 pb-10 sm:pb-16 md:pb-24 space-y-20 sm:space-y-24 md:space-y-32">
         <Hero />
-        <About />
 
         <section id="skills" className="space-y-8 sm:space-y-10">
           <SectionHeading description="An overview of my core technical strengths. I specialize in architecting end-to-end data solutions with a focus on scalability, reliability, and performance.">

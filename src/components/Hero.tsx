@@ -12,8 +12,11 @@ export default function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    // The #about anchor lives on the About section below, not on the hero.
-    <section className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16">
+    // The hero doubles as the About section, so it owns the #about anchor.
+    <section
+      id="about"
+      className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16"
+    >
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -37,11 +40,24 @@ export default function Hero() {
           <p className="text-xl sm:text-2xl lg:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 pb-1">
             {SITE.role} @ {SITE.company}
           </p>
-          <p className="flex items-center gap-2 text-base sm:text-lg text-slate-600 dark:text-slate-400">
-            <MapPin size={18} aria-hidden="true" className="shrink-0" />
-            {SITE.location}
-          </p>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+            <p className="flex items-center gap-2 text-base sm:text-lg text-slate-600 dark:text-slate-400">
+              <MapPin size={18} aria-hidden="true" className="shrink-0" />
+              {SITE.location}
+            </p>
+
+            {SITE.openTo && (
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400">
+                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                {SITE.openTo}
+              </span>
+            )}
+          </div>
         </div>
+
+        <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+          {SITE.bio}
+        </p>
 
         <motion.div
           initial={reduceMotion ? false : { opacity: 0 }}
