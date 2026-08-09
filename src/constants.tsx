@@ -133,7 +133,7 @@ export const EXPERIENCE: TimelineEntry[] = [
   {
     title: "Business Intelligence Engineer",
     subtitle: "VPBank",
-    logo: "/icons/vpbank.png",
+    logo: "/icons/vpbank.svg",
     url: "https://www.vpbank.com.vn",
     meta: "Full-time \u00b7 On-site",
     location: "Hanoi Capital Region, Vietnam",
@@ -144,7 +144,7 @@ export const EXPERIENCE: TimelineEntry[] = [
   {
     title: "Data Engineer",
     subtitle: "CMC Global",
-    logo: "/icons/cmcglobal.png",
+    logo: "/icons/cmcglobal.svg",
     url: "https://cmcglobal.com.vn",
     meta: "Full-time \u00b7 On-site",
     location: "Hanoi Capital Region, Vietnam",
