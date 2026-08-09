@@ -77,7 +77,7 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
                         backgroundColor: entry.monogram.bg,
                         color: entry.monogram.fg
                       }}
-                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg font-mono text-lg font-bold ring-1 ring-slate-900/10 dark:ring-white/15"
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg font-mono text-xl font-bold ring-1 ring-slate-900/10 dark:ring-white/15"
                     >
                       {entry.monogram.label}
                     </span>
@@ -85,17 +85,17 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
                     <img
                       src={entry.logo}
                       alt=""
-                      width={40}
-                      height={40}
+                      width={44}
+                      height={44}
                       loading="lazy"
-                      className={`h-10 w-10 shrink-0 rounded-lg ring-1 ring-slate-900/10 dark:ring-white/15 ${
+                      className={`h-11 w-11 shrink-0 rounded-lg ring-1 ring-slate-900/10 dark:ring-white/15 ${
                         entry.logoFill
                           ? "object-cover"
                           : "bg-white object-contain p-1.5"
                       }`}
                     />
                   ) : (
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/25 dark:text-blue-400">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/25 dark:text-blue-400">
                       {subtitleIcon}
                     </span>
                   )}
