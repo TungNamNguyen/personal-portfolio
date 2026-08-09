@@ -61,28 +61,28 @@ export const SKILL_CATEGORIES: { name: string; icon: ReactNode; skills: string[]
 export const PROJECTS: { title: string; description: string; tech: string[]; link: string; icon: ReactNode }[] = [
   {
     title: "AeroStream Flight Analytics",
-    description: "End-to-end data platform analysing 38.3M US flights across 72 months of Bureau of Transportation Statistics data. A Medallion warehouse runs dlt to MinIO to ClickHouse to dbt to Superset, orchestrated by 12 Airflow DAGs and catalogued with OpenMetadata. Runs entirely on docker compose.",
+    description: "38.3M US flights through a Medallion warehouse — dlt, ClickHouse, dbt, Superset, 12 Airflow DAGs, one docker compose. Departure time shifts delay odds ~5x, more than the airline you pick.",
     tech: ["dlt", "ClickHouse", "dbt", "Airflow", "Superset"],
     link: "https://github.com/TungNamNguyen/aerostream-flight-analytics",
     icon: <Plane size={24} />
   },
   {
     title: "Data Engineering Templates",
-    description: "Ready-to-run Docker Compose templates for a dozen data tools — Airflow, ClickHouse, dbt, Superset, MinIO, Metabase, Doris, NiFi and more — each pinned to a known-good version so a new stack can be stood up in one command.",
+    description: "Docker Compose templates for a dozen data tools — Airflow, ClickHouse, dbt, Superset, MinIO and more — each version-pinned so a stack comes up in one command.",
     tech: ["Docker Compose", "Airflow", "ClickHouse", "dbt", "MinIO"],
     link: "https://github.com/TungNamNguyen/data-engineering-templates",
     icon: <Boxes size={24} />
   },
   {
     title: "GitLab API Data Pipeline",
-    description: "Command-line extractor that pulls project data from the GitLab REST API into a relational store via SQLAlchemy, with OpenAPI-generated clients, full CRUD over the local dataset, structured logging and credentials kept out of source.",
+    description: "CLI that pulls GitLab project data into a SQLAlchemy-backed store, with OpenAPI-generated clients, full CRUD and credentials kept out of source.",
     tech: ["Python", "SQLAlchemy", "OpenAPI", "SQLite"],
     link: "https://github.com/TungNamNguyen/gitlab-api-data-pipeline",
     icon: <Workflow size={24} />
   },
   {
     title: "Fall Detection System",
-    description: "Real-time fall detection from a standard RGB camera, built as a university industry project. Compares three pose-estimation backends — YOLOv8, MediaPipe and MoveNet — behind a Tkinter interface with configurable confidence thresholds, keypoint logging and audible alerts.",
+    description: "Real-time fall detection from an RGB camera. Benchmarks YOLOv8, MediaPipe and MoveNet behind a Tkinter GUI with keypoint logging and audible alerts. University industry project.",
     tech: ["Python", "YOLOv8", "MediaPipe", "MoveNet"],
     link: "https://github.com/TungNamNguyen/fall-detection-system",
     icon: <Camera size={24} />

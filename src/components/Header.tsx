@@ -81,7 +81,6 @@ export default function Header() {
           href="#about"
           className={`flex items-center gap-2 font-mono font-bold text-lg tracking-tighter text-slate-900 dark:text-white ${linkClass}`}
         >
-          <img src="/icons/logo.gif" alt="" className="w-8 h-8 object-contain" />
           <span>Data Portfolio</span>
         </a>
 
