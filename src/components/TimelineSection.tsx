@@ -19,10 +19,11 @@ export type TimelineEntry = {
    */
   logoFill?: boolean;
   /**
-   * Fallback for brands whose only mark is a wide wordmark — those shrink to
-   * unreadable at 40px. Rendered in the site's own font from the brand palette.
+   * True for brands whose only mark is a wide wordmark. Squaring those crushes
+   * the lettering, so the tile keeps its natural ratio and grows sideways
+   * instead — the artwork must already carry its own ground.
    */
-  monogram?: { label: string; bg: string; fg: string };
+  logoWide?: boolean;
   /** Employment type and work mode, e.g. "Full-time · On-site". */
   meta?: string;
   location: string;
@@ -70,28 +71,19 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
                     vanish on the dark card, so they keep a white ground in both
                     themes. Opaque tiles already carry their own.
                   */}
-                  {entry.monogram ? (
-                    <span
-                      aria-hidden="true"
-                      style={{
-                        backgroundColor: entry.monogram.bg,
-                        color: entry.monogram.fg
-                      }}
-                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg font-mono text-xl font-bold ring-1 ring-slate-900/10 dark:ring-white/15"
-                    >
-                      {entry.monogram.label}
-                    </span>
-                  ) : entry.logo ? (
+                  {entry.logo ? (
                     <img
                       src={entry.logo}
                       alt=""
-                      width={44}
+                      width={entry.logoWide ? 118 : 44}
                       height={44}
                       loading="lazy"
-                      className={`h-11 w-11 shrink-0 rounded-lg ring-1 ring-slate-900/10 dark:ring-white/15 ${
-                        entry.logoFill
-                          ? "object-cover"
-                          : "bg-white object-contain p-1.5"
+                      className={`h-11 shrink-0 rounded-lg ring-1 ring-slate-900/10 dark:ring-white/15 ${
+                        entry.logoWide
+                          ? "w-auto object-contain"
+                          : entry.logoFill
+                            ? "w-11 object-cover"
+                            : "w-11 bg-white object-contain p-1.5"
                       }`}
                     />
                   ) : (

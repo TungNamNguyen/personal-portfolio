@@ -154,9 +154,10 @@ export const EXPERIENCE: TimelineEntry[] = [
   {
     title: "Data Engineer",
     subtitle: "Prompcorp",
-    // Prompcorp's only mark is a 2.69:1 wordmark with no symbol; brand palette
-    // sampled from their own logo.
-    monogram: { label: "P", bg: "#231F20", fg: "#F89520" },
+    // Prompcorp has no symbol, only a 2.69:1 wordmark on their brand dark. Kept
+    // at that ratio because squaring it drops the lettering to 3.5px tall.
+    logo: "/icons/prompcorp.png",
+    logoWide: true,
     url: "https://www.prompcorp.com.au",
     meta: "Internship \u00b7 On-site",
     location: "North Melbourne, VIC, Australia",
