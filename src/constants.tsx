@@ -142,10 +142,7 @@ export const EXPERIENCE: TimelineEntry[] = [
     location: "Hanoi Capital Region, Vietnam",
     companyNote: "One of Vietnam's largest private joint-stock commercial banks",
     period: "Dec 2025 \u2014 Present",
-    current: true,
-    points: [
-      "Loan book and portfolio credit quality reporting in Power BI, backed by SQL stored procedures in Redshift written to be idempotent and safe to rerun."
-    ]
+    current: true
   },
   {
     title: "Data Engineer",
@@ -154,12 +151,7 @@ export const EXPERIENCE: TimelineEntry[] = [
     url: "https://cmcglobal.com.vn",
     location: "Hanoi Capital Region, Vietnam",
     companyNote: "Leading Vietnamese IT services and digital transformation provider",
-    period: "Jul 2025 \u2014 Dec 2025",
-    points: [
-      "Contributed to the design of a scalable data platform for a global manufacturing client, leveraging modern data lakehouse architecture with MinIO, Delta Lake, OpenMetadata, Spark, Hive Metastore, Trino, and Power BI.",
-      "Designed data mapping structures to align diverse source systems with standardized schemas, ensuring data consistency and supporting downstream analytics.",
-      "Documented setup procedures for MinIO and OpenMetadata, reducing anticipated deployment time by 30% for future implementation."
-    ]
+    period: "Jul 2025 \u2014 Dec 2025"
   },
   {
     title: "Data Engineer Intern",
@@ -171,12 +163,7 @@ export const EXPERIENCE: TimelineEntry[] = [
     url: "https://www.prompcorp.com.au",
     location: "North Melbourne, VIC, Australia",
     companyNote: "One of Australia's largest privately owned facility management groups",
-    period: "Mar 2024 \u2014 May 2024",
-    points: [
-      "Developed and optimized ETL pipelines using Python, SQL, Spark and Airflow to extract and transform data from the HubSpot API, achieving a 20% reduction in data processing time.",
-      "Loaded and optimized the processed data into 8 MariaDB tables in a centralized database, establishing a single source of truth (SSOT) and accelerating data retrieval speeds by 40%.",
-      "Managed 7 interactive Superset dashboards to provide operational insights, enhancing business intelligence and reducing decision-making time by 25% through improved data accessibility."
-    ]
+    period: "Mar 2024 \u2014 May 2024"
   },
   {
     title: "Data Engineer Intern",
@@ -185,12 +172,7 @@ export const EXPERIENCE: TimelineEntry[] = [
     url: "https://naviworld.com.au",
     location: "Melbourne, VIC, Australia",
     companyNote: "Microsoft Dynamics partner for ERP and digital transformation",
-    period: "Jan 2024 \u2014 Mar 2024",
-    points: [
-      "Designed and managed ELT pipelines to integrate 10,000+ records from Microsoft Business Central into Microsoft Fabric Synapse Data Warehouse, achieving seamless integration and reducing processing time by 10%.",
-      "Created 50+ custom DAX measures and metrics to enhance Power BI dashboards, enabling precise performance tracking and more actionable business insights.",
-      "Delivered 10 interactive, user-friendly Power BI dashboards for 4 stakeholders, boosting data utilization by 15% and reducing report preparation time from 3 days to 1 day."
-    ]
+    period: "Jan 2024 \u2014 Mar 2024"
   }
 ];
 
@@ -210,7 +192,7 @@ export const EDUCATION: TimelineEntry[] = [
     awards: [
       {
         title: "Swinburne International Excellence Scholarship",
-        detail: "75% tuition"
+        value: "75% of tuition for the full degree"
       }
     ]
   },
