@@ -49,8 +49,12 @@ export type TimelineEntry = {
   */
   /** Headline figures — the label is the question, the value is the answer. */
   stats?: { label: string; value: string }[];
-  /** Scholarships and honours, lifted out so they are not buried in a list. */
-  awards?: { title: string; detail?: string }[];
+  /**
+   * Scholarships and honours, lifted out so they are not buried in a list.
+   * `title` names the award, `value` says what it was actually worth — the
+   * second is what the card leads with visually.
+   */
+  awards?: { title: string; value?: string }[];
   /** Per-subject results, as badges rather than a comma-separated sentence. */
   grades?: { heading: string; items: { subject: string; grade: string }[] };
 };
@@ -213,17 +217,23 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
                       aria-hidden="true"
                       className="mt-0.5 shrink-0 text-amber-600 dark:text-amber-400"
                     />
-                    <p className="text-sm leading-relaxed">
-                      <span className="font-semibold text-slate-900 dark:text-white">
+                    {/*
+                      Same label-over-value shape as the stats row above: the
+                      award's name is context, the thing it was worth is the
+                      news. Bolding the name instead buries the number in muted
+                      text at the end of a long proper noun, where a skimming
+                      reader never reaches it.
+                    */}
+                    <div className="min-w-0">
+                      <p className="text-sm leading-snug text-slate-600 dark:text-slate-400">
                         {award.title}
-                      </span>
-                      {award.detail && (
-                        <span className="text-slate-600 dark:text-slate-400">
-                          {" — "}
-                          {award.detail}
-                        </span>
+                      </p>
+                      {award.value && (
+                        <p className="mt-0.5 text-base font-semibold leading-snug text-slate-900 dark:text-white">
+                          {award.value}
+                        </p>
                       )}
-                    </p>
+                    </div>
                   </li>
                 ))}
               </ul>

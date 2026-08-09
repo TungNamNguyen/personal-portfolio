@@ -1,21 +1,41 @@
 # Personal Portfolio
 
-Portfolio site for a Data / Analytics Engineer — single-page, responsive, with a dark/light theme toggle.
+Personal portfolio site for Tung Nguyen, a Data / Analytics Engineer.
 
-Built with React 19, Vite 6, Tailwind CSS v4, Motion for animations, and lucide-react / react-icons for icons.
+A single static page that collects the things a recruiter or hiring manager
+usually has to hunt for across several tabs: a short intro, technical skills,
+work experience, education, side projects, and a recommendation. It is
+responsive down to mobile and ships a dark/light theme toggle that remembers
+the choice between visits.
+
+All page content is data, not markup — it lives in
+[`src/constants.tsx`](src/constants.tsx), so updating the site means editing an
+array rather than touching a component.
+
+## Stack
+
+| | |
+| --- | --- |
+| React 19 | UI |
+| Vite 6 | Dev server and build |
+| TypeScript 5.8 | Type checking (`tsc --noEmit`, no emit — Vite compiles) |
+| Tailwind CSS v4 | Styling, via `@tailwindcss/vite` |
+| Motion 12 | Entrance and hover animations |
+| lucide-react + unplugin-icons | Icons, all self-hosted at build time |
+
+No backend, no environment variables, no runtime data fetching — the build
+output is plain static files.
 
 ## Run locally
 
-Requires Node.js 20+.
+Requires Node.js 20 or newer.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Opens at http://localhost:3000.
-
-## Scripts
+Opens at <http://localhost:3000>.
 
 | Command | Description |
 | --- | --- |
@@ -28,56 +48,26 @@ Opens at http://localhost:3000.
 ## Structure
 
 ```
+index.html               Inline theme bootstrap, runs before first paint
 src/
+  main.tsx               React entry point
+  index.css              Tailwind import and base styles
+  constants.tsx          All page content: profile, skills, experience,
+                         education, projects, recommendations
   App.tsx                Page layout and section order
-  constants.tsx          All content: profile links, skills, experience, education, projects
   components/
     Header.tsx           Sticky nav with active-section highlighting
-    Hero.tsx             Intro, rotating role, contact buttons
+    Hero.tsx             Intro, contact and resume buttons
     Skills.tsx           Skill categories and the technology icon map
-    Competencies.tsx     Core competency cards
     TimelineSection.tsx  Shared layout for Experience and Education
     Experience.tsx       Timeline data binding
     Education.tsx        Timeline data binding
     Projects.tsx         Project cards
+    Recommendations.tsx  Quoted LinkedIn recommendations
     SectionHeading.tsx   One heading style for every section
-    Footer.tsx           Social links
+    Footer.tsx           Contact and social links
     ThemeToggle.tsx      Dark/light switch
+    BackToTop.tsx        Scroll-to-top button
 public/
-  icons/                 Self-hosted technology logos
+  icons/                 Self-hosted company, school and technology logos
 ```
-
-### Editing content
-
-Everything you'd normally want to change lives in [`src/constants.tsx`](src/constants.tsx):
-
-- `SITE` — name, email, GitHub, LinkedIn, and CV link. **Set a field to `""` to hide the
-  corresponding button.** `cvUrl` starts empty; drop a PDF at `public/cv.pdf` and set it to
-  `"/cv.pdf"` to show the download button.
-- `NAV_ITEMS` — nav entries. Each `id` must match a section `id` in the markup.
-- `SKILL_CATEGORIES`, `COMPETENCIES`, `EXPERIENCE`, `EDUCATION`, `PROJECTS` — page content.
-
-To give a skill an icon, add an entry to `SKILL_ICON_MAP` in
-[`src/components/Skills.tsx`](src/components/Skills.tsx) keyed by the exact skill string.
-Icons scale off `1em`, so use `size="1em"` rather than a pixel size.
-
-## Deployment
-
-Pushes to `main` deploy automatically to Vercel; pull requests get their own preview URL.
-
-**Theme colours** are Tailwind utilities applied inline. The accent is `blue-600` (light) /
-`blue-400` (dark) — search and replace those to re-theme.
-
-### CI
-
-[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs `npm ci`, `npm run lint`, and
-`npm run build` on every push and pull request to `main`, and uploads `dist/` as an artifact.
-
-### First-time Vercel setup
-
-1. Go to [vercel.com/new](https://vercel.com/new) and sign in with GitHub.
-2. Import `TungNamNguyen/personal-portfolio` (grant repo access if prompted).
-3. Vercel reads [`vercel.json`](vercel.json) — leave the detected settings alone and deploy.
-4. Optional: add a custom domain under **Settings → Domains**.
-
-No environment variables are required; the site is fully static.

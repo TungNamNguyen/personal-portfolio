@@ -8,6 +8,18 @@ import { SITE } from "../constants";
 const buttonBase =
   "justify-center inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900";
 
+// Shared by the two shapes the resume button takes — a real <a download> once
+// SITE.resumeUrl is set, an inert <button> until then. Kept in one place so the
+// pair can never drift apart visually.
+const resumeClass = `w-full sm:w-auto ${buttonBase} bg-blue-50 dark:bg-slate-700 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-slate-600`;
+
+const resumeLabel = (
+  <>
+    <Download size={18} aria-hidden="true" />
+    Download resume
+  </>
+);
+
 export default function Hero() {
   const reduceMotion = useReducedMotion();
 
@@ -71,17 +83,32 @@ export default function Hero() {
             Get in touch
           </motion.a>
 
-          {SITE.cvUrl && (
+          {/*
+            The button is always on show — it is part of the hero's shape, so it
+            does not pop in later and reflow the row. Until `resumeUrl` points
+            somewhere it renders as a plain <button> with nothing wired to it:
+            visible and focusable, but a click downloads nothing. Fill the
+            constant in and the same button becomes a real download link.
+          */}
+          {SITE.resumeUrl ? (
             <motion.a
               whileHover={reduceMotion ? undefined : { scale: 1.05 }}
               whileTap={reduceMotion ? undefined : { scale: 0.95 }}
-              href={SITE.cvUrl}
+              href={SITE.resumeUrl}
               download
-              className={`w-full sm:w-auto ${buttonBase} bg-blue-50 dark:bg-slate-700 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-slate-600`}
+              className={resumeClass}
             >
-              <Download size={18} />
-              Download CV
+              {resumeLabel}
             </motion.a>
+          ) : (
+            <motion.button
+              type="button"
+              whileHover={reduceMotion ? undefined : { scale: 1.05 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.95 }}
+              className={resumeClass}
+            >
+              {resumeLabel}
+            </motion.button>
           )}
 
           <div className="flex gap-3 sm:gap-4 w-full sm:w-auto">
@@ -122,12 +149,18 @@ export default function Hero() {
             aria-hidden="true"
             className="absolute inset-0 bg-blue-400 rounded-full blur-3xl opacity-20 animate-pulse"
           ></div>
+          {/*
+            The border was white, which is invisible here: the photo's own
+            ground is near-white and so is the page, so the circle lost its edge
+            and the head read as a floating cut-out. A pale slate ring closes
+            the shape without drawing attention to itself.
+          */}
           <img
             src="/106413417.jpeg"
             alt={SITE.name}
             width={256}
             height={256}
-            className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-white dark:border-slate-700 shadow-xl shadow-slate-200 dark:shadow-none"
+            className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-slate-200 dark:border-slate-700 shadow-xl shadow-slate-200 dark:shadow-none"
           />
         </div>
       </motion.div>
