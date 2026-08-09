@@ -1,0 +1,73 @@
+import { motion, useReducedMotion } from "motion/react";
+import { Quote, ExternalLink } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import { RECOMMENDATIONS } from "../constants";
+
+export default function Recommendations() {
+  const reduceMotion = useReducedMotion();
+
+  if (RECOMMENDATIONS.length === 0) return null;
+
+  return (
+    <section id="recommendations" className="space-y-8 sm:space-y-10">
+      <SectionHeading>Recommendations</SectionHeading>
+
+      <div className="space-y-6">
+        {RECOMMENDATIONS.map((rec, i) => (
+          // figure/blockquote/figcaption is the semantic pairing for a quotation
+          // with its attribution.
+          <motion.figure
+            key={i}
+            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: reduceMotion ? 0 : 0.4 }}
+            className="relative rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm dark:border-slate-700 dark:bg-slate-800 dark:shadow-none"
+          >
+            <Quote
+              aria-hidden="true"
+              size={32}
+              className="absolute right-6 top-6 text-blue-100 dark:text-blue-900/40"
+            />
+
+            <blockquote className="relative max-w-2xl space-y-4 text-base sm:text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+              {rec.paragraphs.map((paragraph, j) => (
+                <p key={j}>{paragraph}</p>
+              ))}
+            </blockquote>
+
+            <figcaption className="mt-6 border-t border-slate-200 pt-5 dark:border-slate-700">
+              {rec.url ? (
+                <a
+                  href={rec.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 rounded-sm font-semibold text-slate-900 hover:text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:text-white dark:hover:text-blue-400 dark:focus-visible:ring-offset-slate-800"
+                >
+                  {rec.name}
+                  <ExternalLink size={13} aria-hidden="true" className="shrink-0 opacity-70" />
+                </a>
+              ) : (
+                <span className="font-semibold text-slate-900 dark:text-white">{rec.name}</span>
+              )}
+
+              <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                {rec.title} at {rec.company}
+              </p>
+
+              <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-500 dark:text-slate-400">
+                <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700 dark:bg-blue-900/25 dark:text-blue-300">
+                  {rec.relationship}
+                </span>
+                <span aria-hidden="true" className="text-slate-300 dark:text-slate-600">
+                  •
+                </span>
+                <span>{rec.date}</span>
+              </p>
+            </figcaption>
+          </motion.figure>
+        ))}
+      </div>
+    </section>
+  );
+}

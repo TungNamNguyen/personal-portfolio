@@ -31,8 +31,38 @@ export const NAV_ITEMS = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "experience", label: "Experience" },
+  { id: "recommendations", label: "Recommendations" },
   { id: "education", label: "Education" },
   { id: "projects", label: "Projects" }
+];
+
+/**
+ * Quoted verbatim from LinkedIn — someone else's words, so the text is never
+ * edited. `paragraphs` preserves the original breaks.
+ */
+export const RECOMMENDATIONS: {
+  paragraphs: string[];
+  name: string;
+  title: string;
+  company: string;
+  url?: string;
+  relationship: string;
+  date: string;
+}[] = [
+  {
+    paragraphs: [
+      "I had the pleasure of working with Tung on a Data Analysis internal project last year, and I can confidently say that he is a highly capable and dedicated team player. Throughout the project, Tung demonstrated strong analytical skills.",
+      "He worked effectively with the team, collaborating seamlessly across different functions and ensuring that data insights were both accurate and actionable. His ability to communicate findings in a clear and concise manner made a significant impact on our data governance framework.",
+      "Beyond his analytic skills, Tung is reliable, adaptable, and always willing to support his colleagues. His positive attitude and commitment to excellence made him a valuable asset to the team.",
+      "I highly recommend Tung for any role that requires strong data analysis, teamwork, and commitment. He would be an excellent addition to any team."
+    ],
+    name: "Fan Zhang",
+    title: "General Manager, Digital Centre of Excellence",
+    company: "Prompcorp",
+    url: "https://www.linkedin.com/in/fzhan/",
+    relationship: "Managed Tung directly",
+    date: "February 2025"
+  }
 ];
 
 export const SKILL_CATEGORIES: { name: string; icon: ReactNode; skills: string[] }[] = [
