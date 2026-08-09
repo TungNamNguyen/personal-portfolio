@@ -105,69 +105,62 @@ export const PROJECTS: { title: string; description: string; tech: string[]; lin
 
 export const EXPERIENCE: TimelineEntry[] = [
   {
-    title: "Analytics Engineer",
-    subtitle: "Tech Growth Co",
-    location: "San Francisco, CA",
-    period: "Mar 2022 - Present",
-    points: [
-      "Migrated legacy stored procedures to dbt, improving model run times by 40% and enabling version control.",
-      "Established data quality tests using dbt expectations, reducing downstream reporting errors by 90%.",
-      "Collaborated with product teams to define tracking plans and event schemas for new feature launches."
-    ]
+    title: "Business Intelligence Engineer",
+    subtitle: "VPBank",
+    url: "https://www.vpbank.com.vn",
+    meta: "Full-time \u00b7 On-site",
+    location: "Hanoi Capital Region, Vietnam",
+    period: "Dec 2025 \u2014 Present",
+    current: true
   },
   {
-    title: "Data Analyst",
-    subtitle: "Retail Insights",
-    location: "New York, NY",
-    period: "Jun 2020 - Feb 2022",
-    points: [
-      "Created automated Tableau reports for the executive team, providing daily visibility into core KPIs.",
-      "Analyzed A/B test results to optimize the checkout funnel, identifying bottlenecks and increasing conversion by 5%.",
-      "Wrote complex SQL queries to extract ad-hoc insights for marketing campaigns, driving a 15% increase in ROI."
-    ]
+    title: "Data Engineer",
+    subtitle: "CMC Global",
+    url: "https://cmcglobal.com.vn",
+    meta: "Full-time \u00b7 On-site",
+    location: "Hanoi Capital Region, Vietnam",
+    period: "Jul 2025 \u2014 Dec 2025"
   },
   {
-    title: "Data Engineering Intern",
-    subtitle: "DataFlow Inc",
-    location: "Austin, TX",
-    period: "May 2019 - Aug 2020",
-    points: [
-      "Assisted in building Python scripts to scrape and clean public datasets for market research.",
-      "Maintained and monitored daily cron jobs for data extraction.",
-      "Documented data dictionaries and pipeline architectures."
-    ]
+    title: "Data Engineer",
+    subtitle: "Prompcorp",
+    url: "https://www.prompcorp.com.au",
+    meta: "Internship \u00b7 On-site",
+    location: "North Melbourne, VIC, Australia",
+    period: "Mar 2024 \u2014 May 2024",
+    description: "Built ETL pipelines in Python, SQL, Spark and Airflow over the HubSpot API, cutting data processing time by 20%."
+  },
+  {
+    title: "Data Engineer",
+    subtitle: "NaviWorld Australia",
+    url: "https://naviworld.com.au",
+    meta: "Internship \u00b7 Hybrid",
+    location: "Melbourne, VIC, Australia",
+    period: "Jan 2024 \u2014 Mar 2024",
+    description: "Designed ELT pipelines integrating 10,000+ records from Microsoft Business Central into a Microsoft Fabric warehouse."
   }
 ];
 
 export const EDUCATION: TimelineEntry[] = [
   {
-    title: "Master of Science in Data Science",
-    subtitle: "University of Technology",
-    location: "Seattle, WA",
-    period: "Sep 2018 - Jun 2020",
+    title: "Bachelor of Data Science",
+    subtitle: "Swinburne University of Technology",
+    url: "https://www.swinburne.edu.au",
+    location: "Melbourne, VIC, Australia",
+    period: "Feb 2022 \u2014 Dec 2024",
     points: [
-      "Specialized in Machine Learning and Big Data Analytics.",
-      "Thesis: Predictive Modeling for High-Frequency Trading."
-    ]
-  },
-  {
-    title: "Bachelor of Science in Computer Science",
-    subtitle: "State University",
-    location: "Chicago, IL",
-    period: "Sep 2014 - May 2018",
-    points: [
-      "Minor in Mathematics.",
-      "Graduated with Honors (Cum Laude)."
+      "Graduated with High Distinction \u2014 GPA 3.542 / 4.0.",
+      "Swinburne International Excellence Scholarship: 75% tuition, awarded to the top 5% of students."
     ]
   },
   {
     title: "High School Diploma",
-    subtitle: "Hanoi Amsterdam High School for the Gifted",
+    subtitle: "Hanoi-Amsterdam High School for the Gifted",
     location: "Hanoi, Vietnam",
-    period: "Sep 2011 - May 2014",
+    period: "Sep 2018 \u2014 May 2021",
     points: [
-      "Major in Mathematics.",
-      "Top 1% of the national entrance exam."
+      "Graduated in the top 5% of the cohort \u2014 GPA 9.6 / 10.",
+      "A Levels: Mathematics (A*), Chemistry (A*), Business (B)."
     ]
   }
 ];
