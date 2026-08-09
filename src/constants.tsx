@@ -8,6 +8,9 @@ import type { TimelineEntry } from "./components/TimelineSection";
  */
 export const SITE = {
   name: "Tung Nguyen",
+  role: "Business Intelligence Engineer",
+  company: "VPBank",
+  location: "Hanoi Capital Region, Vietnam",
   email: "nguyennamtung123@gmail.com",
   github: "https://github.com/TungNamNguyen",
   linkedin: "https://www.linkedin.com/in/nguyennamtung2003/",

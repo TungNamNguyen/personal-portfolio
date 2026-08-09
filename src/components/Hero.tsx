@@ -1,28 +1,15 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "motion/react";
-import { Mail, Download } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
+import { Mail, Download, MapPin } from "lucide-react";
 // Monochrome marks so they inherit the button's text colour in both themes.
 import SiGithub from "~icons/simple-icons/github";
 import FaLinkedin from "~icons/simple-icons/linkedin";
 import { SITE } from "../constants";
 
-const ROLES = ["Data Analyst", "BI Analyst", "Data Engineer", "Analytics Engineer"];
-
 const buttonBase =
   "justify-center inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900";
 
 export default function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0);
   const reduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    // Rotating the title is decoration; hold it still for reduced-motion users.
-    if (reduceMotion) return;
-    const interval = setInterval(() => {
-      setRoleIndex((prev) => (prev + 1) % ROLES.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [reduceMotion]);
 
   return (
     <section
@@ -39,34 +26,15 @@ export default function Hero() {
           <span className="text-blue-600 dark:text-blue-400">{SITE.name}</span>
         </h1>
 
-        {/*
-          Fixed height keeps the paragraph below from jumping as roles swap.
-          aria-live announces the change instead of the text appearing silently.
-        */}
-        <div
-          className="h-14 sm:h-20 lg:h-24 overflow-hidden flex items-center py-2"
-          aria-live="polite"
-          aria-atomic="true"
-        >
-          <AnimatePresence mode="wait">
-            <motion.h2
-              key={roleIndex}
-              initial={reduceMotion ? false : { y: 40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={reduceMotion ? undefined : { y: -40, opacity: 0 }}
-              transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeInOut" }}
-              className="text-2xl sm:text-3xl lg:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 pb-2"
-            >
-              {ROLES[roleIndex]}
-            </motion.h2>
-          </AnimatePresence>
+        <div className="space-y-3">
+          <p className="text-xl sm:text-2xl lg:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 pb-1">
+            {SITE.role} @ {SITE.company}
+          </p>
+          <p className="flex items-center gap-2 text-base sm:text-lg text-slate-600 dark:text-slate-400">
+            <MapPin size={18} aria-hidden="true" className="shrink-0" />
+            {SITE.location}
+          </p>
         </div>
-
-        <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
-          With years of hands-on experience in the data ecosystem, I specialize in building
-          robust data pipelines, designing scalable data warehouses, and transforming complex
-          datasets into actionable business insights.
-        </p>
 
         <motion.div
           initial={reduceMotion ? false : { opacity: 0 }}
