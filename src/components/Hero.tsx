@@ -12,10 +12,8 @@ export default function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section
-      id="about"
-      className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16"
-    >
+    // The #about anchor lives on the About section below, not on the hero.
+    <section className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16">
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
