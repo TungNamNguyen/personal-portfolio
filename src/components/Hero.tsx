@@ -23,18 +23,14 @@ export default function Hero() {
         className="space-y-6 flex-1"
       >
         {/*
-          The name owns the display line on its own; "Hello, I am" is demoted to
-          a kicker so it stops consuming 72px without saying anything. Colour
-          accent lives on the role below, so there is one blue focal point.
+          The name opens the page on its own line. Nothing sits above it: a
+          greeting would only delay the one word a visitor came for, and the
+          role, location and bio below already carry everything else. Colour
+          accent lives on the role, so there is one blue focal point.
         */}
-        <div className="space-y-2">
-          <p className="text-base sm:text-lg font-medium text-slate-500 dark:text-slate-400">
-            Hello, I am
-          </p>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.05]">
-            {SITE.name}
-          </h1>
-        </div>
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.05]">
+          {SITE.name}
+        </h1>
 
         <div className="space-y-3">
           <p className="text-xl sm:text-2xl lg:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 pb-1">
