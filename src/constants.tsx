@@ -31,9 +31,9 @@ export const NAV_ITEMS = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "experience", label: "Experience" },
-  { id: "recommendations", label: "Recommendations" },
   { id: "education", label: "Education" },
-  { id: "projects", label: "Projects" }
+  { id: "projects", label: "Projects" },
+  { id: "recommendation", label: "Recommendation" }
 ];
 
 /**
@@ -46,6 +46,8 @@ export const RECOMMENDATIONS: {
   title: string;
   company: string;
   url?: string;
+  /** Portrait under public/icons. Falls back to initials when absent. */
+  photo?: string;
   relationship: string;
   date: string;
 }[] = [
@@ -60,6 +62,7 @@ export const RECOMMENDATIONS: {
     title: "General Manager, Digital Centre of Excellence",
     company: "Prompcorp",
     url: "https://www.linkedin.com/in/fzhan/",
+    photo: "/icons/fan-zhang.jpg",
     relationship: "Managed Tung directly",
     date: "February 2025"
   }

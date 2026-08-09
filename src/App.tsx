@@ -46,9 +46,9 @@ export default function App() {
         </section>
 
         <Experience />
-        <Recommendations />
         <Education />
         <Projects />
+        <Recommendations />
       </main>
       <Footer />
       <BackToTop />
