@@ -39,9 +39,7 @@ export default function App() {
         <Hero />
 
         <section id="skills" className="space-y-8 sm:space-y-10">
-          <SectionHeading description="An overview of my core technical strengths. I specialize in architecting end-to-end data solutions with a focus on scalability, reliability, and performance.">
-            Technical Proficiency
-          </SectionHeading>
+          <SectionHeading>Technical Proficiency</SectionHeading>
           <Skills />
         </section>
 
