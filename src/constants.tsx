@@ -33,7 +33,7 @@ export const NAV_ITEMS = [
   { id: "experience", label: "Experience" },
   { id: "education", label: "Education" },
   { id: "projects", label: "Projects" },
-  { id: "recommendation", label: "Recommendation" }
+  { id: "recommendations", label: "Recommendations" }
 ];
 
 /**

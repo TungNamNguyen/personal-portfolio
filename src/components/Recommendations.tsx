@@ -9,10 +9,8 @@ export default function Recommendations() {
   if (RECOMMENDATIONS.length === 0) return null;
 
   return (
-    <section id="recommendation" className="space-y-8 sm:space-y-10">
-      <SectionHeading>
-        {RECOMMENDATIONS.length === 1 ? "Recommendation" : "Recommendations"}
-      </SectionHeading>
+    <section id="recommendations" className="space-y-8 sm:space-y-10">
+      <SectionHeading>Recommendations</SectionHeading>
 
       <div className="space-y-6">
         {RECOMMENDATIONS.map((rec, i) => (
