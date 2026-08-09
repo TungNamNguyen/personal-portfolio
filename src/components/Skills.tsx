@@ -15,11 +15,11 @@ import IconTableau from "~icons/logos/tableau-icon";
 // Superset is handled by SupersetIcon below rather than an icon-set import.
 import IconMetabase from "~icons/logos/metabase";
 import IconPostgres from "~icons/logos/postgresql";
-import IconMysql from "~icons/logos/mysql-icon";
+import IconMysql from "~icons/simple-icons/mysql";
 import IconSnowflake from "~icons/logos/snowflake-icon";
 import IconGit from "~icons/logos/git-icon";
 import IconDocker from "~icons/logos/docker-icon";
-import IconAws from "~icons/logos/aws";
+import IconAws from "~icons/simple-icons/amazonwebservices";
 import IconAzure from "~icons/logos/microsoft-azure";
 import IconTerraform from "~icons/logos/terraform-icon";
 import IconJira from "~icons/logos/jira";
@@ -76,14 +76,18 @@ const SKILL_ICON_MAP: Record<string, ReactNode> = {
   "Superset": <span className="text-[#484848] dark:text-slate-300"><SupersetIcon /></span>,
   "Metabase": <IconMetabase />,
   "Postgres": <IconPostgres />,
-  "MySQL": <IconMysql />,
+  // Full-colour MySQL and AWS are dark-ink marks drawn for light backgrounds:
+  // on the dark pill the dolphin and the "aws" wordmark both fall under 3:1 and
+  // effectively vanish. Monochrome versions instead, carrying a brand colour per
+  // theme — the same trick "SQL" and "Superset" already use below.
+  "MySQL": <span className="text-[#00758F] dark:text-[#4DB6D6]"><IconMysql /></span>,
   "SQL Server": <IconSqlServer />,
   "Snowflake": <IconSnowflake />,
   "Databricks": <span className="text-[#FF3621]"><IconDatabricks /></span>,
   "Fabric": <LocalIcon src="/icons/microsoft-fabric.svg" />,
   "Git": <IconGit />,
   "Docker": <IconDocker />,
-  "AWS": <IconAws />,
+  "AWS": <span className="text-[#232F3E] dark:text-[#FF9900]"><IconAws /></span>,
   "Azure": <IconAzure />,
   "Terraform": <IconTerraform />,
   "DBeaver": <IconDbeaver />,
