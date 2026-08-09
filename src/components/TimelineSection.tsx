@@ -18,6 +18,11 @@ export type TimelineEntry = {
    * as a box inside a box.
    */
   logoFill?: boolean;
+  /**
+   * Fallback for brands whose only mark is a wide wordmark — those shrink to
+   * unreadable at 40px. Rendered in the site's own font from the brand palette.
+   */
+  monogram?: { label: string; bg: string; fg: string };
   /** Employment type and work mode, e.g. "Full-time · On-site". */
   meta?: string;
   location: string;
@@ -65,7 +70,18 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
                     vanish on the dark card, so they keep a white ground in both
                     themes. Opaque tiles already carry their own.
                   */}
-                  {entry.logo ? (
+                  {entry.monogram ? (
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        backgroundColor: entry.monogram.bg,
+                        color: entry.monogram.fg
+                      }}
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg font-mono text-lg font-bold ring-1 ring-slate-900/10 dark:ring-white/15"
+                    >
+                      {entry.monogram.label}
+                    </span>
+                  ) : entry.logo ? (
                     <img
                       src={entry.logo}
                       alt=""
