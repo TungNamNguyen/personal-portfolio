@@ -1,7 +1,11 @@
 import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { Calendar, ExternalLink, MapPin } from "lucide-react";
+import { Award, Calendar, ExternalLink, MapPin } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+
+/** Shared by the stat labels and the grades heading so the two align in weight. */
+const statLabelClass =
+  "text-[11px] font-medium uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400";
 
 export type TimelineEntry = {
   /** Job title or degree. */
@@ -25,13 +29,30 @@ export type TimelineEntry = {
    */
   logoWide?: boolean;
   location: string;
+  /**
+   * One line on what the employer does. Carried only for companies a reader is
+   * unlikely to recognise — it frames the achievements without competing with
+   * them, so it stays muted and rides the location line rather than taking one
+   * of its own.
+   */
+  companyNote?: string;
   period: string;
   /** Marks the ongoing role so it reads at a glance. */
   current?: boolean;
-  /** One short line. Prefer this over `points` for roles. */
-  description?: string;
-  /** Bullet list, used for study details. */
+  /** What the role actually produced, one achievement per line. */
   points?: string[];
+  /*
+    Study entries carry facts of three different kinds, and flattening all of
+    them into one bullet list makes the reader parse every line to find the one
+    they wanted. Each kind gets its own shape instead: figures to compare,
+    honours to notice, subject results to scan.
+  */
+  /** Headline figures — the label is the question, the value is the answer. */
+  stats?: { label: string; value: string }[];
+  /** Scholarships and honours, lifted out so they are not buried in a list. */
+  awards?: { title: string; detail?: string }[];
+  /** Per-subject results, as badges rather than a comma-separated sentence. */
+  grades?: { heading: string; items: { subject: string; grade: string }[] };
 };
 
 type Props = {
@@ -106,7 +127,13 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
                     </span>
                   )}
 
-                  <span aria-hidden="true" className="text-slate-300 dark:text-slate-600">
+                  {/*
+                    Hidden on the narrowest screens: once the school name and the
+                    degree wrap onto separate lines the dot lands at the start of
+                    the second one, where it reads as a stray list marker rather
+                    than a separator. Stacked, the two need no divider anyway.
+                  */}
+                  <span aria-hidden="true" className="hidden text-slate-300 sm:inline dark:text-slate-600">
                     •
                   </span>
 
@@ -124,6 +151,16 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
                     <MapPin size={14} aria-hidden="true" className="shrink-0" />
                     {entry.location}
                   </span>
+                  {entry.companyNote && (
+                    <>
+                      {/* Hidden once the note wraps below the location, where the
+                          dot would strand at the end of the line above. */}
+                      <span aria-hidden="true" className="hidden text-slate-300 sm:inline dark:text-slate-600">
+                        •
+                      </span>
+                      <span>{entry.companyNote}</span>
+                    </>
+                  )}
                 </p>
               </div>
 
@@ -132,12 +169,6 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
                 {entry.period}
               </span>
             </div>
-
-            {entry.description && (
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-400">
-                {entry.description}
-              </p>
-            )}
 
             {entry.points && entry.points.length > 0 && (
               <ul className="mt-4 space-y-2">
@@ -151,6 +182,70 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
                   </li>
                 ))}
               </ul>
+            )}
+
+            {/*
+              Figures first: a label-over-value row is scannable in a way a
+              sentence is not, and it lets two cards be compared down a column.
+            */}
+            {entry.stats && entry.stats.length > 0 && (
+              <dl className="mt-5 flex flex-wrap items-start gap-x-10 gap-y-4">
+                {entry.stats.map((stat) => (
+                  <div key={stat.label}>
+                    <dt className={statLabelClass}>{stat.label}</dt>
+                    <dd className="mt-1 text-lg font-semibold leading-none tabular-nums text-slate-900 dark:text-white">
+                      {stat.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+
+            {entry.awards && entry.awards.length > 0 && (
+              <ul className="mt-5 space-y-2">
+                {entry.awards.map((award) => (
+                  <li
+                    key={award.title}
+                    className="flex items-start gap-3 rounded-xl border border-amber-200/80 bg-amber-50/70 px-4 py-3 dark:border-amber-500/25 dark:bg-amber-500/[0.06]"
+                  >
+                    <Award
+                      size={17}
+                      aria-hidden="true"
+                      className="mt-0.5 shrink-0 text-amber-600 dark:text-amber-400"
+                    />
+                    <p className="text-sm leading-relaxed">
+                      <span className="font-semibold text-slate-900 dark:text-white">
+                        {award.title}
+                      </span>
+                      {award.detail && (
+                        <span className="text-slate-600 dark:text-slate-400">
+                          {" — "}
+                          {award.detail}
+                        </span>
+                      )}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {entry.grades && entry.grades.items.length > 0 && (
+              <div className="mt-5">
+                <p className={statLabelClass}>{entry.grades.heading}</p>
+                <ul className="mt-2 flex flex-wrap gap-2">
+                  {entry.grades.items.map((item) => (
+                    <li
+                      key={item.subject}
+                      className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 py-1 pl-3 pr-1.5 text-sm text-slate-700 dark:border-slate-600/70 dark:bg-slate-700/40 dark:text-slate-300"
+                    >
+                      {item.subject}
+                      <span className="rounded-md bg-white px-1.5 py-0.5 font-mono text-xs font-semibold text-slate-900 ring-1 ring-slate-900/10 dark:bg-slate-800 dark:text-white dark:ring-white/10">
+                        {item.grade}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </motion.article>
         ))}

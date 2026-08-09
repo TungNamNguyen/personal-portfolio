@@ -22,8 +22,12 @@ export const SITE = {
   bio: "Pipelines that land the data, models that make it trustworthy, dashboards that get it used. I work the full span of data engineering, analytics engineering and BI, not one slice.",
   /** Short availability line. Set to "" to hide the badge. */
   openTo: "",
-  /** Drop a PDF at public/cv.pdf and set this to "/cv.pdf" to show the download button. */
-  cvUrl: ""
+  /**
+   * Drop a PDF at public/resume.pdf and set this to "/resume.pdf" to reveal the
+   * hero button and the header link. Both stay hidden while it is empty, so the
+   * site never ships a dead download.
+   */
+  resumeUrl: ""
 };
 
 /** Order must match the section order rendered in App.tsx. */
@@ -136,9 +140,12 @@ export const EXPERIENCE: TimelineEntry[] = [
     logo: "/icons/vpbank.svg",
     url: "https://www.vpbank.com.vn",
     location: "Hanoi Capital Region, Vietnam",
+    companyNote: "One of Vietnam's largest private joint-stock commercial banks",
     period: "Dec 2025 \u2014 Present",
     current: true,
-    description: "Loan book and portfolio credit quality reporting in Power BI, backed by SQL stored procedures in Redshift written to be idempotent and safe to rerun."
+    points: [
+      "Loan book and portfolio credit quality reporting in Power BI, backed by SQL stored procedures in Redshift written to be idempotent and safe to rerun."
+    ]
   },
   {
     title: "Data Engineer",
@@ -146,11 +153,16 @@ export const EXPERIENCE: TimelineEntry[] = [
     logo: "/icons/cmcglobal.svg",
     url: "https://cmcglobal.com.vn",
     location: "Hanoi Capital Region, Vietnam",
+    companyNote: "Leading Vietnamese IT services and digital transformation provider",
     period: "Jul 2025 \u2014 Dec 2025",
-    description: "Spark transformation jobs on a MinIO and Delta Lake lakehouse for a global manufacturing client, served through Trino and Power BI."
+    points: [
+      "Contributed to the design of a scalable data platform for a global manufacturing client, leveraging modern data lakehouse architecture with MinIO, Delta Lake, OpenMetadata, Spark, Hive Metastore, Trino, and Power BI.",
+      "Designed data mapping structures to align diverse source systems with standardized schemas, ensuring data consistency and supporting downstream analytics.",
+      "Documented setup procedures for MinIO and OpenMetadata, reducing anticipated deployment time by 30% for future implementation."
+    ]
   },
   {
-    title: "Data Engineer Internship",
+    title: "Data Engineer Intern",
     subtitle: "Prompcorp",
     // Prompcorp has no symbol, only a 2.69:1 wordmark on their brand dark. Kept
     // at that ratio because squaring it drops the lettering to 3.5px tall.
@@ -158,17 +170,27 @@ export const EXPERIENCE: TimelineEntry[] = [
     logoWide: true,
     url: "https://www.prompcorp.com.au",
     location: "North Melbourne, VIC, Australia",
+    companyNote: "One of Australia's largest privately owned facility management groups",
     period: "Mar 2024 \u2014 May 2024",
-    description: "Python, Spark and Airflow ETL from the HubSpot API into a MariaDB single source of truth, feeding the Superset dashboards built on top of it."
+    points: [
+      "Developed and optimized ETL pipelines using Python, SQL, Spark and Airflow to extract and transform data from the HubSpot API, achieving a 20% reduction in data processing time.",
+      "Loaded and optimized the processed data into 8 MariaDB tables in a centralized database, establishing a single source of truth (SSOT) and accelerating data retrieval speeds by 40%.",
+      "Managed 7 interactive Superset dashboards to provide operational insights, enhancing business intelligence and reducing decision-making time by 25% through improved data accessibility."
+    ]
   },
   {
-    title: "Data Engineer Internship",
+    title: "Data Engineer Intern",
     subtitle: "NaviWorld Australia",
     logo: "/icons/naviworld.png",
     url: "https://naviworld.com.au",
     location: "Melbourne, VIC, Australia",
+    companyNote: "Microsoft Dynamics partner for ERP and digital transformation",
     period: "Jan 2024 \u2014 Mar 2024",
-    description: "ELT from Microsoft Business Central into Fabric Synapse, with custom DAX measures powering the Power BI reporting layer above it."
+    points: [
+      "Designed and managed ELT pipelines to integrate 10,000+ records from Microsoft Business Central into Microsoft Fabric Synapse Data Warehouse, achieving seamless integration and reducing processing time by 10%.",
+      "Created 50+ custom DAX measures and metrics to enhance Power BI dashboards, enabling precise performance tracking and more actionable business insights.",
+      "Delivered 10 interactive, user-friendly Power BI dashboards for 4 stakeholders, boosting data utilization by 15% and reducing report preparation time from 3 days to 1 day."
+    ]
   }
 ];
 
@@ -181,9 +203,15 @@ export const EDUCATION: TimelineEntry[] = [
     url: "https://www.swinburne.edu.au",
     location: "Melbourne, VIC, Australia",
     period: "Feb 2022 \u2014 Dec 2024",
-    points: [
-      "Graduated with High Distinction \u2014 GPA 3.542 / 4.0.",
-      "Swinburne International Excellence Scholarship: 75% tuition, awarded to the top 5% of students."
+    stats: [
+      { label: "GPA", value: "3.542 / 4.0" },
+      { label: "Result", value: "High Distinction" }
+    ],
+    awards: [
+      {
+        title: "Swinburne International Excellence Scholarship",
+        detail: "75% tuition"
+      }
     ]
   },
   {
@@ -194,9 +222,17 @@ export const EDUCATION: TimelineEntry[] = [
     url: "https://hn-ams.edu.vn/",
     location: "Hanoi, Vietnam",
     period: "Sep 2018 \u2014 May 2021",
-    points: [
-      "Graduated in the top 5% of the cohort \u2014 GPA 9.6 / 10.",
-      "A Levels: Mathematics (A*), Chemistry (A*), Business (B)."
-    ]
+    stats: [
+      { label: "GPA", value: "9.6 / 10" },
+      { label: "Cohort rank", value: "Top 5%" }
+    ],
+    grades: {
+      heading: "A Levels",
+      items: [
+        { subject: "Mathematics", grade: "A*" },
+        { subject: "Chemistry", grade: "A*" },
+        { subject: "Business", grade: "B" }
+      ]
+    }
   }
 ];
