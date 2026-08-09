@@ -19,9 +19,9 @@ export const SITE = {
    * Projects section carries those — and it never repeats the role or location
    * printed directly above it.
    */
-  bio: "I work where raw data turns into something a business can act on \u2014 modelling it, testing it, and making sure the number on a dashboard means what people think it means. Outside work I build data platforms end to end, which keeps me honest about the layers sitting underneath.",
+  bio: "Building the full path from ingestion to dashboard \u2014 Airflow pipelines, dbt models and the BI layer they feed. Turning raw data into numbers a business can trust.",
   /** Short availability line. Set to "" to hide the badge. */
-  openTo: "Open to BI, Analytics & Data Engineering roles",
+  openTo: "",
   /** Drop a PDF at public/cv.pdf and set this to "/cv.pdf" to show the download button. */
   cvUrl: ""
 };
