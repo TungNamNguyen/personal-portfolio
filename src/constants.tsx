@@ -110,7 +110,7 @@ export const EXPERIENCE: TimelineEntry[] = [
     location: "Hanoi Capital Region, Vietnam",
     period: "Dec 2025 \u2014 Present",
     current: true,
-    description: "Power BI reporting for the lending business, running on SQL stored procedures in Redshift written to be idempotent and safe to rerun."
+    description: "Loan book and portfolio credit quality reporting in Power BI, backed by SQL stored procedures in Redshift written to be idempotent and safe to rerun."
   },
   {
     title: "Data Engineer",
