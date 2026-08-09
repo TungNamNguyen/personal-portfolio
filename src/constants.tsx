@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Terminal, Database, GitBranch, LineChart, Zap, Brain, BarChart3, Wrench, Cloud, Radio } from "lucide-react";
+import { Terminal, Database, GitBranch, LineChart, Wrench, Cloud, Plane, Boxes, Workflow, Camera } from "lucide-react";
 import type { TimelineEntry } from "./components/TimelineSection";
 
 /**
@@ -60,32 +60,32 @@ export const SKILL_CATEGORIES: { name: string; icon: ReactNode; skills: string[]
 /** `link` may be an empty string — the card then renders without an external-link affordance. */
 export const PROJECTS: { title: string; description: string; tech: string[]; link: string; icon: ReactNode }[] = [
   {
-    title: "E-commerce Data Pipeline",
-    description: "Architected an end-to-end ELT pipeline moving 50GB+ of daily transaction data from Postgres to Snowflake using Fivetran and dbt. Reduced data latency from 24 hours to 15 minutes.",
-    tech: ["Snowflake", "dbt", "Fivetran", "Airflow"],
-    link: "",
-    icon: <Zap size={24} />
+    title: "AeroStream Flight Analytics",
+    description: "End-to-end data platform analysing 38.3M US flights across 72 months of Bureau of Transportation Statistics data. A Medallion warehouse runs dlt to MinIO to ClickHouse to dbt to Superset, orchestrated by 12 Airflow DAGs and catalogued with OpenMetadata. Runs entirely on docker compose.",
+    tech: ["dlt", "ClickHouse", "dbt", "Airflow", "Superset"],
+    link: "https://github.com/TungNamNguyen/aerostream-flight-analytics",
+    icon: <Plane size={24} />
   },
   {
-    title: "Customer Churn Prediction",
-    description: "Developed a machine learning model to predict customer churn with 85% accuracy. Deployed via a FastAPI microservice and integrated predictions into the CRM for the retention team.",
-    tech: ["Python", "scikit-learn", "FastAPI", "Docker"],
-    link: "",
-    icon: <Brain size={24} />
+    title: "Data Engineering Templates",
+    description: "Ready-to-run Docker Compose templates for a dozen data tools — Airflow, ClickHouse, dbt, Superset, MinIO, Metabase, Doris, NiFi and more — each pinned to a known-good version so a new stack can be stood up in one command.",
+    tech: ["Docker Compose", "Airflow", "ClickHouse", "dbt", "MinIO"],
+    link: "https://github.com/TungNamNguyen/data-engineering-templates",
+    icon: <Boxes size={24} />
   },
   {
-    title: "Marketing Analytics Dashboard",
-    description: "Built a comprehensive Looker dashboard consolidating marketing spend across 5 channels. Created underlying BigQuery data marts, reducing reporting time by 15 hours/week.",
-    tech: ["Looker", "BigQuery", "SQL"],
-    link: "",
-    icon: <BarChart3 size={24} />
+    title: "GitLab API Data Pipeline",
+    description: "Command-line extractor that pulls project data from the GitLab REST API into a relational store via SQLAlchemy, with OpenAPI-generated clients, full CRUD over the local dataset, structured logging and credentials kept out of source.",
+    tech: ["Python", "SQLAlchemy", "OpenAPI", "SQLite"],
+    link: "https://github.com/TungNamNguyen/gitlab-api-data-pipeline",
+    icon: <Workflow size={24} />
   },
   {
-    title: "Real-time Event Streaming",
-    description: "Implemented a Kafka-based streaming architecture to process clickstream data in real-time, enabling live personalization on the e-commerce storefront.",
-    tech: ["Kafka", "Spark Streaming", "AWS", "Python"],
-    link: "",
-    icon: <Radio size={24} />
+    title: "Fall Detection System",
+    description: "Real-time fall detection from a standard RGB camera, built as a university industry project. Compares three pose-estimation backends — YOLOv8, MediaPipe and MoveNet — behind a Tkinter interface with configurable confidence thresholds, keypoint logging and audible alerts.",
+    tech: ["Python", "YOLOv8", "MediaPipe", "MoveNet"],
+    link: "https://github.com/TungNamNguyen/fall-detection-system",
+    icon: <Camera size={24} />
   }
 ];
 
