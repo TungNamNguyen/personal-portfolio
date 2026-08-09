@@ -12,6 +12,12 @@ export type TimelineEntry = {
   url?: string;
   /** Path under public/icons. Falls back to the section's generic icon. */
   logo?: string;
+  /**
+   * True when the artwork is an opaque tile rather than a mark on transparency.
+   * Those bleed to the tile edge; padding them inside a white square would read
+   * as a box inside a box.
+   */
+  logoFill?: boolean;
   /** Employment type and work mode, e.g. "Full-time · On-site". */
   meta?: string;
   location: string;
@@ -55,23 +61,25 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
               <div className="min-w-0 space-y-1.5">
                 <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
                   {/*
-                    Logos keep a white ground in both themes — brand marks are
-                    drawn for light backgrounds and several would vanish on the
-                    dark card otherwise.
+                    Transparent marks are drawn for light backgrounds and would
+                    vanish on the dark card, so they keep a white ground in both
+                    themes. Opaque tiles already carry their own.
                   */}
                   {entry.logo ? (
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-slate-200 bg-white dark:border-slate-600">
-                      <img
-                        src={entry.logo}
-                        alt=""
-                        width={24}
-                        height={24}
-                        loading="lazy"
-                        className="h-6 w-6 object-contain"
-                      />
-                    </span>
+                    <img
+                      src={entry.logo}
+                      alt=""
+                      width={40}
+                      height={40}
+                      loading="lazy"
+                      className={`h-10 w-10 shrink-0 rounded-lg ring-1 ring-slate-900/10 dark:ring-white/15 ${
+                        entry.logoFill
+                          ? "object-cover"
+                          : "bg-white object-contain p-1.5"
+                      }`}
+                    />
                   ) : (
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/25 dark:text-blue-400">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/25 dark:text-blue-400">
                       {subtitleIcon}
                     </span>
                   )}
