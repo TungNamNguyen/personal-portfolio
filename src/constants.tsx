@@ -118,7 +118,8 @@ export const EXPERIENCE: TimelineEntry[] = [
     url: "https://cmcglobal.com.vn",
     meta: "Full-time \u00b7 On-site",
     location: "Hanoi Capital Region, Vietnam",
-    period: "Jul 2025 \u2014 Dec 2025"
+    period: "Jul 2025 \u2014 Dec 2025",
+    description: "Spark transformation jobs on a MinIO and Delta Lake lakehouse for a global manufacturing client, served through Trino and Power BI. Setup documentation cut projected deployment time by 30%."
   },
   {
     title: "Data Engineer",
@@ -130,7 +131,7 @@ export const EXPERIENCE: TimelineEntry[] = [
     meta: "Internship \u00b7 On-site",
     location: "North Melbourne, VIC, Australia",
     period: "Mar 2024 \u2014 May 2024",
-    description: "Built ETL pipelines in Python, SQL, Spark and Airflow over the HubSpot API, cutting data processing time by 20%."
+    description: "Python, Spark and Airflow ETL from the HubSpot API into a MariaDB single source of truth, feeding 7 Superset dashboards. Processing time down 20%, retrieval 40% faster."
   },
   {
     title: "Data Engineer",
@@ -140,7 +141,7 @@ export const EXPERIENCE: TimelineEntry[] = [
     meta: "Internship \u00b7 Hybrid",
     location: "Melbourne, VIC, Australia",
     period: "Jan 2024 \u2014 Mar 2024",
-    description: "Designed ELT pipelines integrating 10,000+ records from Microsoft Business Central into a Microsoft Fabric warehouse."
+    description: "ELT of 10,000+ records from Microsoft Business Central into Fabric Synapse, plus 50+ DAX measures across 10 Power BI dashboards \u2014 report prep dropped from 3 days to 1."
   }
 ];
 
