@@ -19,7 +19,7 @@ export const SITE = {
    * Projects section carries those — and it never repeats the role or location
    * printed directly above it.
    */
-  bio: "Pipelines that land the data, models that make it trustworthy, dashboards that get it used. Data engineering, analytics engineering and BI \u2014 the full span, not one slice.",
+  bio: "Pipelines that land the data, models that make it trustworthy, dashboards that get it used. I work the full span of data engineering, analytics engineering and BI, not one slice.",
   /** Short availability line. Set to "" to hide the badge. */
   openTo: "",
   /** Drop a PDF at public/cv.pdf and set this to "/cv.pdf" to show the download button. */
