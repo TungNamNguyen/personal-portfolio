@@ -48,8 +48,6 @@ export const RECOMMENDATIONS: {
   url?: string;
   /** Portrait under public/icons. Falls back to initials when absent. */
   photo?: string;
-  relationship: string;
-  date: string;
 }[] = [
   {
     paragraphs: [
@@ -62,9 +60,7 @@ export const RECOMMENDATIONS: {
     title: "General Manager, Digital Centre of Excellence",
     company: "Prompcorp",
     url: "https://www.linkedin.com/in/fzhan/",
-    photo: "/icons/fan-zhang.jpg",
-    relationship: "Managed Tung directly",
-    date: "February 2025"
+    photo: "/icons/fan-zhang.jpeg"
   }
 ];
 

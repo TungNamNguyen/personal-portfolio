@@ -80,9 +80,6 @@ export default function Recommendations() {
                 <p className="mt-0.5 text-sm text-slate-600 dark:text-slate-400">
                   {rec.title} at {rec.company}
                 </p>
-                <p className="mt-0.5 text-sm text-slate-500 dark:text-slate-400">
-                  {rec.relationship} · {rec.date}
-                </p>
               </div>
             </figcaption>
           </motion.figure>
