@@ -14,17 +14,26 @@ export default function Hero() {
   return (
     <section
       id="about"
-      className="pt-4 sm:pt-8 md:pt-12 flex flex-col md:flex-row items-center md:items-center justify-between gap-10 md:gap-16"
+      className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16"
     >
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="space-y-6 flex-1"
       >
-        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
-          Hello, I am <br className="hidden sm:block" />
-          <span className="text-blue-600 dark:text-blue-400">{SITE.name}</span>
-        </h1>
+        {/*
+          The name owns the display line on its own; "Hello, I am" is demoted to
+          a kicker so it stops consuming 72px without saying anything. Colour
+          accent lives on the role below, so there is one blue focal point.
+        */}
+        <div className="space-y-2">
+          <p className="text-base sm:text-lg font-medium text-slate-500 dark:text-slate-400">
+            Hello, I am
+          </p>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.05]">
+            {SITE.name}
+          </h1>
+        </div>
 
         <div className="space-y-3">
           <p className="text-xl sm:text-2xl lg:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 pb-1">

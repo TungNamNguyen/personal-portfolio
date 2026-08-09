@@ -33,7 +33,8 @@ export default function App() {
         />
       )}
       <Header />
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16 md:py-24 space-y-20 sm:space-y-24 md:space-y-32">
+      {/* Lighter padding at the top so the hero is not pushed below the fold. */}
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10 md:pt-14 pb-10 sm:pb-16 md:pb-24 space-y-20 sm:space-y-24 md:space-y-32">
         <Hero />
 
         <section id="skills" className="space-y-8 sm:space-y-10">
