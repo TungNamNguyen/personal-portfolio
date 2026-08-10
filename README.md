@@ -2,16 +2,6 @@
 
 Personal portfolio site for Tung Nguyen, a Data / Analytics Engineer.
 
-A single static page that collects the things a recruiter or hiring manager
-usually has to hunt for across several tabs: a short intro, technical skills,
-work experience, education, side projects, and a recommendation. It is
-responsive down to mobile and ships a dark/light theme toggle that remembers
-the choice between visits.
-
-All page content is data, not markup — it lives in
-[`src/constants.tsx`](src/constants.tsx), so updating the site means editing an
-array rather than touching a component.
-
 ## Stack
 
 | | |
@@ -22,9 +12,6 @@ array rather than touching a component.
 | Tailwind CSS v4 | Styling, via `@tailwindcss/vite` |
 | Motion 12 | Entrance and hover animations |
 | lucide-react + unplugin-icons | Icons, all self-hosted at build time |
-
-No backend, no environment variables, no runtime data fetching — the build
-output is plain static files.
 
 ## Run locally
 
