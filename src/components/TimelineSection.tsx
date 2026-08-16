@@ -175,14 +175,21 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
             </div>
 
             {entry.points && entry.points.length > 0 && (
-              <ul className="mt-4 space-y-2">
+              <ul className="mt-5 divide-y divide-slate-100 dark:divide-slate-700/50">
                 {entry.points.map((point, j) => (
                   <li
                     key={j}
-                    className="flex gap-2.5 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-400"
+                    className="group/point flex items-start gap-3 py-3.5 first:pt-0"
                   >
-                    <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500/70" />
-                    <span>{point}</span>
+                    <span
+                      aria-hidden="true"
+                      className="mt-[1px] shrink-0 text-lg leading-relaxed text-slate-300 transition-colors duration-200 group-hover/point:text-blue-500 dark:text-slate-600 dark:group-hover/point:text-blue-400"
+                    >
+                      ›
+                    </span>
+                    <span className="text-sm sm:text-[15px] leading-relaxed text-slate-600 transition-colors duration-200 group-hover/point:text-slate-800 dark:text-slate-400 dark:group-hover/point:text-slate-300">
+                      {point}
+                    </span>
                   </li>
                 ))}
               </ul>
