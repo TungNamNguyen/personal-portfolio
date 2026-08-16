@@ -14,6 +14,7 @@ export const SITE = {
   email: "nguyennamtung123@gmail.com",
   github: "https://github.com/TungNamNguyen",
   linkedin: "https://www.linkedin.com/in/nguyennamtung2003/",
+  tableau: "https://public.tableau.com/app/profile/tung.nguyen.nam/vizzes",
   /**
    * Two sentences for the hero. Deliberately free of project specifics — the
    * Projects section carries those — and it never repeats the role or location
@@ -27,7 +28,7 @@ export const SITE = {
    * hero button and the header link. Both stay hidden while it is empty, so the
    * site never ships a dead download.
    */
-  resumeUrl: ""
+  resumeUrl: "/TungNguyen_Resume.pdf"
 };
 
 /** Order must match the section order rendered in App.tsx. */
@@ -142,7 +143,12 @@ export const EXPERIENCE: TimelineEntry[] = [
     location: "Hanoi Capital Region, Vietnam",
     companyNote: "One of Vietnam's largest private joint-stock commercial banks",
     period: "Dec 2025 \u2014 Present",
-    current: true
+    current: true,
+    points: [
+      "Managed and optimized end-to-end data pipelines for 10+ Power BI lending reports, migrating SQL stored procedures from on-premises SQL Server to Amazon Redshift, reducing processing time by 25%.",
+      "Owned end-to-end development of the SME Debt Management module, translating stakeholder requirements into Redshift data models and Power BI dashboards for monitoring NPL, debt classification, and credit quality.",
+      "Analyzed SME loan-processing turnaround time (TAT) across 15+ workflow stages, identifying process bottlenecks and delivering actionable insights to business leadership to prioritize workflow improvements."
+    ]
   },
   {
     title: "Data Engineer",
@@ -151,7 +157,12 @@ export const EXPERIENCE: TimelineEntry[] = [
     url: "https://cmcglobal.com.vn",
     location: "Hanoi Capital Region, Vietnam",
     companyNote: "Leading Vietnamese IT services and digital transformation provider",
-    period: "Jul 2025 \u2014 Dec 2025"
+    period: "Jul 2025 \u2014 Dec 2025",
+    points: [
+      "Designed source-to-target data mappings for 20+ tables across multiple source systems, defining standardized schemas and transformation logic to improve data consistency and support downstream analytical models.",
+      "Developed 8 Spark jobs for Silver-to-Gold transformations, implementing business rules and aggregations to create curated Gold-layer datasets for BI reporting and dashboard consumption.",
+      "Implemented 60+ SQL-based data validation checks across Bronze, Silver, and Gold tables, validating transformation logic, record consistency, and key business metrics across layers."
+    ]
   },
   {
     title: "Data Engineer Intern",
@@ -163,7 +174,11 @@ export const EXPERIENCE: TimelineEntry[] = [
     url: "https://www.prompcorp.com.au",
     location: "North Melbourne, VIC, Australia",
     companyNote: "One of Australia's largest privately owned facility management groups",
-    period: "Mar 2024 \u2014 May 2024"
+    period: "Mar 2024 \u2014 May 2024",
+    points: [
+      "Developed and optimized ETL pipelines with Python and Airflow to ingest HubSpot API data into 8 PostgreSQL tables, establishing a centralized single source of truth and improving data retrieval speed by 40%.",
+      "Built 4 Superset dashboards, improving access to operational insights and reducing decision-making time by 25%."
+    ]
   },
   {
     title: "Data Engineer Intern",
@@ -172,7 +187,11 @@ export const EXPERIENCE: TimelineEntry[] = [
     url: "https://naviworld.com.au",
     location: "Melbourne, VIC, Australia",
     companyNote: "Microsoft Dynamics partner for ERP and digital transformation",
-    period: "Jan 2024 \u2014 Mar 2024"
+    period: "Jan 2024 \u2014 Mar 2024",
+    points: [
+      "Built and orchestrated ELT pipelines with Fabric Data Factory, Dataflow Gen2, and T-SQL to backfill 500K+ historical Dynamics 365 Business Central records into Microsoft Fabric Data Warehouse and enable daily incremental loads.",
+      "Delivered 3 Power BI dashboards with 50+ DAX measures for 4 stakeholders, reducing report preparation time from 3 days to 1 day and enabling faster performance tracking."
+    ]
   }
 ];
 
