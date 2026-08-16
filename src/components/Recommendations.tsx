@@ -20,9 +20,10 @@ export default function Recommendations() {
             key={i}
             initial={reduceMotion ? false : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
+            whileHover={reduceMotion ? undefined : { y: -4, transition: { type: "spring", stiffness: 300, damping: 20 } }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: reduceMotion ? 0 : 0.4 }}
-            className="relative rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm dark:border-slate-700 dark:bg-slate-800 dark:shadow-none"
+            className="relative rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm transition-all duration-200 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-900/5 dark:border-slate-700 dark:bg-slate-800 dark:shadow-none dark:hover:border-blue-900/50"
           >
             {/*
               Two columns from `sm` up. Held to a readable measure the quote
