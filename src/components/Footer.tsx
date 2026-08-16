@@ -1,5 +1,6 @@
 import SiGithub from "~icons/simple-icons/github";
 import FaLinkedin from "~icons/simple-icons/linkedin";
+import SiTableau from "~icons/simple-icons/tableau";
 import { SITE } from "../constants";
 
 const iconLink =
@@ -53,6 +54,15 @@ export default function Footer() {
               aria-label="LinkedIn"
             >
               <FaLinkedin width={20} height={20} />
+            </a>
+            <a
+              href={SITE.tableau}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={iconLink}
+              aria-label="Tableau Public"
+            >
+              <SiTableau width={20} height={20} />
             </a>
           </div>
         </div>
