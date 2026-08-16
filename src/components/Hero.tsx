@@ -1,8 +1,9 @@
 import { motion, useReducedMotion } from "motion/react";
-import { Mail, Download, MapPin } from "lucide-react";
+import { Mail, Download } from "lucide-react";
 // Monochrome marks so they inherit the button's text colour in both themes.
 import SiGithub from "~icons/simple-icons/github";
 import FaLinkedin from "~icons/simple-icons/linkedin";
+import SiTableau from "~icons/simple-icons/tableau";
 import { SITE } from "../constants";
 
 const buttonBase =
@@ -11,7 +12,7 @@ const buttonBase =
 // Shared by the two shapes the resume button takes — a real <a download> once
 // SITE.resumeUrl is set, an inert <button> until then. Kept in one place so the
 // pair can never drift apart visually.
-const resumeClass = `w-full sm:w-auto ${buttonBase} bg-blue-50 dark:bg-slate-700 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-slate-600`;
+const resumeClass = `${buttonBase} bg-blue-50 dark:bg-slate-700 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-slate-600`;
 
 const resumeLabel = (
   <>
@@ -48,19 +49,13 @@ export default function Hero() {
           <p className="text-xl sm:text-2xl lg:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 pb-1">
             {SITE.role} @ {SITE.company}
           </p>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-            <p className="flex items-center gap-2 text-base sm:text-lg text-slate-600 dark:text-slate-400">
-              <MapPin size={18} aria-hidden="true" className="shrink-0" />
-              {SITE.location}
-            </p>
 
-            {SITE.openTo && (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400">
-                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                {SITE.openTo}
-              </span>
-            )}
-          </div>
+          {SITE.openTo && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              {SITE.openTo}
+            </span>
+          )}
         </div>
 
         <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600 dark:text-slate-400">
@@ -71,54 +66,51 @@ export default function Hero() {
           initial={reduceMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: reduceMotion ? 0 : 0.2 }}
-          className="flex flex-wrap gap-3 sm:gap-4 pt-2"
+          className="space-y-3 sm:space-y-4 pt-2"
         >
-          <motion.a
-            whileHover={reduceMotion ? undefined : { scale: 1.05 }}
-            whileTap={reduceMotion ? undefined : { scale: 0.95 }}
-            href={`mailto:${SITE.email}`}
-            className={`w-full sm:w-auto ${buttonBase} bg-slate-900 dark:bg-blue-600 text-white hover:bg-slate-800 dark:hover:bg-blue-500`}
-          >
-            <Mail size={18} />
-            Get in touch
-          </motion.a>
-
-          {/*
-            The button is always on show — it is part of the hero's shape, so it
-            does not pop in later and reflow the row. Until `resumeUrl` points
-            somewhere it renders as a plain <button> with nothing wired to it:
-            visible and focusable, but a click downloads nothing. Fill the
-            constant in and the same button becomes a real download link.
-          */}
-          {SITE.resumeUrl ? (
+          {/* Row 1: Get in touch + Download resume */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <motion.a
               whileHover={reduceMotion ? undefined : { scale: 1.05 }}
               whileTap={reduceMotion ? undefined : { scale: 0.95 }}
-              href={SITE.resumeUrl}
-              download
-              className={resumeClass}
+              href={`mailto:${SITE.email}`}
+              className={`${buttonBase} bg-slate-900 dark:bg-blue-600 text-white hover:bg-slate-800 dark:hover:bg-blue-500`}
             >
-              {resumeLabel}
+              <Mail size={18} />
+              Get in touch
             </motion.a>
-          ) : (
-            <motion.button
-              type="button"
-              whileHover={reduceMotion ? undefined : { scale: 1.05 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.95 }}
-              className={resumeClass}
-            >
-              {resumeLabel}
-            </motion.button>
-          )}
 
-          <div className="flex gap-3 sm:gap-4 w-full sm:w-auto">
+            {SITE.resumeUrl ? (
+              <motion.a
+                whileHover={reduceMotion ? undefined : { scale: 1.05 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.95 }}
+                href={SITE.resumeUrl}
+                download
+                className={resumeClass}
+              >
+                {resumeLabel}
+              </motion.a>
+            ) : (
+              <motion.button
+                type="button"
+                whileHover={reduceMotion ? undefined : { scale: 1.05 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.95 }}
+                className={resumeClass}
+              >
+                {resumeLabel}
+              </motion.button>
+            )}
+          </div>
+
+          {/* Row 2: GitHub + LinkedIn + Tableau Public */}
+          <div className="grid grid-cols-3 gap-3 sm:gap-4">
             <motion.a
               whileHover={reduceMotion ? undefined : { scale: 1.05 }}
               whileTap={reduceMotion ? undefined : { scale: 0.95 }}
               href={SITE.github}
               target="_blank"
               rel="noreferrer"
-              className={`flex-1 sm:flex-none ${buttonBase} bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700`}
+              className={`${buttonBase} bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700`}
             >
               <SiGithub width={18} height={18} />
               GitHub
@@ -129,10 +121,21 @@ export default function Hero() {
               href={SITE.linkedin}
               target="_blank"
               rel="noreferrer"
-              className={`flex-1 sm:flex-none ${buttonBase} bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700`}
+              className={`${buttonBase} bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700`}
             >
               <FaLinkedin width={18} height={18} />
               LinkedIn
+            </motion.a>
+            <motion.a
+              whileHover={reduceMotion ? undefined : { scale: 1.05 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.95 }}
+              href={SITE.tableau}
+              target="_blank"
+              rel="noreferrer"
+              className={`${buttonBase} bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700`}
+            >
+              <SiTableau width={18} height={18} />
+              Tableau Public
             </motion.a>
           </div>
         </motion.div>
