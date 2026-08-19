@@ -1,18 +1,18 @@
 import { motion, useReducedMotion } from "motion/react";
 import { Mail, Download } from "lucide-react";
-// Monochrome marks so they inherit the button's text colour in both themes.
+// Monochrome marks so they inherit the link's text colour in both themes.
 import SiGithub from "~icons/simple-icons/github";
 import FaLinkedin from "~icons/simple-icons/linkedin";
 import SiTableau from "~icons/simple-icons/tableau";
 import { SITE } from "../constants";
 
 const buttonBase =
-  "justify-center inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900";
+  "inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900";
 
 // Shared by the two shapes the resume button takes — a real <a download> once
 // SITE.resumeUrl is set, an inert <button> until then. Kept in one place so the
 // pair can never drift apart visually.
-const resumeClass = `${buttonBase} bg-blue-50 dark:bg-slate-700 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-slate-600`;
+const resumeClass = `${buttonBase} border border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800`;
 
 const resumeLabel = (
   <>
@@ -20,6 +20,17 @@ const resumeLabel = (
     Download resume
   </>
 );
+
+// Profiles, not calls to action. An empty value in constants.tsx drops the
+// link rather than rendering a dead one.
+const SOCIALS = [
+  { label: "GitHub", href: SITE.github, Icon: SiGithub },
+  { label: "LinkedIn", href: SITE.linkedin, Icon: FaLinkedin },
+  { label: "Tableau Public", href: SITE.tableau, Icon: SiTableau }
+].filter((social) => social.href);
+
+const socialLink =
+  "rounded-md p-2 text-slate-500 transition-colors hover:bg-slate-200/70 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900";
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
@@ -46,7 +57,7 @@ export default function Hero() {
         </h1>
 
         <div className="space-y-3">
-          <p className="text-xl sm:text-2xl lg:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 pb-1">
+          <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-blue-600 dark:text-blue-400">
             {SITE.role} @ {SITE.company}
           </p>
 
@@ -66,24 +77,26 @@ export default function Hero() {
           initial={reduceMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: reduceMotion ? 0 : 0.2 }}
-          className="space-y-3 sm:space-y-4 pt-2"
+          className="flex flex-wrap items-center gap-x-6 gap-y-4 pt-2"
         >
-          {/* Row 1: Get in touch + Download resume */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          {/*
+            One filled call to action, one outlined. Both sized to their own
+            label rather than stretched to share a row, so the pair reads as
+            primary and secondary instead of two equal choices.
+          */}
+          <div className="flex flex-wrap items-center gap-3">
             <motion.a
-              whileHover={reduceMotion ? undefined : { scale: 1.05 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.95 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.98 }}
               href={`mailto:${SITE.email}`}
               className={`${buttonBase} bg-slate-900 dark:bg-blue-600 text-white hover:bg-slate-800 dark:hover:bg-blue-500`}
             >
-              <Mail size={18} />
+              <Mail size={18} aria-hidden="true" />
               Get in touch
             </motion.a>
 
             {SITE.resumeUrl ? (
               <motion.a
-                whileHover={reduceMotion ? undefined : { scale: 1.05 }}
-                whileTap={reduceMotion ? undefined : { scale: 0.95 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
                 href={SITE.resumeUrl}
                 download
                 className={resumeClass}
@@ -93,8 +106,7 @@ export default function Hero() {
             ) : (
               <motion.button
                 type="button"
-                whileHover={reduceMotion ? undefined : { scale: 1.05 }}
-                whileTap={reduceMotion ? undefined : { scale: 0.95 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
                 className={resumeClass}
               >
                 {resumeLabel}
@@ -102,41 +114,24 @@ export default function Hero() {
             )}
           </div>
 
-          {/* Row 2: GitHub + LinkedIn + Tableau Public */}
-          <div className="grid grid-cols-3 gap-3 sm:gap-4">
-            <motion.a
-              whileHover={reduceMotion ? undefined : { scale: 1.05 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.95 }}
-              href={SITE.github}
-              target="_blank"
-              rel="noreferrer"
-              className={`${buttonBase} bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700`}
-            >
-              <SiGithub width={18} height={18} />
-              GitHub
-            </motion.a>
-            <motion.a
-              whileHover={reduceMotion ? undefined : { scale: 1.05 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.95 }}
-              href={SITE.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className={`${buttonBase} bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700`}
-            >
-              <FaLinkedin width={18} height={18} />
-              LinkedIn
-            </motion.a>
-            <motion.a
-              whileHover={reduceMotion ? undefined : { scale: 1.05 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.95 }}
-              href={SITE.tableau}
-              target="_blank"
-              rel="noreferrer"
-              className={`${buttonBase} bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700`}
-            >
-              <SiTableau width={18} height={18} />
-              Tableau Public
-            </motion.a>
+          {/*
+            Icon-only, carrying just an accessible name: a profile is worth
+            reaching, not worth a button the size of the two above it.
+          */}
+          <div className="flex items-center gap-1">
+            {SOCIALS.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={label}
+                title={label}
+                className={socialLink}
+              >
+                <Icon width={20} height={20} aria-hidden="true" />
+              </a>
+            ))}
           </div>
         </motion.div>
       </motion.div>
@@ -147,25 +142,19 @@ export default function Hero() {
         transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
         className="shrink-0 order-first md:order-last"
       >
-        <div className="relative">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-blue-400 rounded-full blur-3xl opacity-20 animate-pulse"
-          ></div>
-          {/*
-            The border was white, which is invisible here: the photo's own
-            ground is near-white and so is the page, so the circle lost its edge
-            and the head read as a floating cut-out. A pale slate ring closes
-            the shape without drawing attention to itself.
-          */}
-          <img
-            src="/106413417.jpeg"
-            alt={SITE.name}
-            width={256}
-            height={256}
-            className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-slate-200 dark:border-slate-700 shadow-xl shadow-slate-200 dark:shadow-none"
-          />
-        </div>
+        {/*
+          The border was white, which is invisible here: the photo's own ground
+          is near-white and so is the page, so the circle lost its edge and the
+          head read as a floating cut-out. A pale slate ring closes the shape
+          without drawing attention to itself.
+        */}
+        <img
+          src="/106413417.jpeg"
+          alt={SITE.name}
+          width={256}
+          height={256}
+          className="w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-slate-200 dark:border-slate-700 shadow-xl shadow-slate-200 dark:shadow-none"
+        />
       </motion.div>
     </section>
   );

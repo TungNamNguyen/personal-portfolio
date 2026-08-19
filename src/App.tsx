@@ -39,7 +39,7 @@ export default function App() {
         <Hero />
 
         <section id="skills" className="space-y-8 sm:space-y-10">
-          <SectionHeading>Technical Proficiency</SectionHeading>
+          <SectionHeading>Skills</SectionHeading>
           <Skills />
         </section>
 

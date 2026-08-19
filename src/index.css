@@ -35,7 +35,7 @@ html {
 
   /*
     Motion components are handled in JS via useReducedMotion; this is the
-    backstop for CSS transitions and the avatar's pulsing glow.
+    backstop for CSS transitions and animations.
   */
   *,
   *::before,

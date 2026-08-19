@@ -8,7 +8,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="space-y-8 sm:space-y-10">
-      <SectionHeading>Featured Projects</SectionHeading>
+      <SectionHeading>Projects</SectionHeading>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {PROJECTS.map((project, i) => (
