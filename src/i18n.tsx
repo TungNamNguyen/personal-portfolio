@@ -38,8 +38,11 @@ export const UI = {
   at: { en: "at", vi: "tại" },
   /** Prefixes a link's target in an accessible name: "Open AeroStream". */
   open: { en: "Open", vi: "Mở" },
-  /** Marks a quotation left in its original language. */
-  originalEnglish: { en: "", vi: "Nguyên văn tiếng Anh" },
+  /**
+   * Flags the recommendation as a translation in the view where it is one.
+   * Empty in English, which is the language it was written in.
+   */
+  translatedQuote: { en: "", vi: "Dịch từ nguyên văn tiếng Anh trên LinkedIn" },
   backToTop: { en: "Back to top", vi: "Lên đầu trang" },
   darkMode: { en: "Dark mode", vi: "Chế độ tối" },
   openMenu: { en: "Open menu", vi: "Mở menu" },

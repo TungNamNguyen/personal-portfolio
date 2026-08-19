@@ -48,8 +48,12 @@ TypeScript rejects a pair that is missing a language, so a new entry cannot ship
 half-translated. Section names live in the `UI` dictionary in `src/i18n.tsx`,
 which both the nav and the headings read from.
 
-The LinkedIn recommendation is quoted verbatim and stays in English under both
-languages; the Vietnamese view labels it as such.
+The Vietnamese side is written as Vietnamese, not mapped word for word off the
+English — vocabulary the field actually uses in English (pipeline, dashboard,
+schema) stays in English.
+
+The LinkedIn recommendation is quoted verbatim in English and translated for the
+Vietnamese view, which labels itself as a translation.
 
 ## Structure
 

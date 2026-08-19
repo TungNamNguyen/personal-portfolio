@@ -6,7 +6,7 @@ import { useLang } from "../i18n";
 
 export default function Recommendations() {
   const reduceMotion = useReducedMotion();
-  const { t, ui } = useLang();
+  const { t, ui, lang } = useLang();
 
   if (RECOMMENDATIONS.length === 0) return null;
 
@@ -37,11 +37,11 @@ export default function Recommendations() {
             */}
             <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-10">
               <blockquote
-                lang="en"
+                lang={lang}
                 className="relative space-y-4 text-base sm:text-lg leading-relaxed text-slate-600 sm:flex-1 dark:text-slate-300"
               >
                 {rec.paragraphs.map((paragraph, j) => (
-                  <p key={j}>{paragraph}</p>
+                  <p key={j}>{t(paragraph)}</p>
                 ))}
               </blockquote>
 
@@ -96,11 +96,11 @@ export default function Recommendations() {
                     {t(rec.title)} {ui.at} {rec.company}
                   </p>
 
-                  {/* Only the Vietnamese view says this — in English there is
-                      nothing to point out. */}
-                  {ui.originalEnglish && (
+                  {/* Only the Vietnamese view says this — the English one is
+                      the original, so there is nothing to point out. */}
+                  {ui.translatedQuote && (
                     <p className="mt-1.5 text-xs text-slate-500 dark:text-slate-500">
-                      {ui.originalEnglish}
+                      {ui.translatedQuote}
                     </p>
                   )}
                 </div>

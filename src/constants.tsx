@@ -9,13 +9,17 @@ import { UI } from "./i18n";
  * Leave a value as an empty string to hide the corresponding link/button.
  *
  * Anything a reader sees is a `Text`: a plain string where both languages say
- * the same thing, an `{ en, vi }` pair where they do not.
+ * the same thing, an `{ en, vi }` pair where they do not. The Vietnamese side
+ * is written as Vietnamese rather than mapped word for word off the English —
+ * technical vocabulary the field actually uses in English stays in English.
  */
 export const SITE = {
   name: "Tung Nguyen",
   role: { en: "Business Intelligence Engineer", vi: "Kỹ sư Business Intelligence" },
   company: "VPBank",
-  location: { en: "Hanoi Capital Region, Vietnam", vi: "Vùng Thủ đô Hà Nội, Việt Nam" },
+  // "Hanoi Capital Region" is how LinkedIn names the metro area; in Vietnamese
+  // nobody says that, they say Hà Nội.
+  location: { en: "Hanoi Capital Region, Vietnam", vi: "Hà Nội, Việt Nam" },
   email: "nguyennamtung123@gmail.com",
   github: "https://github.com/TungNamNguyen",
   linkedin: "https://www.linkedin.com/in/nguyennamtung2003/",
@@ -27,7 +31,7 @@ export const SITE = {
    */
   bio: {
     en: "Pipelines that land the data, models that make it trustworthy, dashboards that get it used. I work the full span of data engineering, analytics engineering and BI, not one slice.",
-    vi: "Pipeline đưa dữ liệu về, model làm dữ liệu đáng tin, dashboard khiến dữ liệu được dùng. Mình làm trọn cả data engineering, analytics engineering và BI, không chỉ một mảng."
+    vi: "Mình đưa dữ liệu về bằng pipeline, làm cho nó đáng tin bằng model, rồi biến nó thành dashboard mà người ta thực sự mở ra dùng. Cả ba khâu — data engineering, analytics engineering và BI — chứ không dừng ở một mảng."
   },
   /** Short availability line. Set both languages to "" to hide the badge. */
   openTo: { en: "", vi: "" },
@@ -53,13 +57,13 @@ export const NAV_ITEMS: { id: string; label: Localized }[] = [
 ];
 
 /**
- * Quoted verbatim from LinkedIn — someone else's words, so the text is never
- * edited, and never translated either: a rewritten testimonial is no longer
- * the thing that was said. It stays in English under both languages, and the
- * Vietnamese view labels it as such. `paragraphs` preserves the original breaks.
+ * The English side is quoted verbatim from LinkedIn and is never edited — it is
+ * someone else's words. The Vietnamese side is a translation of it, labelled as
+ * one in the UI so a reader knows they are not reading what was literally
+ * written. `paragraphs` preserves the original breaks.
  */
 export const RECOMMENDATIONS: {
-  paragraphs: string[];
+  paragraphs: Text[];
   name: string;
   title: Text;
   company: string;
@@ -69,10 +73,22 @@ export const RECOMMENDATIONS: {
 }[] = [
   {
     paragraphs: [
-      "I had the pleasure of working with Tung on a Data Analysis internal project last year, and I can confidently say that he is a highly capable and dedicated team player. Throughout the project, Tung demonstrated strong analytical skills.",
-      "He worked effectively with the team, collaborating seamlessly across different functions and ensuring that data insights were both accurate and actionable. His ability to communicate findings in a clear and concise manner made a significant impact on our data governance framework.",
-      "Beyond his analytic skills, Tung is reliable, adaptable, and always willing to support his colleagues. His positive attitude and commitment to excellence made him a valuable asset to the team.",
-      "I highly recommend Tung for any role that requires strong data analysis, teamwork, and commitment. He would be an excellent addition to any team."
+      {
+        en: "I had the pleasure of working with Tung on a Data Analysis internal project last year, and I can confidently say that he is a highly capable and dedicated team player. Throughout the project, Tung demonstrated strong analytical skills.",
+        vi: "Năm ngoái tôi có dịp làm việc cùng Tung trong một dự án phân tích dữ liệu nội bộ, và tôi có thể khẳng định đây là một người vừa giỏi chuyên môn vừa hết mình với việc chung. Suốt dự án, Tung luôn cho thấy năng lực phân tích rất vững."
+      },
+      {
+        en: "He worked effectively with the team, collaborating seamlessly across different functions and ensuring that data insights were both accurate and actionable. His ability to communicate findings in a clear and concise manner made a significant impact on our data governance framework.",
+        vi: "Tung phối hợp ăn ý với cả nhóm, làm việc trơn tru với nhiều bộ phận khác nhau, và luôn đảm bảo những gì rút ra từ dữ liệu vừa chính xác vừa dùng được ngay. Cách Tung trình bày kết quả — gọn và rõ — đã tạo ra khác biệt đáng kể cho khung quản trị dữ liệu của chúng tôi."
+      },
+      {
+        en: "Beyond his analytic skills, Tung is reliable, adaptable, and always willing to support his colleagues. His positive attitude and commitment to excellence made him a valuable asset to the team.",
+        vi: "Ngoài chuyên môn phân tích, Tung là người đáng tin cậy, thích nghi nhanh và luôn sẵn sàng đỡ việc cho đồng nghiệp. Thái độ tích cực cùng tinh thần làm gì cũng làm tới nơi khiến Tung trở thành một thành viên quý của nhóm."
+      },
+      {
+        en: "I highly recommend Tung for any role that requires strong data analysis, teamwork, and commitment. He would be an excellent addition to any team.",
+        vi: "Tôi thực sự tin tưởng giới thiệu Tung cho bất kỳ vị trí nào cần năng lực phân tích dữ liệu, khả năng làm việc nhóm và sự cam kết. Đội ngũ nào có Tung cũng sẽ mạnh lên."
+      }
     ],
     name: "Fan Zhang",
     title: "General Manager, Digital Centre of Excellence",
@@ -100,7 +116,7 @@ export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[] }
     skills: ["Power BI", "Tableau", "Superset", "Metabase"]
   },
   {
-    name: { en: "Data Platforms & Storage", vi: "Nền tảng & Lưu trữ dữ liệu" },
+    name: { en: "Data Platforms & Storage", vi: "Nền tảng & Lưu trữ" },
     icon: <Database size={20} />,
     skills: ["Postgres", "MySQL", "SQL Server", "Snowflake", "Databricks", "Fabric"]
   },
@@ -126,7 +142,7 @@ export const PROJECTS: { title: string; description: Text; tech: string[]; link:
     title: "AeroStream Flight Analytics",
     description: {
       en: "38.3M US flights through a Medallion warehouse — dlt, ClickHouse, dbt, Superset, 12 Airflow DAGs, one docker compose. Departure time shifts delay odds ~5x, more than the airline you pick.",
-      vi: "38,3 triệu chuyến bay nội địa Mỹ chạy qua kho dữ liệu Medallion — dlt, ClickHouse, dbt, Superset, 12 Airflow DAG, một docker compose. Giờ khởi hành làm xác suất trễ lệch tới ~5 lần, nặng hơn cả việc chọn hãng nào."
+      vi: "38,3 triệu chuyến bay nội địa Mỹ đi qua một kho dữ liệu Medallion — dlt, ClickHouse, dbt, Superset, 12 DAG Airflow, gói gọn trong một docker compose. Bay giờ nào làm khả năng trễ lệch tới ~5 lần, ăn đứt chuyện bay hãng nào."
     },
     tech: ["dlt", "ClickHouse", "dbt", "Airflow", "Superset"],
     link: "https://github.com/TungNamNguyen/aerostream-flight-analytics",
@@ -136,7 +152,7 @@ export const PROJECTS: { title: string; description: Text; tech: string[]; link:
     title: "Data Engineering Templates",
     description: {
       en: "Docker Compose templates for a dozen data tools — Airflow, ClickHouse, dbt, Superset, MinIO and more — each version-pinned so a stack comes up in one command.",
-      vi: "Template Docker Compose cho hơn chục công cụ dữ liệu — Airflow, ClickHouse, dbt, Superset, MinIO và nhiều nữa — mỗi bản đều ghim phiên bản để dựng nguyên stack bằng một câu lệnh."
+      vi: "Bộ template Docker Compose cho hơn chục công cụ dữ liệu — Airflow, ClickHouse, dbt, Superset, MinIO và nhiều nữa. Phiên bản ghim sẵn hết, gõ một lệnh là cả stack chạy."
     },
     tech: ["Docker Compose", "Airflow", "ClickHouse", "dbt", "MinIO"],
     link: "https://github.com/TungNamNguyen/data-engineering-templates",
@@ -146,7 +162,7 @@ export const PROJECTS: { title: string; description: Text; tech: string[]; link:
     title: "GitLab API Data Pipeline",
     description: {
       en: "CLI that pulls GitLab project data into a SQLAlchemy-backed store, with OpenAPI-generated clients, full CRUD and credentials kept out of source.",
-      vi: "CLI kéo dữ liệu project từ GitLab vào kho lưu trữ chạy trên SQLAlchemy, với client sinh từ OpenAPI, CRUD đầy đủ và thông tin đăng nhập không nằm trong source."
+      vi: "CLI kéo dữ liệu project từ GitLab về kho lưu trữ chạy trên SQLAlchemy: client sinh tự động từ OpenAPI, CRUD đầy đủ, thông tin đăng nhập không bao giờ nằm trong source."
     },
     tech: ["Python", "SQLAlchemy", "OpenAPI", "SQLite"],
     link: "https://github.com/TungNamNguyen/gitlab-api-data-pipeline",
@@ -156,7 +172,7 @@ export const PROJECTS: { title: string; description: Text; tech: string[]; link:
     title: "Fall Detection System",
     description: {
       en: "Real-time fall detection from an RGB camera. Benchmarks YOLOv8, MediaPipe and MoveNet behind a Tkinter GUI with keypoint logging and audible alerts. University industry project.",
-      vi: "Phát hiện té ngã theo thời gian thực từ camera RGB. So sánh YOLOv8, MediaPipe và MoveNet sau giao diện Tkinter, có ghi log keypoint và cảnh báo bằng âm thanh. Đồ án doanh nghiệp tại trường."
+      vi: "Phát hiện té ngã theo thời gian thực chỉ bằng camera RGB. So kè YOLOv8, MediaPipe và MoveNet trong cùng một giao diện Tkinter, có ghi log keypoint và cảnh báo bằng âm thanh. Đồ án hợp tác doanh nghiệp ở trường."
     },
     tech: ["Python", "YOLOv8", "MediaPipe", "MoveNet"],
     link: "https://github.com/TungNamNguyen/fall-detection-system",
@@ -170,7 +186,7 @@ export const EXPERIENCE: TimelineEntry[] = [
     subtitle: "VPBank",
     logo: "/icons/vpbank.svg",
     url: "https://www.vpbank.com.vn",
-    location: { en: "Hanoi Capital Region, Vietnam", vi: "Vùng Thủ đô Hà Nội, Việt Nam" },
+    location: { en: "Hanoi Capital Region, Vietnam", vi: "Hà Nội, Việt Nam" },
     companyNote: {
       en: "One of Vietnam's largest private joint-stock commercial banks",
       vi: "Một trong những ngân hàng thương mại cổ phần tư nhân lớn nhất Việt Nam"
@@ -180,15 +196,15 @@ export const EXPERIENCE: TimelineEntry[] = [
     points: [
       {
         en: "Managed and optimized end-to-end data pipelines for 10+ Power BI lending reports, migrating SQL stored procedures from on-premises SQL Server to Amazon Redshift, reducing processing time by 25%.",
-        vi: "Quản lý và tối ưu pipeline dữ liệu đầu–cuối cho hơn 10 báo cáo Power BI mảng tín dụng, chuyển stored procedure từ SQL Server on-premises sang Amazon Redshift, giảm 25% thời gian xử lý."
+        vi: "Vận hành và tối ưu toàn bộ đường dữ liệu cho hơn 10 báo cáo Power BI mảng tín dụng; chuyển stored procedure từ SQL Server on-premises sang Amazon Redshift, cắt 25% thời gian xử lý."
       },
       {
         en: "Owned end-to-end development of the SME Debt Management module, translating stakeholder requirements into Redshift data models and Power BI dashboards for monitoring NPL, debt classification, and credit quality.",
-        vi: "Phụ trách toàn bộ quá trình phát triển module Quản lý Nợ SME, chuyển yêu cầu của các bên liên quan thành mô hình dữ liệu trên Redshift và dashboard Power BI theo dõi NPL, phân loại nợ và chất lượng tín dụng."
+        vi: "Chủ trì module Quản lý Nợ SME từ đầu đến cuối: biến yêu cầu nghiệp vụ thành mô hình dữ liệu trên Redshift và dashboard Power BI theo dõi nợ xấu (NPL), phân loại nợ và chất lượng tín dụng."
       },
       {
         en: "Analyzed SME loan-processing turnaround time (TAT) across 15+ workflow stages, identifying process bottlenecks and delivering actionable insights to business leadership to prioritize workflow improvements.",
-        vi: "Phân tích thời gian xử lý hồ sơ vay SME (TAT) qua hơn 15 bước quy trình, chỉ ra điểm nghẽn và đưa khuyến nghị cho ban lãnh đạo để ưu tiên cải tiến quy trình."
+        vi: "Phân tích thời gian xử lý hồ sơ vay SME (TAT) qua hơn 15 bước quy trình, chỉ ra chỗ nào đang tắc và đề xuất với ban lãnh đạo nên cải tiến khâu nào trước."
       }
     ]
   },
@@ -197,7 +213,7 @@ export const EXPERIENCE: TimelineEntry[] = [
     subtitle: "CMC Global",
     logo: "/icons/cmcglobal.svg",
     url: "https://cmcglobal.com.vn",
-    location: { en: "Hanoi Capital Region, Vietnam", vi: "Vùng Thủ đô Hà Nội, Việt Nam" },
+    location: { en: "Hanoi Capital Region, Vietnam", vi: "Hà Nội, Việt Nam" },
     companyNote: {
       en: "Leading Vietnamese IT services and digital transformation provider",
       vi: "Nhà cung cấp dịch vụ CNTT và chuyển đổi số hàng đầu Việt Nam"
@@ -206,15 +222,15 @@ export const EXPERIENCE: TimelineEntry[] = [
     points: [
       {
         en: "Designed source-to-target data mappings for 20+ tables across multiple source systems, defining standardized schemas and transformation logic to improve data consistency and support downstream analytical models.",
-        vi: "Thiết kế mapping source-to-target cho hơn 20 bảng từ nhiều hệ thống nguồn, chuẩn hóa schema và logic biến đổi để tăng tính nhất quán dữ liệu và phục vụ các mô hình phân tích phía sau."
+        vi: "Thiết kế mapping source-to-target cho hơn 20 bảng từ nhiều hệ thống nguồn, chuẩn hoá schema và logic biến đổi để dữ liệu khớp nhau và các mô hình phân tích phía sau dùng được ngay."
       },
       {
         en: "Developed 8 Spark jobs for Silver-to-Gold transformations, implementing business rules and aggregations to create curated Gold-layer datasets for BI reporting and dashboard consumption.",
-        vi: "Xây dựng 8 Spark job cho bước biến đổi Silver sang Gold, cài đặt business rule và các phép tổng hợp để tạo bộ dữ liệu tầng Gold phục vụ báo cáo BI và dashboard."
+        vi: "Viết 8 Spark job cho bước Silver sang Gold, cài business rule và các phép tổng hợp để dựng bộ dữ liệu tầng Gold phục vụ báo cáo BI và dashboard."
       },
       {
         en: "Implemented 60+ SQL-based data validation checks across Bronze, Silver, and Gold tables, validating transformation logic, record consistency, and key business metrics across layers.",
-        vi: "Triển khai hơn 60 kiểm tra dữ liệu bằng SQL trên các bảng Bronze, Silver và Gold, đối chiếu logic biến đổi, tính nhất quán bản ghi và các chỉ số nghiệp vụ trọng yếu giữa các tầng."
+        vi: "Dựng hơn 60 phép kiểm tra dữ liệu bằng SQL trên cả ba tầng Bronze, Silver và Gold, soát lại logic biến đổi, độ khớp bản ghi và các chỉ số nghiệp vụ quan trọng giữa các tầng."
       }
     ]
   },
@@ -235,11 +251,11 @@ export const EXPERIENCE: TimelineEntry[] = [
     points: [
       {
         en: "Developed and optimized ETL pipelines with Python and Airflow to ingest HubSpot API data into 8 PostgreSQL tables, establishing a centralized single source of truth and improving data retrieval speed by 40%.",
-        vi: "Phát triển và tối ưu pipeline ETL bằng Python và Airflow để nạp dữ liệu HubSpot API vào 8 bảng PostgreSQL, tạo nguồn dữ liệu tập trung duy nhất và tăng 40% tốc độ truy xuất."
+        vi: "Dựng và tối ưu pipeline ETL bằng Python và Airflow để đưa dữ liệu HubSpot API vào 8 bảng PostgreSQL, gom tất cả về một nguồn dữ liệu duy nhất và tăng 40% tốc độ truy xuất."
       },
       {
         en: "Built 4 Superset dashboards, improving access to operational insights and reducing decision-making time by 25%.",
-        vi: "Xây dựng 4 dashboard Superset, giúp tiếp cận thông tin vận hành dễ hơn và giảm 25% thời gian ra quyết định."
+        vi: "Dựng 4 dashboard Superset, giúp bộ phận vận hành nắm số liệu nhanh hơn và rút 25% thời gian ra quyết định."
       }
     ]
   },
@@ -257,11 +273,11 @@ export const EXPERIENCE: TimelineEntry[] = [
     points: [
       {
         en: "Built and orchestrated ELT pipelines with Fabric Data Factory, Dataflow Gen2, and T-SQL to backfill 500K+ historical Dynamics 365 Business Central records into Microsoft Fabric Data Warehouse and enable daily incremental loads.",
-        vi: "Xây dựng và điều phối pipeline ELT bằng Fabric Data Factory, Dataflow Gen2 và T-SQL để nạp bù hơn 500 nghìn bản ghi lịch sử từ Dynamics 365 Business Central vào Microsoft Fabric Data Warehouse, đồng thời chạy incremental load hằng ngày."
+        vi: "Dựng và điều phối pipeline ELT bằng Fabric Data Factory, Dataflow Gen2 và T-SQL: nạp bù hơn 500 nghìn bản ghi lịch sử từ Dynamics 365 Business Central vào Microsoft Fabric Data Warehouse, rồi cho chạy incremental load hằng ngày."
       },
       {
         en: "Delivered 3 Power BI dashboards with 50+ DAX measures for 4 stakeholders, reducing report preparation time from 3 days to 1 day and enabling faster performance tracking.",
-        vi: "Bàn giao 3 dashboard Power BI với hơn 50 measure DAX cho 4 bên liên quan, rút thời gian chuẩn bị báo cáo từ 3 ngày xuống 1 ngày và theo dõi hiệu suất nhanh hơn."
+        vi: "Bàn giao 3 dashboard Power BI với hơn 50 measure DAX cho 4 bên liên quan, rút thời gian làm báo cáo từ 3 ngày xuống còn 1 ngày."
       }
     ]
   }
@@ -285,7 +301,7 @@ export const EDUCATION: TimelineEntry[] = [
     awards: [
       {
         title: "Swinburne International Excellence Scholarship",
-        value: { en: "75% of tuition for the full degree", vi: "75% học phí toàn khóa" }
+        value: { en: "75% of tuition for the full degree", vi: "75% học phí toàn khoá" }
       }
     ]
   },
@@ -293,7 +309,7 @@ export const EDUCATION: TimelineEntry[] = [
     title: { en: "High School Diploma", vi: "Bằng tốt nghiệp THPT" },
     subtitle: {
       en: "Hanoi-Amsterdam High School for the Gifted",
-      vi: "Trường THPT Chuyên Hà Nội – Amsterdam"
+      vi: "THPT Chuyên Hà Nội – Amsterdam"
     },
     logo: "/icons/hnams.png",
     logoFill: true,
@@ -302,13 +318,13 @@ export const EDUCATION: TimelineEntry[] = [
     period: { en: "Sep 2018 — May 2021", vi: "09/2018 — 05/2021" },
     stats: [
       { label: "GPA", value: "9.6 / 10" },
-      { label: { en: "Cohort rank", vi: "Xếp hạng khóa" }, value: "Top 5%" }
+      { label: { en: "Cohort rank", vi: "Xếp hạng khoá" }, value: "Top 5%" }
     ],
     grades: {
       heading: "A Levels",
       items: [
         { subject: { en: "Mathematics", vi: "Toán" }, grade: "A*" },
-        { subject: { en: "Chemistry", vi: "Hóa học" }, grade: "A*" },
+        { subject: { en: "Chemistry", vi: "Hoá học" }, grade: "A*" },
         { subject: { en: "Business", vi: "Kinh doanh" }, grade: "B" }
       ]
     }
