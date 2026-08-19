@@ -31,7 +31,7 @@ export const SITE = {
    */
   bio: {
     en: "Pipelines that land the data, models that make it trustworthy, dashboards that get it used. I work the full span of data engineering, analytics engineering and BI, not one slice.",
-    vi: "Mình đưa dữ liệu về bằng pipeline, làm cho nó đáng tin bằng model, rồi biến nó thành dashboard mà người ta thực sự mở ra dùng. Cả ba khâu — data engineering, analytics engineering và BI — chứ không dừng ở một mảng."
+    vi: "Mình đưa dữ liệu về bằng pipeline, mô hình hoá để nó đáng tin, rồi dựng dashboard để nó thực sự được dùng. Từ data engineering, analytics engineering đến BI, mình làm hết cả chuỗi chứ không dừng ở một khâu."
   },
   /** Short availability line. Set both languages to "" to hide the badge. */
   openTo: { en: "", vi: "" },
@@ -106,7 +106,7 @@ export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[] }
     skills: ["SQL", "Python", "Bash"]
   },
   {
-    name: "Data Engineering",
+    name: { en: "Data Engineering", vi: "Kỹ thuật dữ liệu" },
     icon: <GitBranch size={20} />,
     skills: ["dbt", "dlt", "Spark", "Airflow"]
   },
@@ -116,7 +116,7 @@ export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[] }
     skills: ["Power BI", "Tableau", "Superset", "Metabase"]
   },
   {
-    name: { en: "Data Platforms & Storage", vi: "Nền tảng & Lưu trữ" },
+    name: { en: "Data Platforms & Storage", vi: "Nền tảng & Lưu trữ dữ liệu" },
     icon: <Database size={20} />,
     skills: ["Postgres", "MySQL", "SQL Server", "Snowflake", "Databricks", "Fabric"]
   },
@@ -126,7 +126,7 @@ export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[] }
     skills: ["Git", "Docker", "AWS", "Azure", "Terraform"]
   },
   {
-    name: { en: "Tools & Collaboration", vi: "Công cụ & Cộng tác" },
+    name: { en: "Tools & Collaboration", vi: "Công cụ & Làm việc nhóm" },
     icon: <Wrench size={20} />,
     skills: ["DBeaver", "Jira", "Confluence", "Trello", "Teams", "Slack"]
   }
@@ -142,7 +142,7 @@ export const PROJECTS: { title: string; description: Text; tech: string[]; link:
     title: "AeroStream Flight Analytics",
     description: {
       en: "38.3M US flights through a Medallion warehouse — dlt, ClickHouse, dbt, Superset, 12 Airflow DAGs, one docker compose. Departure time shifts delay odds ~5x, more than the airline you pick.",
-      vi: "38,3 triệu chuyến bay nội địa Mỹ đi qua một kho dữ liệu Medallion — dlt, ClickHouse, dbt, Superset, 12 DAG Airflow, gói gọn trong một docker compose. Bay giờ nào làm khả năng trễ lệch tới ~5 lần, ăn đứt chuyện bay hãng nào."
+      vi: "38,3 triệu chuyến bay nội địa Mỹ chạy qua một kho dữ liệu Medallion dựng bằng dlt, ClickHouse, dbt và Superset, với 12 DAG Airflow, tất cả gói trong một docker compose. Hoá ra chọn giờ bay ảnh hưởng tới khả năng trễ gấp khoảng 5 lần so với chọn hãng."
     },
     tech: ["dlt", "ClickHouse", "dbt", "Airflow", "Superset"],
     link: "https://github.com/TungNamNguyen/aerostream-flight-analytics",
@@ -152,7 +152,7 @@ export const PROJECTS: { title: string; description: Text; tech: string[]; link:
     title: "Data Engineering Templates",
     description: {
       en: "Docker Compose templates for a dozen data tools — Airflow, ClickHouse, dbt, Superset, MinIO and more — each version-pinned so a stack comes up in one command.",
-      vi: "Bộ template Docker Compose cho hơn chục công cụ dữ liệu — Airflow, ClickHouse, dbt, Superset, MinIO và nhiều nữa. Phiên bản ghim sẵn hết, gõ một lệnh là cả stack chạy."
+      vi: "Bộ template Docker Compose cho hơn chục công cụ dữ liệu: Airflow, ClickHouse, dbt, Superset, MinIO và nhiều thứ khác. Mỗi template đều ghim sẵn phiên bản, nên chỉ một câu lệnh là cả stack sẵn sàng."
     },
     tech: ["Docker Compose", "Airflow", "ClickHouse", "dbt", "MinIO"],
     link: "https://github.com/TungNamNguyen/data-engineering-templates",
@@ -162,7 +162,7 @@ export const PROJECTS: { title: string; description: Text; tech: string[]; link:
     title: "GitLab API Data Pipeline",
     description: {
       en: "CLI that pulls GitLab project data into a SQLAlchemy-backed store, with OpenAPI-generated clients, full CRUD and credentials kept out of source.",
-      vi: "CLI kéo dữ liệu project từ GitLab về kho lưu trữ chạy trên SQLAlchemy: client sinh tự động từ OpenAPI, CRUD đầy đủ, thông tin đăng nhập không bao giờ nằm trong source."
+      vi: "Công cụ dòng lệnh kéo dữ liệu project từ GitLab về một kho lưu trữ chạy trên SQLAlchemy. Client được sinh tự động từ OpenAPI, hỗ trợ CRUD đầy đủ, và thông tin đăng nhập luôn nằm ngoài source."
     },
     tech: ["Python", "SQLAlchemy", "OpenAPI", "SQLite"],
     link: "https://github.com/TungNamNguyen/gitlab-api-data-pipeline",
@@ -172,7 +172,7 @@ export const PROJECTS: { title: string; description: Text; tech: string[]; link:
     title: "Fall Detection System",
     description: {
       en: "Real-time fall detection from an RGB camera. Benchmarks YOLOv8, MediaPipe and MoveNet behind a Tkinter GUI with keypoint logging and audible alerts. University industry project.",
-      vi: "Phát hiện té ngã theo thời gian thực chỉ bằng camera RGB. So kè YOLOv8, MediaPipe và MoveNet trong cùng một giao diện Tkinter, có ghi log keypoint và cảnh báo bằng âm thanh. Đồ án hợp tác doanh nghiệp ở trường."
+      vi: "Phát hiện té ngã theo thời gian thực chỉ với một camera RGB. Ba mô hình YOLOv8, MediaPipe và MoveNet được đo thử ngay trong cùng một giao diện Tkinter, kèm ghi log keypoint và cảnh báo bằng âm thanh. Đồ án hợp tác doanh nghiệp ở trường."
     },
     tech: ["Python", "YOLOv8", "MediaPipe", "MoveNet"],
     link: "https://github.com/TungNamNguyen/fall-detection-system",
