@@ -2,15 +2,17 @@ import { motion, useReducedMotion } from "motion/react";
 import { Quote, ExternalLink } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { RECOMMENDATIONS } from "../constants";
+import { useLang } from "../i18n";
 
 export default function Recommendations() {
   const reduceMotion = useReducedMotion();
+  const { t, ui } = useLang();
 
   if (RECOMMENDATIONS.length === 0) return null;
 
   return (
     <section id="recommendations" className="space-y-8 sm:space-y-10">
-      <SectionHeading>Recommendations</SectionHeading>
+      <SectionHeading>{ui.recommendations}</SectionHeading>
 
       <div className="space-y-6">
         {RECOMMENDATIONS.map((rec, i) => (
@@ -34,7 +36,10 @@ export default function Recommendations() {
               characters a line. Stacked below `sm`, where there is no gutter.
             */}
             <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-10">
-              <blockquote className="relative space-y-4 text-base sm:text-lg leading-relaxed text-slate-600 sm:flex-1 dark:text-slate-300">
+              <blockquote
+                lang="en"
+                className="relative space-y-4 text-base sm:text-lg leading-relaxed text-slate-600 sm:flex-1 dark:text-slate-300"
+              >
                 {rec.paragraphs.map((paragraph, j) => (
                   <p key={j}>{paragraph}</p>
                 ))}
@@ -88,8 +93,16 @@ export default function Recommendations() {
                   )}
 
                   <p className="mt-0.5 text-sm text-slate-600 dark:text-slate-400">
-                    {rec.title} at {rec.company}
+                    {t(rec.title)} {ui.at} {rec.company}
                   </p>
+
+                  {/* Only the Vietnamese view says this — in English there is
+                      nothing to point out. */}
+                  {ui.originalEnglish && (
+                    <p className="mt-1.5 text-xs text-slate-500 dark:text-slate-500">
+                      {ui.originalEnglish}
+                    </p>
+                  )}
                 </div>
               </figcaption>
             </div>

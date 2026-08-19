@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
+import { useLang } from "../i18n";
 
 /** Reads the class the inline script in index.html already applied. */
 function getInitialTheme() {
@@ -27,6 +28,7 @@ function Star({ x, y, r, o }: { x: number; y: number; r: number; o: number }) {
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(getInitialTheme);
   const reduceMotion = useReducedMotion();
+  const { ui } = useLang();
 
   const toggleTheme = () => {
     const newDark = !isDark;
@@ -45,7 +47,7 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       role="switch"
       aria-checked={isDark}
-      aria-label="Dark mode"
+      aria-label={ui.darkMode}
       className="relative h-8 w-16 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-900/10 transition-shadow hover:shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:ring-white/15 dark:focus-visible:ring-offset-slate-900"
     >
       {/* Daytime: a pale sky over a soft rise, both drawn from the site's blues. */}

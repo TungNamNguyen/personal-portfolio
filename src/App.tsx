@@ -14,8 +14,10 @@ import Skills from "./components/Skills";
 import SectionHeading from "./components/SectionHeading";
 import BackToTop from "./components/BackToTop";
 import Footer from "./components/Footer";
+import { useLang } from "./i18n";
 
 export default function App() {
+  const { ui } = useLang();
   const { scrollYProgress } = useScroll();
   const reduceMotion = useReducedMotion();
   const scaleX = useSpring(scrollYProgress, {
@@ -39,7 +41,7 @@ export default function App() {
         <Hero />
 
         <section id="skills" className="space-y-8 sm:space-y-10">
-          <SectionHeading>Skills</SectionHeading>
+          <SectionHeading>{ui.skills}</SectionHeading>
           <Skills />
         </section>
 

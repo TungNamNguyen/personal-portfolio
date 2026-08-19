@@ -5,6 +5,7 @@ import SiGithub from "~icons/simple-icons/github";
 import FaLinkedin from "~icons/simple-icons/linkedin";
 import SiTableau from "~icons/simple-icons/tableau";
 import { SITE } from "../constants";
+import { useLang } from "../i18n";
 
 const buttonBase =
   "inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900";
@@ -14,10 +15,10 @@ const buttonBase =
 // pair can never drift apart visually.
 const resumeClass = `${buttonBase} border border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800`;
 
-const resumeLabel = (
+const resumeLabel = (label: string) => (
   <>
     <Download size={18} aria-hidden="true" />
-    Download resume
+    {label}
   </>
 );
 
@@ -34,6 +35,10 @@ const socialLink =
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
+  const { t, ui } = useLang();
+  // Resolved up front: the badge hides on an empty string, and an unresolved
+  // { en: "", vi: "" } pair is an object, which is always truthy.
+  const openTo = t(SITE.openTo);
 
   return (
     // The hero doubles as the About section, so it owns the #about anchor.
@@ -58,19 +63,19 @@ export default function Hero() {
 
         <div className="space-y-3">
           <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-blue-600 dark:text-blue-400">
-            {SITE.role} @ {SITE.company}
+            {t(SITE.role)} @ {SITE.company}
           </p>
 
-          {SITE.openTo && (
+          {openTo && (
             <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              {SITE.openTo}
+              {openTo}
             </span>
           )}
         </div>
 
         <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-          {SITE.bio}
+          {t(SITE.bio)}
         </p>
 
         <motion.div
@@ -91,7 +96,7 @@ export default function Hero() {
               className={`${buttonBase} bg-slate-900 dark:bg-blue-600 text-white hover:bg-slate-800 dark:hover:bg-blue-500`}
             >
               <Mail size={18} aria-hidden="true" />
-              Get in touch
+              {ui.getInTouch}
             </motion.a>
 
             {SITE.resumeUrl ? (
@@ -101,7 +106,7 @@ export default function Hero() {
                 download
                 className={resumeClass}
               >
-                {resumeLabel}
+                {resumeLabel(ui.downloadResume)}
               </motion.a>
             ) : (
               <motion.button
@@ -109,7 +114,7 @@ export default function Hero() {
                 whileTap={reduceMotion ? undefined : { scale: 0.98 }}
                 className={resumeClass}
               >
-                {resumeLabel}
+                {resumeLabel(ui.downloadResume)}
               </motion.button>
             )}
           </div>

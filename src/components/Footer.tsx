@@ -2,11 +2,16 @@ import SiGithub from "~icons/simple-icons/github";
 import FaLinkedin from "~icons/simple-icons/linkedin";
 import SiTableau from "~icons/simple-icons/tableau";
 import { SITE } from "../constants";
+import { useLang } from "../i18n";
 
 const iconLink =
   "rounded-sm hover:text-slate-900 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900";
 
 export default function Footer() {
+  const { t } = useLang();
+  // Same reason as the hero: an { en: "", vi: "" } pair is truthy until resolved.
+  const openTo = t(SITE.openTo);
+
   return (
     <footer className="border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 py-10 sm:py-12 mt-20 sm:mt-24 transition-colors duration-300">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
@@ -15,7 +20,7 @@ export default function Footer() {
             <div className="font-mono font-bold text-lg tracking-tighter text-slate-900 dark:text-white">
               {SITE.name}
             </div>
-            <p className="text-sm text-slate-600 dark:text-slate-400">{SITE.role}</p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">{t(SITE.role)}</p>
           </div>
 
           {/*
@@ -25,8 +30,8 @@ export default function Footer() {
             rather than hidden behind an icon so it can be copied at a glance.
           */}
           <div className="flex flex-col items-center gap-1 text-center">
-            {SITE.openTo && (
-              <p className="text-sm font-medium text-slate-900 dark:text-white">{SITE.openTo}</p>
+            {openTo && (
+              <p className="text-sm font-medium text-slate-900 dark:text-white">{openTo}</p>
             )}
             <a
               href={`mailto:${SITE.email}`}

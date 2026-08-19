@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import ThemeToggle from "./ThemeToggle";
+import LanguageToggle from "./LanguageToggle";
 import { NAV_ITEMS } from "../constants";
+import { useLang } from "../i18n";
 
 const linkClass =
   "rounded-sm transition-colors hover:text-slate-900 dark:hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900";
@@ -40,6 +42,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const activeSection = useActiveSection();
   const reduceMotion = useReducedMotion();
+  const { t, ui } = useLang();
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -97,21 +100,23 @@ export default function Header() {
                   : ""
               }`}
             >
-              {item.label}
+              {t(item.label)}
             </a>
           ))}
           <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 mx-1"></div>
+          <LanguageToggle />
           <ThemeToggle />
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <div className="flex items-center gap-4 md:hidden">
+        <div className="flex items-center gap-2.5 md:hidden">
+          <LanguageToggle />
           <ThemeToggle />
           <button
             ref={toggleButtonRef}
             onClick={() => setIsMobileMenuOpen((open) => !open)}
             className={`text-slate-600 dark:text-slate-400 ${linkClass}`}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-label={isMobileMenuOpen ? ui.closeMenu : ui.openMenu}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-nav"
           >
@@ -145,7 +150,7 @@ export default function Header() {
                       : ""
                   }`}
                 >
-                  {item.label}
+                  {t(item.label)}
                 </a>
               ))}
             </nav>

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { SKILL_CATEGORIES } from "../constants";
+import { useLang } from "../i18n";
 import { Database } from "lucide-react";
 
 // Full-colour brand marks. `~icons/*` is resolved by unplugin-icons at build
@@ -100,6 +101,7 @@ const SKILL_ICON_MAP: Record<string, ReactNode> = {
 
 export default function Skills() {
   const reduceMotion = useReducedMotion();
+  const { t } = useLang();
 
   return (
     // Cards stretch to a uniform height per row. SKILL_CATEGORIES is ordered so
@@ -117,7 +119,7 @@ export default function Skills() {
         >
           <div className="flex items-center gap-3 text-slate-900 dark:text-white">
             <div className="text-blue-600 dark:text-blue-400">{category.icon}</div>
-            <h3 className="font-mono text-sm font-semibold uppercase tracking-wide">{category.name}</h3>
+            <h3 className="font-mono text-sm font-semibold uppercase tracking-wide">{t(category.name)}</h3>
           </div>
           <div className="flex flex-wrap gap-2.5">
             {category.skills.map((skill, j) => (

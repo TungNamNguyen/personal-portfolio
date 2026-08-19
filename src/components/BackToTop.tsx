@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
+import { useLang } from "../i18n";
 
 /** Distance scrolled before the button is worth showing (~one viewport). */
 const SHOW_AFTER = 600;
@@ -8,6 +9,7 @@ const SHOW_AFTER = 600;
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
   const reduceMotion = useReducedMotion();
+  const { ui } = useLang();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > SHOW_AFTER);
@@ -28,7 +30,7 @@ export default function BackToTop() {
         <motion.button
           type="button"
           onClick={scrollToTop}
-          aria-label="Back to top"
+          aria-label={ui.backToTop}
           initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 12 }}

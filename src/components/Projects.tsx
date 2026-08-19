@@ -2,13 +2,15 @@ import { motion, useReducedMotion } from "motion/react";
 import { ExternalLink } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { PROJECTS } from "../constants";
+import { useLang } from "../i18n";
 
 export default function Projects() {
   const reduceMotion = useReducedMotion();
+  const { t, ui } = useLang();
 
   return (
     <section id="projects" className="space-y-8 sm:space-y-10">
-      <SectionHeading>Projects</SectionHeading>
+      <SectionHeading>{ui.projects}</SectionHeading>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {PROJECTS.map((project, i) => (
@@ -34,7 +36,7 @@ export default function Projects() {
                   target="_blank"
                   rel="noreferrer"
                   className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-2 -mr-2 -mt-2 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                  aria-label={`Open ${project.title}`}
+                  aria-label={`${ui.open} ${project.title}`}
                 >
                   <ExternalLink size={20} />
                 </motion.a>
@@ -44,7 +46,7 @@ export default function Projects() {
               {project.title}
             </h3>
             <p className="text-slate-600 dark:text-slate-400 mb-8 text-sm sm:text-base leading-relaxed flex-1">
-              {project.description}
+              {t(project.description)}
             </p>
             <div className="flex flex-wrap gap-2 mt-auto">
               {project.tech.map((t, j) => (
