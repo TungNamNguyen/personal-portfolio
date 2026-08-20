@@ -31,7 +31,7 @@ export const SITE = {
    */
   bio: {
     en: "Pipelines that land the data, models that make it trustworthy, dashboards that get it used. I work the full span of data engineering, analytics engineering and BI, not one slice.",
-    vi: "Mình đưa dữ liệu về bằng pipeline, mô hình hoá để nó đáng tin, rồi dựng dashboard để nó thực sự được dùng. Từ data engineering, analytics engineering đến BI, mình làm hết cả chuỗi chứ không dừng ở một khâu."
+    vi: "Mình theo dữ liệu suốt chặng đường: từ lúc nó còn nằm trong hệ thống nguồn, qua pipeline và model, tới khi thành cái dashboard sáng nào cũng có người mở. Data engineering, analytics engineering hay BI — với mình vẫn là một việc, không phải ba."
   },
   /** Short availability line. Set both languages to "" to hide the badge. */
   openTo: { en: "", vi: "" },
@@ -142,7 +142,7 @@ export const PROJECTS: { title: string; description: Text; tech: string[]; link:
     title: "AeroStream Flight Analytics",
     description: {
       en: "38.3M US flights through a Medallion warehouse — dlt, ClickHouse, dbt, Superset, 12 Airflow DAGs, one docker compose. Departure time shifts delay odds ~5x, more than the airline you pick.",
-      vi: "38,3 triệu chuyến bay nội địa Mỹ chạy qua một kho dữ liệu Medallion dựng bằng dlt, ClickHouse, dbt và Superset, với 12 DAG Airflow, tất cả gói trong một docker compose. Hoá ra chọn giờ bay ảnh hưởng tới khả năng trễ gấp khoảng 5 lần so với chọn hãng."
+      vi: "38,3 triệu chuyến bay nội địa Mỹ, chạy qua một kho dữ liệu Medallion dựng bằng dlt, ClickHouse, dbt và Superset — 12 DAG Airflow, gói gọn trong một docker compose. Và hoá ra, muốn đỡ trễ thì chọn giờ bay quan trọng gấp khoảng 5 lần chọn hãng."
     },
     tech: ["dlt", "ClickHouse", "dbt", "Airflow", "Superset"],
     link: "https://github.com/TungNamNguyen/aerostream-flight-analytics",
@@ -152,7 +152,7 @@ export const PROJECTS: { title: string; description: Text; tech: string[]; link:
     title: "Data Engineering Templates",
     description: {
       en: "Docker Compose templates for a dozen data tools — Airflow, ClickHouse, dbt, Superset, MinIO and more — each version-pinned so a stack comes up in one command.",
-      vi: "Bộ template Docker Compose cho hơn chục công cụ dữ liệu: Airflow, ClickHouse, dbt, Superset, MinIO và nhiều thứ khác. Mỗi template đều ghim sẵn phiên bản, nên chỉ một câu lệnh là cả stack sẵn sàng."
+      vi: "Hơn chục công cụ dữ liệu — Airflow, ClickHouse, dbt, Superset, MinIO — mỗi thứ một file Docker Compose, phiên bản ghim sẵn. Gõ một lệnh là cả stack chạy, khỏi mất nguyên buổi chiều dựng lại từ đầu."
     },
     tech: ["Docker Compose", "Airflow", "ClickHouse", "dbt", "MinIO"],
     link: "https://github.com/TungNamNguyen/data-engineering-templates",
@@ -162,7 +162,7 @@ export const PROJECTS: { title: string; description: Text; tech: string[]; link:
     title: "GitLab API Data Pipeline",
     description: {
       en: "CLI that pulls GitLab project data into a SQLAlchemy-backed store, with OpenAPI-generated clients, full CRUD and credentials kept out of source.",
-      vi: "Công cụ dòng lệnh kéo dữ liệu project từ GitLab về một kho lưu trữ chạy trên SQLAlchemy. Client được sinh tự động từ OpenAPI, hỗ trợ CRUD đầy đủ, và thông tin đăng nhập luôn nằm ngoài source."
+      vi: "Công cụ dòng lệnh kéo dữ liệu project từ GitLab về một kho SQLAlchemy. Client sinh thẳng từ OpenAPI nên khỏi viết tay, CRUD có đủ, còn credential thì không bao giờ lọt vào source."
     },
     tech: ["Python", "SQLAlchemy", "OpenAPI", "SQLite"],
     link: "https://github.com/TungNamNguyen/gitlab-api-data-pipeline",
@@ -172,7 +172,7 @@ export const PROJECTS: { title: string; description: Text; tech: string[]; link:
     title: "Fall Detection System",
     description: {
       en: "Real-time fall detection from an RGB camera. Benchmarks YOLOv8, MediaPipe and MoveNet behind a Tkinter GUI with keypoint logging and audible alerts. University industry project.",
-      vi: "Phát hiện té ngã theo thời gian thực chỉ với một camera RGB. Ba mô hình YOLOv8, MediaPipe và MoveNet được đo thử ngay trong cùng một giao diện Tkinter, kèm ghi log keypoint và cảnh báo bằng âm thanh. Đồ án hợp tác doanh nghiệp ở trường."
+      vi: "Phát hiện té ngã theo thời gian thực, chỉ cần một camera RGB thường. YOLOv8, MediaPipe và MoveNet đặt cạnh nhau đo thử trong cùng một giao diện Tkinter, có ghi log keypoint và phát hiện ngã là báo động ngay. Đồ án hợp tác doanh nghiệp ở trường."
     },
     tech: ["Python", "YOLOv8", "MediaPipe", "MoveNet"],
     link: "https://github.com/TungNamNguyen/fall-detection-system",
