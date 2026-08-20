@@ -4,7 +4,7 @@ Cropped to 1000x380 and re-encoded as WebP.
 
 | File | Source | Licence |
 | --- | --- | --- |
-| `aerostream.webp` | Own work — `docs/images/chart-delay-heatmap.png` from [aerostream-flight-analytics](https://github.com/TungNamNguyen/aerostream-flight-analytics) | — |
+| `aerostream.webp` | Own work — `docs/images/chart-route-map.png` from [aerostream-flight-analytics](https://github.com/TungNamNguyen/aerostream-flight-analytics), cropped to the mainland | — |
 | `templates.webp` | Docker's own lockup, knocked out white over its brand blue — [*Docker (container engine) logo.svg*](https://commons.wikimedia.org/wiki/File:Docker_(container_engine)_logo.svg) | Apache 2.0 |
 | `gitlab.webp` | StockSnap.io `1STVFMTBJY` — syntax-highlighted source | CC0 |
 | `fall-detection.webp` | StockSnap.io `E8U0GNCPI8` — dome surveillance camera | CC0 |
