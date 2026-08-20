@@ -8,12 +8,15 @@ import { useLang } from "../i18n";
 import { TechIcon } from "../techIcons";
 import { COVER_BG, ProjectCover } from "../projectCovers";
 
-type Filter = ProjectTag | "all";
+type Filter = ProjectTag | "featured";
 
 export default function Projects() {
   const reduceMotion = useReducedMotion();
   const { t, ui } = useLang();
-  const [filter, setFilter] = useState<Filter>("all");
+  // Opens on the picked subset rather than on everything: with seven projects,
+  // four chosen ones say more than all seven at once. Every project still
+  // carries a category tag, so none of them is unreachable.
+  const [filter, setFilter] = useState<Filter>("featured");
 
   /*
     Counts are derived from the data rather than written down, so a chip can
@@ -23,17 +26,23 @@ export default function Projects() {
   const chips = useMemo(() => {
     const tags = Object.keys(PROJECT_TAGS) as ProjectTag[];
     return [
-      { key: "all" as Filter, label: ui.allProjects, count: PROJECTS.length },
+      {
+        key: "featured" as Filter,
+        label: ui.featured,
+        count: PROJECTS.filter((project) => project.featured).length
+      },
       ...tags.map((tag) => ({
         key: tag as Filter,
         label: t(PROJECT_TAGS[tag]),
         count: PROJECTS.filter((project) => project.tags.includes(tag)).length
       }))
     ].filter((chip) => chip.count > 0);
-  }, [t, ui.allProjects]);
+  }, [t, ui.featured]);
 
   const visible =
-    filter === "all" ? PROJECTS : PROJECTS.filter((project) => project.tags.includes(filter));
+    filter === "featured"
+      ? PROJECTS.filter((project) => project.featured)
+      : PROJECTS.filter((project) => project.tags.includes(filter));
 
   return (
     <section id="projects" className="space-y-8 sm:space-y-10">
@@ -106,6 +115,9 @@ export default function Projects() {
               )}
 
               <div className="absolute inset-x-4 top-4 flex items-start justify-between gap-3">
+                {/* Category tags only, never a "Featured" badge: a card that
+                    announces its own importance reads as a boast, and the chip
+                    row above already says which ones were picked. */}
                 <div className="flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
                     <span

@@ -121,10 +121,10 @@ export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[]; 
   {
     name: { en: "Data Engineering", vi: "Kỹ thuật dữ liệu" },
     icon: <GitBranch size={20} />,
-    skills: ["dbt", "dlt", "Spark", "Airflow"]
+    skills: ["dbt", "dlt", "Spark", "Airflow", "NiFi"]
   },
   {
-    name: { en: "BI & Analytic", vi: "BI & Phân tích" },
+    name: { en: "BI & Analytics", vi: "BI & Phân tích" },
     icon: <LineChart size={20} />,
     skills: ["Power BI", "Tableau", "Superset", "Metabase"]
   },
@@ -155,13 +155,17 @@ export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[]; 
 
 /**
  * The kinds of work the projects fall under. Keys are stable and never shown;
- * the labels are. Insertion order is the order the filter chips appear in.
+ * the labels are. Insertion order is the order the filter chips appear in,
+ * after Featured.
+ *
+ * Every project carries at least one of these. Featured is a curated subset
+ * rather than a category, so without a tag as well a project would be reachable
+ * from no chip at all.
  */
 export const PROJECT_TAGS = {
-  pipeline: { en: "Data Pipeline", vi: "Data Pipeline" },
-  bi: { en: "BI & Dashboards", vi: "BI & Dashboard" },
-  infra: { en: "Cloud & Infra", vi: "Hạ tầng & Cloud" },
-  ml: { en: "ML & Vision", vi: "ML & Thị giác máy" }
+  de: { en: "Data Engineering", vi: "Data Engineering" },
+  bi: { en: "BI & Data Visualization", vi: "BI & Trực quan hoá" },
+  ml: { en: "ML & Computer Vision", vi: "ML & Thị giác máy" }
 } satisfies Record<string, Localized>;
 
 export type ProjectTag = keyof typeof PROJECT_TAGS;
@@ -180,7 +184,7 @@ export type ProjectTag = keyof typeof PROJECT_TAGS;
  * `link` may be an empty string — the card then renders without an
  * external-link affordance.
  */
-export const PROJECTS: { title: string; description: Text; image?: string; tags: ProjectTag[]; tech: string[]; link: string; cover: CoverName }[] = [
+export const PROJECTS: { title: string; description: Text; image?: string; featured?: boolean; tags: ProjectTag[]; tech: string[]; link: string; cover: CoverName }[] = [
   {
     title: "AeroStream Flight Analytics",
     description: {
@@ -188,7 +192,8 @@ export const PROJECTS: { title: string; description: Text; image?: string; tags:
       vi: "38,3 triệu chuyến bay nội địa Mỹ, chạy qua một kho dữ liệu Medallion dựng bằng dlt, ClickHouse, dbt và Superset — 12 DAG Airflow, gói gọn trong một docker compose. Và hoá ra, muốn đỡ trễ thì chọn giờ bay quan trọng gấp khoảng 5 lần chọn hãng."
     },
     image: "/projects/aerostream.webp",
-    tags: ["pipeline", "bi"],
+    featured: true,
+    tags: ["de", "bi"],
     tech: ["dlt", "ClickHouse", "dbt", "Airflow", "Superset"],
     link: "https://github.com/TungNamNguyen/aerostream-flight-analytics",
     cover: "flights"
@@ -200,7 +205,8 @@ export const PROJECTS: { title: string; description: Text; image?: string; tags:
       vi: "Hơn chục công cụ dữ liệu — Airflow, ClickHouse, dbt, Superset, MinIO — mỗi thứ một file Docker Compose, phiên bản ghim sẵn. Gõ một lệnh là cả stack chạy, khỏi mất nguyên buổi chiều dựng lại từ đầu."
     },
     image: "/projects/templates.webp",
-    tags: ["infra"],
+    featured: true,
+    tags: ["de"],
     tech: ["Docker Compose", "Airflow", "ClickHouse", "dbt", "MinIO"],
     link: "https://github.com/TungNamNguyen/data-engineering-templates",
     cover: "stack"
@@ -211,7 +217,8 @@ export const PROJECTS: { title: string; description: Text; image?: string; tags:
       en: "Self-hosted Streamlit app that compares a mounted disk against Google Drive and syncs either way. From the second scan on it only asks Drive what changed, so a rescan takes seconds rather than minutes.",
       vi: "Ứng dụng Streamlit tự host, đối chiếu ổ đĩa gắn ngoài với Google Drive rồi đồng bộ theo cả hai chiều. Từ lần quét thứ hai, nó chỉ hỏi Drive những gì đã đổi, nên quét lại mất vài giây thay vì vài phút."
     },
-    tags: ["infra"],
+    featured: true,
+    tags: ["de"],
     tech: ["Python", "Streamlit", "Docker Compose", "Google Drive"],
     link: "https://github.com/TungNamNguyen/gdrive-local-sync",
     cover: "sync"
@@ -223,7 +230,7 @@ export const PROJECTS: { title: string; description: Text; image?: string; tags:
       vi: "Công cụ dòng lệnh kéo dữ liệu project từ GitLab về một kho SQLAlchemy. Client sinh thẳng từ OpenAPI nên khỏi viết tay, CRUD có đủ, còn credential thì không bao giờ lọt vào source."
     },
     image: "/projects/gitlab.webp",
-    tags: ["pipeline"],
+    tags: ["de"],
     tech: ["Python", "SQLAlchemy", "OpenAPI", "SQLite"],
     link: "https://github.com/TungNamNguyen/gitlab-api-data-pipeline",
     cover: "graph"
@@ -235,6 +242,7 @@ export const PROJECTS: { title: string; description: Text; image?: string; tags:
       vi: "Năm dashboard Tableau liên kết cho một hãng xe điện — hiệu suất, tài chính, vận hành, dự báo — lấy dữ liệu từ luồng làm sạch bằng Tableau Prep. Case study ở trường."
     },
     image: "/projects/sparkev.webp",
+    featured: true,
     tags: ["bi"],
     tech: ["Tableau", "Tableau Prep", "Excel"],
     // Points at the published workbook rather than the repo: a reader can look
