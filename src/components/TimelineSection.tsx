@@ -42,8 +42,12 @@ export type TimelineEntry = {
   period: Text;
   /** Marks the ongoing role so it reads at a glance. */
   current?: boolean;
-  /** What the role actually produced, one achievement per line. */
-  points?: Text[];
+  /**
+   * One sentence on what the role was. The CV download carries the numbered
+   * achievements, so the card stays a summary a reader takes in at a glance
+   * rather than a second copy of the résumé.
+   */
+  summary?: Text;
   /**
    * The stack the role was actually worked in. Names must match the keys in
    * `techIcons`, so the same tool is drawn the same way here, under Skills, and
@@ -184,35 +188,27 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
               </span>
             </div>
 
-            {entry.points && entry.points.length > 0 && (
-              <ul className="mt-5 divide-y divide-slate-100 dark:divide-slate-700/50">
-                {entry.points.map((point, j) => (
-                  <li
-                    key={j}
-                    className="group/point flex items-start gap-3 py-3.5 first:pt-0"
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="mt-[1px] shrink-0 text-lg leading-relaxed text-slate-300 transition-colors duration-200 group-hover/point:text-blue-500 dark:text-slate-600 dark:group-hover/point:text-blue-400"
-                    >
-                      ›
-                    </span>
-                    <span className="text-sm sm:text-[15px] leading-relaxed text-slate-600 transition-colors duration-200 group-hover/point:text-slate-800 dark:text-slate-400 dark:group-hover/point:text-slate-300">
-                      {t(point)}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+            {/*
+              Capped at 70ch. The card runs the full 1024px container, and at
+              this size that is 120 characters a line — far past the ~75 where
+              the eye still finds the next line reliably. The measure is set on
+              the text, not the card, so the header and the date pill keep the
+              full width they are laid out against.
+            */}
+            {entry.summary && (
+              <p className="mt-4 max-w-[70ch] text-sm sm:text-[15px] leading-relaxed text-slate-600 dark:text-slate-400">
+                {t(entry.summary)}
+              </p>
             )}
 
             {/*
-              The stack sits under the achievements, not above them: it answers
-              "with what" once the reader already knows what was built. Same
-              pill as the project cards, a size down — here it is a footnote to
-              the bullets rather than the card's own summary.
+              The stack sits under the summary, not above it: it answers "with
+              what" once the reader knows what the role was. Same pill as the
+              project cards, a size down — a footnote to the sentence rather
+              than the card's own headline.
             */}
             {entry.tech && entry.tech.length > 0 && (
-              <ul className="mt-4 flex flex-wrap gap-2 border-t border-slate-100 pt-4 dark:border-slate-700/50">
+              <ul className="mt-5 flex flex-wrap gap-2">
                 {entry.tech.map((tech, k) => (
                   <li
                     key={k}

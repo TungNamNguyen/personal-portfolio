@@ -251,6 +251,18 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
     cover: "graph"
   },
   {
+    title: "Databel Churn Analysis",
+    description: {
+      en: "Why customers leave a fictional telecom — 6,687 accounts, 26.9% of them churned — split by reason, contract type and state. Published to Tableau Public. University case study.",
+      vi: "Vì sao khách hàng rời bỏ một nhà mạng giả định — 6.687 tài khoản, 26,9% đã rời đi — bóc tách theo lý do, loại hợp đồng và bang. Đã publish lên Tableau Public. Case study ở trường."
+    },
+    image: "/projects/databel.webp",
+    tags: ["bi"],
+    tech: ["Tableau"],
+    link: "https://public.tableau.com/app/profile/tung.nguyen.nam/viz/DatabelCaseStudyAnalysis-CustomerChurning/ChurnAnalysis",
+    cover: "graph"
+  },
+  {
     title: "Fall Detection System",
     description: {
       en: "Real-time fall detection from an RGB camera. Benchmarks YOLOv8, MediaPipe and MoveNet behind a Tkinter GUI with keypoint logging and audible alerts. University industry project.",
@@ -265,14 +277,13 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
   {
     title: "Refugee Migration Flows",
     description: {
-      en: "Where refugees left from and where they arrived in 2021, as a Sankey and a set of heatmaps. Written in D3 and plain JavaScript, no charting library. University project, built with Bill Pham.",
-      vi: "Người tị nạn rời đi từ đâu và đến đâu trong năm 2021, thể hiện bằng Sankey và các heatmap. Viết bằng D3 và JavaScript thuần, không dùng thư viện biểu đồ. Đồ án ở trường, làm cùng Bill Pham."
+      en: "Global refugee movement in 2021 — a choropleth of where people left, a Sankey of where they went, and heatmaps by year. D3 and plain JavaScript, no charting library. University project, built with Bill Pham.",
+      vi: "Dòng người tị nạn trên thế giới năm 2021 — bản đồ nơi họ rời đi, Sankey nơi họ đến, và heatmap theo từng năm. Viết bằng D3 và JavaScript thuần, không dùng thư viện biểu đồ. Đồ án ở trường, làm cùng Bill Pham."
     },
     image: "/projects/refugees.webp",
     tags: ["bi"],
     tech: ["JavaScript", "D3", "Tailwind"],
-    // The deployed site rather than the repo — this one has something to look at.
-    link: "https://datavisualization-github-io.vercel.app/src/home.html",
+    link: "https://github.com/TungNamNguyen/refugees-migration-data-visualization",
     cover: "graph"
   }
 ];
@@ -290,20 +301,10 @@ export const EXPERIENCE: TimelineEntry[] = [
     },
     period: { en: "Dec 2025 — Present", vi: "12/2025 — Hiện tại" },
     current: true,
-    points: [
-      {
-        en: "Managed and optimized end-to-end data pipelines for 10+ Power BI lending reports, migrating SQL stored procedures from on-premises SQL Server to Amazon Redshift, reducing processing time by 25%.",
-        vi: "Vận hành và tối ưu toàn bộ đường dữ liệu cho hơn 10 báo cáo Power BI mảng tín dụng; chuyển stored procedure từ SQL Server on-premises sang Amazon Redshift, cắt 25% thời gian xử lý."
-      },
-      {
-        en: "Owned end-to-end development of the SME Debt Management module, translating stakeholder requirements into Redshift data models and Power BI dashboards for monitoring NPL, debt classification, and credit quality.",
-        vi: "Chủ trì module Quản lý Nợ SME từ đầu đến cuối: biến yêu cầu nghiệp vụ thành mô hình dữ liệu trên Redshift và dashboard Power BI theo dõi nợ xấu (NPL), phân loại nợ và chất lượng tín dụng."
-      },
-      {
-        en: "Analyzed SME loan-processing turnaround time (TAT) across 15+ workflow stages, identifying process bottlenecks and delivering actionable insights to business leadership to prioritize workflow improvements.",
-        vi: "Phân tích thời gian xử lý hồ sơ vay SME (TAT) qua hơn 15 bước quy trình, chỉ ra chỗ nào đang tắc và đề xuất với ban lãnh đạo nên cải tiến khâu nào trước."
-      }
-    ],
+    summary: {
+      en: "Builds and runs the data pipelines and Power BI reports behind SME lending, from debt classification and credit quality to how long an application takes to clear.",
+      vi: "Xây dựng và vận hành các pipeline dữ liệu cùng báo cáo Power BI cho mảng tín dụng SME, từ phân loại nợ, chất lượng tín dụng cho tới thời gian một hồ sơ vay đi hết quy trình."
+    },
     tech: ["SQL", "SQL Server", "NiFi", "Redshift", "Power BI"]
   },
   {
@@ -317,20 +318,10 @@ export const EXPERIENCE: TimelineEntry[] = [
       vi: "Nhà cung cấp dịch vụ CNTT và chuyển đổi số hàng đầu Việt Nam"
     },
     period: { en: "Jul 2025 — Dec 2025", vi: "07/2025 — 12/2025" },
-    points: [
-      {
-        en: "Designed source-to-target data mappings for 20+ tables across multiple source systems, defining standardized schemas and transformation logic to improve data consistency and support downstream analytical models.",
-        vi: "Thiết kế mapping source-to-target cho hơn 20 bảng từ nhiều hệ thống nguồn, chuẩn hoá schema và logic biến đổi để dữ liệu khớp nhau và các mô hình phân tích phía sau dùng được ngay."
-      },
-      {
-        en: "Developed 8 Spark jobs for Silver-to-Gold transformations, implementing business rules and aggregations to create curated Gold-layer datasets for BI reporting and dashboard consumption.",
-        vi: "Viết 8 Spark job cho bước Silver sang Gold, cài business rule và các phép tổng hợp để dựng bộ dữ liệu tầng Gold phục vụ báo cáo BI và dashboard."
-      },
-      {
-        en: "Implemented 60+ SQL-based data validation checks across Bronze, Silver, and Gold tables, validating transformation logic, record consistency, and key business metrics across layers.",
-        vi: "Dựng hơn 60 phép kiểm tra dữ liệu bằng SQL trên cả ba tầng Bronze, Silver và Gold, soát lại logic biến đổi, độ khớp bản ghi và các chỉ số nghiệp vụ quan trọng giữa các tầng."
-      }
-    ],
+    summary: {
+      en: "Mapped how each source system lands in the warehouse, built the Spark jobs that shape those tables into reporting data, and wrote the SQL checks that verify every step.",
+      vi: "Làm mapping dữ liệu từ từng hệ thống nguồn về warehouse, viết các Spark job biến những bảng đó thành dữ liệu phục vụ báo cáo, và viết các check bằng SQL soát lại từng bước."
+    },
     tech: ["SQL", "Spark", "Python"]
   },
   {
@@ -347,16 +338,10 @@ export const EXPERIENCE: TimelineEntry[] = [
       vi: "Một trong những tập đoàn quản lý cơ sở vật chất tư nhân lớn nhất nước Úc"
     },
     period: { en: "Mar 2024 — May 2024", vi: "03/2024 — 05/2024" },
-    points: [
-      {
-        en: "Developed and optimized ETL pipelines with Python and Airflow to ingest HubSpot API data into 8 PostgreSQL tables, establishing a centralized single source of truth and improving data retrieval speed by 40%.",
-        vi: "Dựng và tối ưu pipeline ETL bằng Python và Airflow để đưa dữ liệu HubSpot API vào 8 bảng PostgreSQL, gom tất cả về một nguồn dữ liệu duy nhất và tăng 40% tốc độ truy xuất."
-      },
-      {
-        en: "Built 4 Superset dashboards, improving access to operational insights and reducing decision-making time by 25%.",
-        vi: "Dựng 4 dashboard Superset, giúp bộ phận vận hành nắm số liệu nhanh hơn và rút 25% thời gian ra quyết định."
-      }
-    ],
+    summary: {
+      en: "Moved HubSpot data into Postgres with Python and Airflow, then put Superset dashboards on top so the operations team could follow it day to day.",
+      vi: "Đưa dữ liệu HubSpot về Postgres bằng Python và Airflow, rồi dựng dashboard Superset bên trên để bộ phận vận hành theo dõi hằng ngày."
+    },
     tech: ["Python", "Airflow", "Postgres", "Superset"]
   },
   {
@@ -370,16 +355,10 @@ export const EXPERIENCE: TimelineEntry[] = [
       vi: "Đối tác Microsoft Dynamics về ERP và chuyển đổi số"
     },
     period: { en: "Jan 2024 — Mar 2024", vi: "01/2024 — 03/2024" },
-    points: [
-      {
-        en: "Built and orchestrated ELT pipelines with Fabric Data Factory, Dataflow Gen2, and T-SQL to backfill 500K+ historical Dynamics 365 Business Central records into Microsoft Fabric Data Warehouse and enable daily incremental loads.",
-        vi: "Dựng và điều phối pipeline ELT bằng Fabric Data Factory, Dataflow Gen2 và T-SQL: nạp bù hơn 500 nghìn bản ghi lịch sử từ Dynamics 365 Business Central vào Microsoft Fabric Data Warehouse, rồi cho chạy incremental load hằng ngày."
-      },
-      {
-        en: "Delivered 3 Power BI dashboards with 50+ DAX measures for 4 stakeholders, reducing report preparation time from 3 days to 1 day and enabling faster performance tracking.",
-        vi: "Bàn giao 3 dashboard Power BI với hơn 50 measure DAX cho 4 bên liên quan, rút thời gian làm báo cáo từ 3 ngày xuống còn 1 ngày."
-      }
-    ],
+    summary: {
+      en: "Set up the ELT that loaded Dynamics 365 Business Central into Microsoft Fabric, then built the Power BI dashboards stakeholders used to track performance.",
+      vi: "Dựng luồng ELT nạp dữ liệu Dynamics 365 Business Central vào Microsoft Fabric, rồi làm các dashboard Power BI để các bên liên quan theo dõi tình hình kinh doanh."
+    },
     tech: ["Fabric", "SQL", "Power BI"]
   }
 ];
