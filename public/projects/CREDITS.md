@@ -4,7 +4,7 @@ Cropped to 1000x380 and re-encoded as WebP.
 
 | File | Source | Licence |
 | --- | --- | --- |
-| `aerostream.webp` | Own work — `docs/images/chart-route-map.png` from [aerostream-flight-analytics](https://github.com/TungNamNguyen/aerostream-flight-analytics), cropped to the dense eastern half, colour and contrast lifted so the arcs hold their own at card size | — |
+| `aerostream.webp` | Own work — `docs/images/chart-state-delay-map.png` from [aerostream-flight-analytics](https://github.com/TungNamNguyen/aerostream-flight-analytics), cropped to the mainland. The route map was tried first and abandoned: a hairball of thin arcs turns to noise at card size, while flat areas of colour survive the downscale | — |
 | `templates.webp` | Docker's own lockup, knocked out white over its brand blue — [*Docker (container engine) logo.svg*](https://commons.wikimedia.org/wiki/File:Docker_(container_engine)_logo.svg) | Apache 2.0 |
 | `gitlab.webp` | StockSnap.io `1STVFMTBJY` — syntax-highlighted source | CC0 |
 | `fall-detection.webp` | StockSnap.io `E8U0GNCPI8` — dome surveillance camera | CC0 |
