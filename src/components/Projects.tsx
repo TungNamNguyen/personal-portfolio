@@ -100,13 +100,6 @@ export default function Projects() {
                     loading="lazy"
                     className="h-full w-full object-cover"
                   />
-                  {/* A photo can be light or dark wherever the chips happen to
-                      land, so they get their own ground rather than trusting the
-                      picture underneath them. */}
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/35 to-transparent"
-                  />
                 </>
               ) : (
                 <ProjectCover name={project.cover} />
@@ -117,7 +110,7 @@ export default function Projects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-medium text-slate-700 shadow-sm ring-1 ring-slate-900/10 backdrop-blur-sm dark:bg-slate-900/80 dark:text-slate-200 dark:ring-white/15"
+                      className="rounded-full bg-white px-2.5 py-1 text-[11px] font-medium text-slate-700 shadow-sm ring-1 ring-slate-900/10 dark:bg-slate-900 dark:text-slate-200 dark:ring-white/15"
                     >
                       {t(PROJECT_TAGS[tag])}
                     </span>
@@ -132,7 +125,7 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/90 text-slate-600 shadow-sm ring-1 ring-slate-900/10 backdrop-blur-sm transition-colors hover:text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:bg-slate-900/80 dark:text-slate-300 dark:ring-white/15 dark:hover:text-blue-400"
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-slate-600 shadow-sm ring-1 ring-slate-900/10 transition-colors hover:text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:bg-slate-900 dark:text-slate-300 dark:ring-white/15 dark:hover:text-blue-400"
                     aria-label={`${ui.open} ${project.title}`}
                   >
                     <ExternalLink size={16} />
