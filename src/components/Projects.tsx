@@ -88,14 +88,36 @@ export default function Projects() {
               what it was built with.
             */}
             <div className={`relative h-32 sm:h-36 shrink-0 border-b border-slate-100 dark:border-slate-700 ${COVER_BG}`}>
-              <ProjectCover name={project.cover} />
+              {project.image ? (
+                <>
+                  {/* Decorative: the title directly below already names the
+                      project, so a description here would only be read twice. */}
+                  <img
+                    src={project.image}
+                    alt=""
+                    width={1000}
+                    height={380}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                  {/* A photo can be light or dark wherever the chips happen to
+                      land, so they get their own ground rather than trusting the
+                      picture underneath them. */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/35 to-transparent"
+                  />
+                </>
+              ) : (
+                <ProjectCover name={project.cover} />
+              )}
 
               <div className="absolute inset-x-4 top-4 flex items-start justify-between gap-3">
                 <div className="flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-white/85 px-2.5 py-1 text-[11px] font-medium text-slate-700 ring-1 ring-slate-900/5 backdrop-blur-sm dark:bg-slate-900/75 dark:text-slate-200 dark:ring-white/10"
+                      className="rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-medium text-slate-700 shadow-sm ring-1 ring-slate-900/10 backdrop-blur-sm dark:bg-slate-900/80 dark:text-slate-200 dark:ring-white/15"
                     >
                       {t(PROJECT_TAGS[tag])}
                     </span>
@@ -110,7 +132,7 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/85 text-slate-600 ring-1 ring-slate-900/5 backdrop-blur-sm transition-colors hover:text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:bg-slate-900/75 dark:text-slate-300 dark:ring-white/10 dark:hover:text-blue-400"
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/90 text-slate-600 shadow-sm ring-1 ring-slate-900/10 backdrop-blur-sm transition-colors hover:text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:bg-slate-900/80 dark:text-slate-300 dark:ring-white/15 dark:hover:text-blue-400"
                     aria-label={`${ui.open} ${project.title}`}
                   >
                     <ExternalLink size={16} />

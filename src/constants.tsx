@@ -167,7 +167,12 @@ export const PROJECT_TAGS = {
 export type ProjectTag = keyof typeof PROJECT_TAGS;
 
 /**
- * Titles are repository names, so they read the same either way. A project may
+ * Titles are repository names, so they read the same either way. `image` is the
+ * card's cover photo; `cover` names the drawn band that stands in when a project
+ * has none, so a new entry can ship before its picture exists. Photos live in
+ * public/projects — see the CREDITS file there for where each one came from.
+ *
+ * A project may
  * carry more than one tag — the flight warehouse is as much a dashboard as it
  * is a pipeline, and pretending otherwise would hide it from one of the two
  * filters a reader might try.
@@ -175,13 +180,14 @@ export type ProjectTag = keyof typeof PROJECT_TAGS;
  * `link` may be an empty string — the card then renders without an
  * external-link affordance.
  */
-export const PROJECTS: { title: string; description: Text; tags: ProjectTag[]; tech: string[]; link: string; cover: CoverName }[] = [
+export const PROJECTS: { title: string; description: Text; image?: string; tags: ProjectTag[]; tech: string[]; link: string; cover: CoverName }[] = [
   {
     title: "AeroStream Flight Analytics",
     description: {
       en: "38.3M US flights through a Medallion warehouse — dlt, ClickHouse, dbt, Superset, 12 Airflow DAGs, one docker compose. Departure time shifts delay odds ~5x, more than the airline you pick.",
       vi: "38,3 triệu chuyến bay nội địa Mỹ, chạy qua một kho dữ liệu Medallion dựng bằng dlt, ClickHouse, dbt và Superset — 12 DAG Airflow, gói gọn trong một docker compose. Và hoá ra, muốn đỡ trễ thì chọn giờ bay quan trọng gấp khoảng 5 lần chọn hãng."
     },
+    image: "/projects/aerostream.webp",
     tags: ["pipeline", "bi"],
     tech: ["dlt", "ClickHouse", "dbt", "Airflow", "Superset"],
     link: "https://github.com/TungNamNguyen/aerostream-flight-analytics",
@@ -193,6 +199,7 @@ export const PROJECTS: { title: string; description: Text; tags: ProjectTag[]; t
       en: "Docker Compose templates for a dozen data tools — Airflow, ClickHouse, dbt, Superset, MinIO and more — each version-pinned so a stack comes up in one command.",
       vi: "Hơn chục công cụ dữ liệu — Airflow, ClickHouse, dbt, Superset, MinIO — mỗi thứ một file Docker Compose, phiên bản ghim sẵn. Gõ một lệnh là cả stack chạy, khỏi mất nguyên buổi chiều dựng lại từ đầu."
     },
+    image: "/projects/templates.webp",
     tags: ["infra"],
     tech: ["Docker Compose", "Airflow", "ClickHouse", "dbt", "MinIO"],
     link: "https://github.com/TungNamNguyen/data-engineering-templates",
@@ -204,6 +211,7 @@ export const PROJECTS: { title: string; description: Text; tags: ProjectTag[]; t
       en: "CLI that pulls GitLab project data into a SQLAlchemy-backed store, with OpenAPI-generated clients, full CRUD and credentials kept out of source.",
       vi: "Công cụ dòng lệnh kéo dữ liệu project từ GitLab về một kho SQLAlchemy. Client sinh thẳng từ OpenAPI nên khỏi viết tay, CRUD có đủ, còn credential thì không bao giờ lọt vào source."
     },
+    image: "/projects/gitlab.webp",
     tags: ["pipeline"],
     tech: ["Python", "SQLAlchemy", "OpenAPI", "SQLite"],
     link: "https://github.com/TungNamNguyen/gitlab-api-data-pipeline",
@@ -215,6 +223,7 @@ export const PROJECTS: { title: string; description: Text; tags: ProjectTag[]; t
       en: "Real-time fall detection from an RGB camera. Benchmarks YOLOv8, MediaPipe and MoveNet behind a Tkinter GUI with keypoint logging and audible alerts. University industry project.",
       vi: "Phát hiện té ngã theo thời gian thực, chỉ cần một camera RGB thường. YOLOv8, MediaPipe và MoveNet đặt cạnh nhau đo thử trong cùng một giao diện Tkinter, có ghi log keypoint và phát hiện ngã là báo động ngay. Đồ án hợp tác doanh nghiệp ở trường."
     },
+    image: "/projects/fall-detection.webp",
     tags: ["ml"],
     tech: ["Python", "YOLOv8", "MediaPipe", "MoveNet"],
     link: "https://github.com/TungNamNguyen/fall-detection-system",

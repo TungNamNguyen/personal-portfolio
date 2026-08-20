@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { motion, useScroll, useSpring, useReducedMotion } from "motion/react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
