@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
-import { Terminal, Database, GitBranch, LineChart, Wrench, Cloud, Plane, Boxes, Workflow, Camera } from "lucide-react";
+import { Terminal, Database, GitBranch, LineChart, Wrench, Cloud, Layers } from "lucide-react";
 import type { TimelineEntry } from "./components/TimelineSection";
+import type { CoverName } from "./projectCovers";
 import type { Localized, Text } from "./i18n";
 import { UI } from "./i18n";
 
@@ -98,8 +99,20 @@ export const RECOMMENDATIONS: {
   }
 ];
 
-/** Skill names themselves are product names — they key SKILL_ICON_MAP and never translate. */
-export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[] }[] = [
+/**
+ * Skill names themselves are product names — they key TECH_ICONS and never
+ * translate.
+ *
+ * Storage used to be one card of eight. On a three-column grid that made it two
+ * pill-rows taller than the two cards beside it, which stretch to match, so both
+ * of those ended in a band of empty white. Splitting it along the line a data
+ * engineer would draw anyway — the databases you serve from, the warehouses you
+ * analyse in — balances the row and says more than the merged card did.
+ *
+ * `wide` runs a card across all three columns. The seventh would otherwise sit
+ * alone at a third of the width with six pills wrapping inside it.
+ */
+export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[]; wide?: boolean }[] = [
   {
     name: { en: "Languages", vi: "Ngôn ngữ" },
     icon: <Terminal size={20} />,
@@ -116,9 +129,16 @@ export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[] }
     skills: ["Power BI", "Tableau", "Superset", "Metabase"]
   },
   {
-    name: { en: "Data Platforms & Storage", vi: "Nền tảng & Lưu trữ dữ liệu" },
+    name: { en: "Databases", vi: "Cơ sở dữ liệu" },
     icon: <Database size={20} />,
-    skills: ["Postgres", "MySQL", "SQL Server", "ClickHouse", "Snowflake", "Redshift", "Databricks", "Fabric"]
+    skills: ["Postgres", "MySQL", "SQL Server"]
+  },
+  {
+    // Both halves stay in English: nobody in the field says "kho dữ liệu" for
+    // these products, they say warehouse and lakehouse.
+    name: "Warehouse & Lakehouse",
+    icon: <Layers size={20} />,
+    skills: ["ClickHouse", "Snowflake", "Redshift", "Databricks", "Fabric"]
   },
   {
     name: "DevOps & Cloud",
@@ -128,7 +148,8 @@ export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[] }
   {
     name: { en: "Tools & Collaboration", vi: "Công cụ & Làm việc nhóm" },
     icon: <Wrench size={20} />,
-    skills: ["DBeaver", "Jira", "Confluence", "Trello", "Teams", "Slack"]
+    skills: ["DBeaver", "Jira", "Confluence", "Trello", "Teams", "Slack"],
+    wide: true
   }
 ];
 
@@ -154,7 +175,7 @@ export type ProjectTag = keyof typeof PROJECT_TAGS;
  * `link` may be an empty string — the card then renders without an
  * external-link affordance.
  */
-export const PROJECTS: { title: string; description: Text; tags: ProjectTag[]; tech: string[]; link: string; icon: ReactNode }[] = [
+export const PROJECTS: { title: string; description: Text; tags: ProjectTag[]; tech: string[]; link: string; cover: CoverName }[] = [
   {
     title: "AeroStream Flight Analytics",
     description: {
@@ -164,7 +185,7 @@ export const PROJECTS: { title: string; description: Text; tags: ProjectTag[]; t
     tags: ["pipeline", "bi"],
     tech: ["dlt", "ClickHouse", "dbt", "Airflow", "Superset"],
     link: "https://github.com/TungNamNguyen/aerostream-flight-analytics",
-    icon: <Plane size={24} />
+    cover: "flights"
   },
   {
     title: "Data Engineering Templates",
@@ -175,7 +196,7 @@ export const PROJECTS: { title: string; description: Text; tags: ProjectTag[]; t
     tags: ["infra"],
     tech: ["Docker Compose", "Airflow", "ClickHouse", "dbt", "MinIO"],
     link: "https://github.com/TungNamNguyen/data-engineering-templates",
-    icon: <Boxes size={24} />
+    cover: "stack"
   },
   {
     title: "GitLab API Data Pipeline",
@@ -186,7 +207,7 @@ export const PROJECTS: { title: string; description: Text; tags: ProjectTag[]; t
     tags: ["pipeline"],
     tech: ["Python", "SQLAlchemy", "OpenAPI", "SQLite"],
     link: "https://github.com/TungNamNguyen/gitlab-api-data-pipeline",
-    icon: <Workflow size={24} />
+    cover: "graph"
   },
   {
     title: "Fall Detection System",
@@ -197,7 +218,7 @@ export const PROJECTS: { title: string; description: Text; tags: ProjectTag[]; t
     tags: ["ml"],
     tech: ["Python", "YOLOv8", "MediaPipe", "MoveNet"],
     link: "https://github.com/TungNamNguyen/fall-detection-system",
-    icon: <Camera size={24} />
+    cover: "pose"
   }
 ];
 

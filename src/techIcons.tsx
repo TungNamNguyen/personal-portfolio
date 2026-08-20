@@ -23,7 +23,6 @@ import IconMetabase from "~icons/logos/metabase";
 import IconPostgres from "~icons/logos/postgresql";
 import IconMysqlFull from "~icons/logos/mysql";
 import IconSnowflake from "~icons/logos/snowflake-icon";
-import IconRedshift from "~icons/logos/aws-redshift";
 import IconGit from "~icons/logos/git-icon";
 import IconDocker from "~icons/logos/docker-icon";
 import IconAzure from "~icons/logos/microsoft-azure";
@@ -42,6 +41,7 @@ import IconOpenApi from "~icons/logos/openapi-icon";
 import IconDatabricks from "~icons/simple-icons/databricks";
 import IconAws from "~icons/simple-icons/amazonwebservices";
 import IconClickHouse from "~icons/simple-icons/clickhouse";
+import IconRedshift from "~icons/simple-icons/amazonredshift";
 import IconMinio from "~icons/simple-icons/minio";
 import IconSqlAlchemy from "~icons/simple-icons/sqlalchemy";
 
@@ -96,7 +96,10 @@ export const TECH_ICONS: Record<string, ReactNode> = {
   // pill, so the light theme takes the black half of the same brand pair.
   "ClickHouse": <span className="text-slate-900 dark:text-[#FAFF69]"><IconClickHouse /></span>,
   "Snowflake": <IconSnowflake />,
-  "Redshift": <IconRedshift />,
+  // The AWS architecture tile is a filled purple square, which reads as a
+  // button next to the bare marks either side of it. The cylinder glyph on its
+  // own, held at Redshift's violet, is one shape in both themes.
+  "Redshift": <span className="text-[#8C4FFF]"><IconRedshift /></span>,
   "Databricks": <span className="text-[#FF3621]"><IconDatabricks /></span>,
   "Fabric": <LocalIcon src="/icons/microsoft-fabric.svg" />,
   "Git": <IconGit />,

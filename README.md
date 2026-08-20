@@ -67,6 +67,7 @@ src/
   i18n.tsx               Language context, interface strings and the `Text`
                          type that page content is written in
   techIcons.tsx          One technology-mark map shared by Skills and Projects
+  projectCovers.tsx      The drawn SVG band at the top of each project card
   App.tsx                Page layout and section order
   components/
     Header.tsx           Sticky nav with active-section highlighting
