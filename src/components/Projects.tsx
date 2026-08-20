@@ -5,7 +5,7 @@ import SectionHeading from "./SectionHeading";
 import { PROJECTS, PROJECT_TAGS } from "../constants";
 import type { ProjectTag } from "../constants";
 import { useLang } from "../i18n";
-import { TechIcon } from "../techIcons";
+import { TechIcon, TECH_URLS } from "../techIcons";
 import { COVER_BG, ProjectCover } from "../projectCovers";
 
 type Filter = ProjectTag | "featured";
@@ -154,15 +154,21 @@ export default function Projects() {
                 {t(project.description)}
               </p>
               <div className="flex flex-wrap gap-2 mt-auto">
-                {project.tech.map((tech, j) => (
-                  <span
-                    key={j}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm font-mono rounded-md group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors"
-                  >
-                    <TechIcon name={tech} className="text-[14px]" />
-                    {tech}
-                  </span>
-                ))}
+                {project.tech.map((tech, j) => {
+                  const url = TECH_URLS[tech];
+                  const cls = "inline-flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm font-mono rounded-md group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors";
+                  return url ? (
+                    <a key={j} href={url} target="_blank" rel="noreferrer" className={cls}>
+                      <TechIcon name={tech} className="text-[14px]" />
+                      {tech}
+                    </a>
+                  ) : (
+                    <span key={j} className={cls}>
+                      <TechIcon name={tech} className="text-[14px]" />
+                      {tech}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           </motion.div>

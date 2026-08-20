@@ -5,6 +5,7 @@ import Experience from "./components/Experience";
 import Recommendations from "./components/Recommendations";
 import Education from "./components/Education";
 import Projects from "./components/Projects";
+import Certifications from "./components/Certifications";
 import Skills from "./components/Skills";
 import SectionHeading from "./components/SectionHeading";
 import BackToTop from "./components/BackToTop";
@@ -44,6 +45,7 @@ export default function App() {
         <Education />
         <Projects />
         <Recommendations />
+        <Certifications />
       </main>
       <Footer />
       <BackToTop />

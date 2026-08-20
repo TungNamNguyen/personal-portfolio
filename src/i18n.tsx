@@ -31,6 +31,7 @@ export const UI = {
   education: { en: "Education", vi: "Học vấn" },
   projects: { en: "Projects", vi: "Dự án" },
   recommendations: { en: "Recommendations", vi: "Nhận xét" },
+  certifications: { en: "Certifications", vi: "Chứng chỉ" },
   getInTouch: { en: "Get in touch", vi: "Liên hệ" },
   downloadResume: { en: "Download resume", vi: "Tải CV" },
   current: { en: "Current", vi: "Hiện tại" },

@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import { SKILL_CATEGORIES } from "../constants";
 import { useLang } from "../i18n";
-import { TechIcon } from "../techIcons";
+import { TechIcon, TECH_URLS } from "../techIcons";
 
 export default function Skills() {
   const reduceMotion = useReducedMotion();
@@ -26,15 +26,21 @@ export default function Skills() {
             <h3 className="font-mono text-sm font-semibold uppercase tracking-wide">{t(category.name)}</h3>
           </div>
           <div className="flex flex-wrap gap-2.5">
-            {category.skills.map((skill, j) => (
-              <span
-                key={j}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium border border-slate-200 dark:border-slate-600 hover:text-blue-600 dark:hover:text-blue-300 hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors"
-              >
-                <TechIcon name={skill} />
-                {skill}
-              </span>
-            ))}
+            {category.skills.map((skill, j) => {
+              const url = TECH_URLS[skill];
+              const cls = "flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium border border-slate-200 dark:border-slate-600 hover:text-blue-600 dark:hover:text-blue-300 hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors";
+              return url ? (
+                <a key={j} href={url} target="_blank" rel="noreferrer" className={cls}>
+                  <TechIcon name={skill} />
+                  {skill}
+                </a>
+              ) : (
+                <span key={j} className={cls}>
+                  <TechIcon name={skill} />
+                  {skill}
+                </span>
+              );
+            })}
           </div>
         </motion.div>
       ))}

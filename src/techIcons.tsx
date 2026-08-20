@@ -143,6 +143,57 @@ export const TECH_ICONS: Record<string, ReactNode> = {
 };
 
 /**
+ * Homepage URLs for each technology. When present the pill becomes a link;
+ * when absent (model names like YOLOv8) it stays plain text.
+ */
+export const TECH_URLS: Record<string, string> = {
+  "SQL": "https://en.wikipedia.org/wiki/SQL",
+  "Python": "https://www.python.org",
+  "Bash": "https://www.gnu.org/software/bash/",
+  "dbt": "https://www.getdbt.com",
+  "dlt": "https://dlthub.com",
+  "Spark": "https://spark.apache.org",
+  "Airflow": "https://airflow.apache.org",
+  "NiFi": "https://nifi.apache.org",
+  "Power BI": "https://powerbi.microsoft.com",
+  "Tableau": "https://www.tableau.com",
+  "Tableau Prep": "https://www.tableau.com/products/prep",
+  "Superset": "https://superset.apache.org",
+  "Metabase": "https://www.metabase.com",
+  "Postgres": "https://www.postgresql.org",
+  "MySQL": "https://www.mysql.com",
+  "SQL Server": "https://www.microsoft.com/en-us/sql-server",
+  "ClickHouse": "https://clickhouse.com",
+  "Snowflake": "https://www.snowflake.com",
+  "Redshift": "https://aws.amazon.com/redshift/",
+  "Databricks": "https://www.databricks.com",
+  "Fabric": "https://www.microsoft.com/en-us/microsoft-fabric",
+  "Git": "https://git-scm.com",
+  "Docker": "https://www.docker.com",
+  "Docker Compose": "https://docs.docker.com/compose/",
+  "MinIO": "https://min.io",
+  "SQLite": "https://www.sqlite.org",
+  "SQLAlchemy": "https://www.sqlalchemy.org",
+  "OpenAPI": "https://www.openapis.org",
+  "Streamlit": "https://streamlit.io",
+  "Google Drive": "https://drive.google.com",
+  "D3": "https://d3js.org",
+  "JavaScript": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  "Tailwind": "https://tailwindcss.com",
+  "Excel": "https://www.microsoft.com/en-us/microsoft-365/excel",
+  "AWS": "https://aws.amazon.com",
+  "Azure": "https://azure.microsoft.com",
+  "Terraform": "https://www.terraform.io",
+  "DBeaver": "https://dbeaver.io",
+  "Jira": "https://www.atlassian.com/software/jira",
+  "Confluence": "https://www.atlassian.com/software/confluence",
+  "Trello": "https://trello.com",
+  "Teams": "https://www.microsoft.com/en-us/microsoft-teams",
+  "Slack": "https://slack.com",
+  "HackerRank": "https://www.hackerrank.com"
+};
+
+/**
  * Renders the mark for a technology, or nothing when the set has none — model
  * names like YOLOv8 and MoveNet have no logo, and a placeholder would say less
  * than the gap does. Icons are sized by the wrapper's font-size, so every glyph

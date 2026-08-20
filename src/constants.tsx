@@ -54,7 +54,8 @@ export const NAV_ITEMS: { id: string; label: Localized }[] = [
   { id: "experience", label: UI.experience },
   { id: "education", label: UI.education },
   { id: "projects", label: UI.projects },
-  { id: "recommendations", label: UI.recommendations }
+  { id: "recommendations", label: UI.recommendations },
+  { id: "certifications", label: UI.certifications }
 ];
 
 /**
@@ -217,6 +218,7 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
       en: "Self-hosted Streamlit app that compares a mounted disk against Google Drive and syncs either way, with incremental rescans.",
       vi: "Ứng dụng Streamlit tự host, đối chiếu ổ đĩa gắn ngoài với Google Drive và đồng bộ hai chiều, quét lại theo kiểu tăng dần."
     },
+    image: "/projects/gdrive-sync.webp",
     featured: true,
     tags: ["de"],
     tech: ["Python", "Streamlit", "Docker Compose", "Google Drive"],
@@ -302,8 +304,8 @@ export const EXPERIENCE: TimelineEntry[] = [
     period: { en: "Dec 2025 — Present", vi: "12/2025 — Hiện tại" },
     current: true,
     summary: {
-      en: "Runs the reporting behind SME lending — how debt gets classified, where credit quality is heading, and where in the approval process applications stall.",
-      vi: "Phụ trách hệ thống báo cáo cho mảng tín dụng SME: nợ được phân loại ra sao, chất lượng tín dụng đang đi về đâu, và hồ sơ vay đang tắc ở khâu nào."
+      en: "Runs the reporting behind SME lending — how debt gets classified, where credit quality is heading, and where in the approval process loan applications bottleneck.",
+      vi: "Phụ trách mảng báo cáo tín dụng SME — nợ được phân loại ra sao, chất lượng tín dụng đang đi về đâu, và hồ sơ vay đang bị tắc ở khâu nào trong quy trình phê duyệt."
     },
     tech: ["SQL", "SQL Server", "NiFi", "Redshift", "Power BI"]
   },
@@ -320,7 +322,7 @@ export const EXPERIENCE: TimelineEntry[] = [
     period: { en: "Jul 2025 — Dec 2025", vi: "07/2025 — 12/2025" },
     summary: {
       en: "Built the transformation layer of a lakehouse — deciding what each source system becomes downstream, then testing that every layer still tells the same story.",
-      vi: "Dựng tầng transform cho một lakehouse: quyết định dữ liệu từ mỗi hệ thống nguồn sẽ thành cái gì ở phía sau, rồi viết test để các tầng luôn khớp nhau."
+      vi: "Dựng tầng transformation cho lakehouse — quyết định dữ liệu từ mỗi hệ thống nguồn sẽ thành gì ở downstream, rồi viết test để đảm bảo các tầng luôn khớp nhau."
     },
     tech: ["SQL", "Spark", "Python"]
   },
@@ -340,7 +342,7 @@ export const EXPERIENCE: TimelineEntry[] = [
     period: { en: "Mar 2024 — May 2024", vi: "03/2024 — 05/2024" },
     summary: {
       en: "Pulled HubSpot into a single database and gave the operations team dashboards over it, so an answer no longer depended on who had exported what.",
-      vi: "Gom dữ liệu HubSpot về một database duy nhất rồi dựng dashboard cho bộ phận vận hành, để không còn cảnh mỗi người một file export ra một con số."
+      vi: "Gom dữ liệu HubSpot về một database duy nhất rồi dựng dashboard cho bộ phận vận hành, để câu trả lời không còn phụ thuộc vào việc ai export cái gì."
     },
     tech: ["Python", "Airflow", "Postgres", "Superset"]
   },
@@ -357,7 +359,7 @@ export const EXPERIENCE: TimelineEntry[] = [
     period: { en: "Jan 2024 — Mar 2024", vi: "01/2024 — 03/2024" },
     summary: {
       en: "Backfilled years of Dynamics 365 Business Central history into a Fabric warehouse, put it on a daily refresh, and replaced the hand-built report pack with dashboards.",
-      vi: "Nạp bù nhiều năm dữ liệu Dynamics 365 Business Central vào warehouse trên Fabric, cho chạy refresh hằng ngày, và thay bộ báo cáo làm tay bằng dashboard."
+      vi: "Nạp bù nhiều năm dữ liệu Dynamics 365 Business Central vào warehouse trên Fabric, cho chạy refresh hằng ngày, rồi thay bộ báo cáo làm tay bằng dashboard."
     },
     tech: ["Fabric", "SQL", "Power BI"]
   }
@@ -408,5 +410,28 @@ export const EDUCATION: TimelineEntry[] = [
         { subject: { en: "Business", vi: "Kinh doanh" }, grade: "B" }
       ]
     }
+  }
+];
+
+export type CertificationEntry = {
+  name: string;
+  issuer: string;
+  logo: string;
+  url?: string;
+  date: Text;
+  level?: Text;
+  credentialId?: string;
+  skills?: string[];
+};
+
+export const CERTIFICATIONS: CertificationEntry[] = [
+  {
+    name: "SQL (Advanced)",
+    issuer: "HackerRank",
+    logo: "/icons/hackerrank.svg",
+    url: "https://www.hackerrank.com/certificates/90d9344785a0",
+    date: { en: "2024", vi: "2024" },
+    level: { en: "Advanced", vi: "Nâng cao" },
+    skills: ["SQL"]
   }
 ];

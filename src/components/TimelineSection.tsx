@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { Award, Calendar, ExternalLink, MapPin } from "lucide-react";
 import SectionHeading from "./SectionHeading";
-import { TechIcon } from "../techIcons";
+import { TechIcon, TECH_URLS } from "../techIcons";
 import { useLang } from "../i18n";
 import type { Text } from "../i18n";
 
@@ -209,15 +209,25 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
             */}
             {entry.tech && entry.tech.length > 0 && (
               <ul className="mt-5 flex flex-wrap gap-2">
-                {entry.tech.map((tech, k) => (
-                  <li
-                    key={k}
-                    className="inline-flex items-center gap-1.5 rounded-md bg-slate-100 px-2.5 py-1 font-mono text-xs text-slate-600 transition-colors group-hover:bg-blue-50 group-hover:text-blue-700 dark:bg-slate-700 dark:text-slate-300 dark:group-hover:bg-blue-900/30 dark:group-hover:text-blue-300"
-                  >
-                    <TechIcon name={tech} className="text-[13px]" />
-                    {tech}
-                  </li>
-                ))}
+                {entry.tech.map((tech, k) => {
+                  const url = TECH_URLS[tech];
+                  const cls = "inline-flex items-center gap-1.5 rounded-md bg-slate-100 px-2.5 py-1 font-mono text-xs text-slate-600 transition-colors group-hover:bg-blue-50 group-hover:text-blue-700 dark:bg-slate-700 dark:text-slate-300 dark:group-hover:bg-blue-900/30 dark:group-hover:text-blue-300";
+                  return (
+                    <li key={k}>
+                      {url ? (
+                        <a href={url} target="_blank" rel="noreferrer" className={`${cls} hover:text-blue-700 dark:hover:text-blue-300`}>
+                          <TechIcon name={tech} className="text-[13px]" />
+                          {tech}
+                        </a>
+                      ) : (
+                        <span className={cls}>
+                          <TechIcon name={tech} className="text-[13px]" />
+                          {tech}
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             )}
 
