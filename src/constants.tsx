@@ -188,8 +188,8 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
   {
     title: "AeroStream Flight Analytics",
     description: {
-      en: "38.3M US flights through a Medallion warehouse — dlt, ClickHouse, dbt, Superset, 12 Airflow DAGs, one docker compose. Departure time shifts delay odds ~5x, more than the airline you pick.",
-      vi: "38,3 triệu chuyến bay nội địa Mỹ, chạy qua một kho dữ liệu Medallion dựng bằng dlt, ClickHouse, dbt và Superset — 12 DAG Airflow, gói gọn trong một docker compose. Và hoá ra, muốn đỡ trễ thì chọn giờ bay quan trọng gấp khoảng 5 lần chọn hãng."
+      en: "Medallion warehouse over 38.3M US flights, built with dlt, ClickHouse and dbt, orchestrated by 12 Airflow DAGs and surfaced in Superset.",
+      vi: "Kho dữ liệu Medallion cho 38,3 triệu chuyến bay nội địa Mỹ, dựng bằng dlt, ClickHouse và dbt, điều phối bởi 12 DAG Airflow và trình bày trên Superset."
     },
     image: "/projects/aerostream.webp",
     featured: true,
@@ -201,8 +201,8 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
   {
     title: "Data Engineering Templates",
     description: {
-      en: "Docker Compose templates for a dozen data tools — Airflow, ClickHouse, dbt, Superset, MinIO and more — each version-pinned so a stack comes up in one command.",
-      vi: "Hơn chục công cụ dữ liệu — Airflow, ClickHouse, dbt, Superset, MinIO — mỗi thứ một file Docker Compose, phiên bản ghim sẵn. Gõ một lệnh là cả stack chạy, khỏi mất nguyên buổi chiều dựng lại từ đầu."
+      en: "Version-pinned Docker Compose templates for a dozen data tools including Airflow, ClickHouse, dbt, Superset and MinIO.",
+      vi: "Bộ template Docker Compose ghim sẵn phiên bản cho hơn chục công cụ dữ liệu như Airflow, ClickHouse, dbt, Superset và MinIO."
     },
     image: "/projects/templates.webp",
     featured: true,
@@ -214,8 +214,8 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
   {
     title: "Local \u2194 Google Drive Sync",
     description: {
-      en: "Self-hosted Streamlit app that compares a mounted disk against Google Drive and syncs either way. From the second scan on it only asks Drive what changed, so a rescan takes seconds rather than minutes.",
-      vi: "Ứng dụng Streamlit tự host, đối chiếu ổ đĩa gắn ngoài với Google Drive rồi đồng bộ theo cả hai chiều. Từ lần quét thứ hai, nó chỉ hỏi Drive những gì đã đổi, nên quét lại mất vài giây thay vì vài phút."
+      en: "Self-hosted Streamlit app that compares a mounted disk against Google Drive and syncs either way, with incremental rescans.",
+      vi: "Ứng dụng Streamlit tự host, đối chiếu ổ đĩa gắn ngoài với Google Drive và đồng bộ hai chiều, quét lại theo kiểu tăng dần."
     },
     featured: true,
     tags: ["de"],
@@ -226,8 +226,8 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
   {
     title: "GitLab API Data Pipeline",
     description: {
-      en: "CLI that pulls GitLab project data into a SQLAlchemy-backed store, with OpenAPI-generated clients, full CRUD and credentials kept out of source.",
-      vi: "Công cụ dòng lệnh kéo dữ liệu project từ GitLab về một kho SQLAlchemy. Client sinh thẳng từ OpenAPI nên khỏi viết tay, CRUD có đủ, còn credential thì không bao giờ lọt vào source."
+      en: "Python CLI that pulls GitLab project data into a SQLAlchemy store, with OpenAPI-generated clients and full CRUD.",
+      vi: "CLI Python kéo dữ liệu project từ GitLab về kho SQLAlchemy, với client sinh từ OpenAPI và CRUD đầy đủ."
     },
     image: "/projects/gitlab.webp",
     tags: ["de"],
@@ -238,8 +238,8 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
   {
     title: "SparkEV Case Study",
     description: {
-      en: "Five linked Tableau dashboards for an EV maker — performance, finance, operations, forecast — fed by a Tableau Prep cleaning flow. University case study.",
-      vi: "Năm dashboard Tableau liên kết cho một hãng xe điện — hiệu suất, tài chính, vận hành, dự báo — lấy dữ liệu từ luồng làm sạch bằng Tableau Prep. Case study ở trường."
+      en: "Five linked Tableau dashboards for an EV maker covering performance, finance, operations and forecasting.",
+      vi: "Năm dashboard Tableau liên kết cho một hãng xe điện, bao quát hiệu suất, tài chính, vận hành và dự báo."
     },
     image: "/projects/sparkev.webp",
     featured: true,
@@ -253,8 +253,8 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
   {
     title: "Databel Churn Analysis",
     description: {
-      en: "Why customers leave a fictional telecom — 6,687 accounts, 26.9% of them churned — split by reason, contract type and state. Published to Tableau Public. University case study.",
-      vi: "Vì sao khách hàng rời bỏ một nhà mạng giả định — 6.687 tài khoản, 26,9% đã rời đi — bóc tách theo lý do, loại hợp đồng và bang. Đã publish lên Tableau Public. Case study ở trường."
+      en: "Tableau dashboard analysing customer churn for a telecom, broken down by reason, contract type and state.",
+      vi: "Dashboard Tableau phân tích tỷ lệ rời mạng của một nhà mạng, bóc tách theo lý do, loại hợp đồng và bang."
     },
     image: "/projects/databel.webp",
     tags: ["bi"],
@@ -265,8 +265,8 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
   {
     title: "Fall Detection System",
     description: {
-      en: "Real-time fall detection from an RGB camera. Benchmarks YOLOv8, MediaPipe and MoveNet behind a Tkinter GUI with keypoint logging and audible alerts. University industry project.",
-      vi: "Phát hiện té ngã theo thời gian thực, chỉ cần một camera RGB thường. YOLOv8, MediaPipe và MoveNet đặt cạnh nhau đo thử trong cùng một giao diện Tkinter, có ghi log keypoint và phát hiện ngã là báo động ngay. Đồ án hợp tác doanh nghiệp ở trường."
+      en: "Real-time fall detection from an RGB camera, benchmarking YOLOv8, MediaPipe and MoveNet behind a Tkinter GUI.",
+      vi: "Phát hiện té ngã theo thời gian thực từ camera RGB, so sánh YOLOv8, MediaPipe và MoveNet sau giao diện Tkinter."
     },
     image: "/projects/fall-detection.webp",
     tags: ["ml"],
@@ -277,8 +277,8 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
   {
     title: "Refugee Migration Flows",
     description: {
-      en: "Global refugee movement in 2021 — a choropleth of where people left, a Sankey of where they went, and heatmaps by year. D3 and plain JavaScript, no charting library. University project, built with Bill Pham.",
-      vi: "Dòng người tị nạn trên thế giới năm 2021 — bản đồ nơi họ rời đi, Sankey nơi họ đến, và heatmap theo từng năm. Viết bằng D3 và JavaScript thuần, không dùng thư viện biểu đồ. Đồ án ở trường, làm cùng Bill Pham."
+      en: "Interactive D3 visualisation of global refugee movement, with a choropleth map, Sankey diagram and yearly heatmaps.",
+      vi: "Trực quan hoá tương tác bằng D3 về dòng người tị nạn toàn cầu, gồm bản đồ choropleth, biểu đồ Sankey và heatmap theo năm."
     },
     image: "/projects/refugees.webp",
     tags: ["bi"],
@@ -302,8 +302,8 @@ export const EXPERIENCE: TimelineEntry[] = [
     period: { en: "Dec 2025 — Present", vi: "12/2025 — Hiện tại" },
     current: true,
     summary: {
-      en: "Builds and runs the data pipelines and Power BI reports behind SME lending, from debt classification and credit quality to how long an application takes to clear.",
-      vi: "Xây dựng và vận hành các pipeline dữ liệu cùng báo cáo Power BI cho mảng tín dụng SME, từ phân loại nợ, chất lượng tín dụng cho tới thời gian một hồ sơ vay đi hết quy trình."
+      en: "Runs the reporting behind SME lending — how debt gets classified, where credit quality is heading, and where in the approval process applications stall.",
+      vi: "Phụ trách hệ thống báo cáo cho mảng tín dụng SME: nợ được phân loại ra sao, chất lượng tín dụng đang đi về đâu, và hồ sơ vay đang tắc ở khâu nào."
     },
     tech: ["SQL", "SQL Server", "NiFi", "Redshift", "Power BI"]
   },
@@ -319,8 +319,8 @@ export const EXPERIENCE: TimelineEntry[] = [
     },
     period: { en: "Jul 2025 — Dec 2025", vi: "07/2025 — 12/2025" },
     summary: {
-      en: "Mapped how each source system lands in the warehouse, built the Spark jobs that shape those tables into reporting data, and wrote the SQL checks that verify every step.",
-      vi: "Làm mapping dữ liệu từ từng hệ thống nguồn về warehouse, viết các Spark job biến những bảng đó thành dữ liệu phục vụ báo cáo, và viết các check bằng SQL soát lại từng bước."
+      en: "Built the transformation layer of a lakehouse — deciding what each source system becomes downstream, then testing that every layer still tells the same story.",
+      vi: "Dựng tầng transform cho một lakehouse: quyết định dữ liệu từ mỗi hệ thống nguồn sẽ thành cái gì ở phía sau, rồi viết test để các tầng luôn khớp nhau."
     },
     tech: ["SQL", "Spark", "Python"]
   },
@@ -339,8 +339,8 @@ export const EXPERIENCE: TimelineEntry[] = [
     },
     period: { en: "Mar 2024 — May 2024", vi: "03/2024 — 05/2024" },
     summary: {
-      en: "Moved HubSpot data into Postgres with Python and Airflow, then put Superset dashboards on top so the operations team could follow it day to day.",
-      vi: "Đưa dữ liệu HubSpot về Postgres bằng Python và Airflow, rồi dựng dashboard Superset bên trên để bộ phận vận hành theo dõi hằng ngày."
+      en: "Pulled HubSpot into a single database and gave the operations team dashboards over it, so an answer no longer depended on who had exported what.",
+      vi: "Gom dữ liệu HubSpot về một database duy nhất rồi dựng dashboard cho bộ phận vận hành, để không còn cảnh mỗi người một file export ra một con số."
     },
     tech: ["Python", "Airflow", "Postgres", "Superset"]
   },
@@ -356,8 +356,8 @@ export const EXPERIENCE: TimelineEntry[] = [
     },
     period: { en: "Jan 2024 — Mar 2024", vi: "01/2024 — 03/2024" },
     summary: {
-      en: "Set up the ELT that loaded Dynamics 365 Business Central into Microsoft Fabric, then built the Power BI dashboards stakeholders used to track performance.",
-      vi: "Dựng luồng ELT nạp dữ liệu Dynamics 365 Business Central vào Microsoft Fabric, rồi làm các dashboard Power BI để các bên liên quan theo dõi tình hình kinh doanh."
+      en: "Backfilled years of Dynamics 365 Business Central history into a Fabric warehouse, put it on a daily refresh, and replaced the hand-built report pack with dashboards.",
+      vi: "Nạp bù nhiều năm dữ liệu Dynamics 365 Business Central vào warehouse trên Fabric, cho chạy refresh hằng ngày, và thay bộ báo cáo làm tay bằng dashboard."
     },
     tech: ["Fabric", "SQL", "Power BI"]
   }

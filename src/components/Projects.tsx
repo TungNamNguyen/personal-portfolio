@@ -96,7 +96,7 @@ export default function Projects() {
               three things a reader is actually here for: name, what it does,
               what it was built with.
             */}
-            <div className={`relative h-32 sm:h-36 shrink-0 border-b border-slate-100 dark:border-slate-700 ${COVER_BG}`}>
+            <div className={`relative h-44 sm:h-52 shrink-0 border-b border-slate-100 dark:border-slate-700 ${COVER_BG}`}>
               {project.image ? (
                 <>
                   {/* Decorative: the title directly below already names the

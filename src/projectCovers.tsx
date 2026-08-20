@@ -17,7 +17,9 @@ import type { ReactNode } from "react";
 */
 
 const VIEW_W = 400;
-const VIEW_H = 120;
+const VIEW_H = 176;
+/** The drawings were laid out on a 120-unit frame; this keeps them centred. */
+const DRAW_OFFSET = (176 - 120) / 2;
 
 /** The ground, shared by the artwork and the band it sits in. */
 export const COVER_BG = "bg-slate-50 dark:bg-slate-900/70";
@@ -46,7 +48,7 @@ const Frame = ({ children }: { children: ReactNode }) => (
     className="h-full w-full"
   >
     <Grid />
-    {children}
+    <g transform={`translate(0 ${DRAW_OFFSET})`}>{children}</g>
   </svg>
 );
 
