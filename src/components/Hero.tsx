@@ -30,8 +30,16 @@ const SOCIALS = [
   { label: "Tableau Public", href: SITE.tableau, Icon: SiTableau }
 ].filter((social) => social.href);
 
+/*
+  Boxed rather than bare glyphs. The three marks carry very different amounts of
+  ink — LinkedIn is a filled square, Tableau a scatter of thin crosses — so set
+  loose on the page they read as a ragged row rather than one set. An identical
+  40px field around each one normalises that, takes the tap target off 36px, and
+  says plainly that they are links. Same shape as the header's controls, scaled
+  up: a 20px mark in a 40px box holds the header's 16-in-32 ratio.
+*/
 const socialLink =
-  "rounded-md p-2 text-slate-500 transition-colors hover:bg-slate-200/70 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900";
+  "flex h-10 w-10 items-center justify-center rounded-lg text-slate-500 ring-1 ring-slate-900/10 transition-colors hover:bg-slate-100 hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:text-slate-400 dark:ring-white/15 dark:hover:bg-slate-800 dark:hover:text-white dark:focus-visible:ring-offset-slate-900";
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
@@ -121,9 +129,9 @@ export default function Hero() {
 
           {/*
             Icon-only, carrying just an accessible name: a profile is worth
-            reaching, not worth a button the size of the two above it.
+            reaching, not worth a labelled button the width of the two above it.
           */}
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-2">
             {SOCIALS.map(({ label, href, Icon }) => (
               <a
                 key={label}
