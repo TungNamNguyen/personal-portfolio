@@ -38,6 +38,9 @@ export const UI = {
   at: { en: "at", vi: "tại" },
   /** Prefixes a link's target in an accessible name: "Open AeroStream". */
   open: { en: "Open", vi: "Mở" },
+  /** The filter chip that clears the project filter. */
+  allProjects: { en: "All", vi: "Tất cả" },
+  filterProjects: { en: "Filter projects by category", vi: "Lọc dự án theo nhóm" },
   /**
    * Flags the recommendation as a translation in the view where it is one.
    * Empty in English, which is the language it was written in.

@@ -66,6 +66,7 @@ src/
                          education, projects, recommendations
   i18n.tsx               Language context, interface strings and the `Text`
                          type that page content is written in
+  techIcons.tsx          One technology-mark map shared by Skills and Projects
   App.tsx                Page layout and section order
   components/
     Header.tsx           Sticky nav with active-section highlighting
@@ -74,7 +75,7 @@ src/
     TimelineSection.tsx  Shared layout for Experience and Education
     Experience.tsx       Timeline data binding
     Education.tsx        Timeline data binding
-    Projects.tsx         Project cards
+    Projects.tsx         Project cards and the category filter
     Recommendations.tsx  Quoted LinkedIn recommendations
     SectionHeading.tsx   One heading style for every section
     Footer.tsx           Contact and social links
