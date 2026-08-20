@@ -178,8 +178,37 @@ const Pose = () => (
   </Frame>
 );
 
+/** Two sides compared row by row, and only the differences moving between them. */
+const Sync = () => (
+  <Frame>
+    {[46, 238].map((x) => (
+      <rect key={x} x={x} y="30" width="116" height="76" rx="8" strokeWidth="1.75"
+        className="fill-white stroke-blue-300 dark:fill-slate-800 dark:stroke-blue-500/60" />
+    ))}
+    {/* File rows. The third pair is the one that differs, so it is the pair the
+        arrows are drawn between. */}
+    {[44, 60, 76, 92].map((y, row) => (
+      [58, 250].map((x) => (
+        <rect key={`${x}-${y}`} x={x} y={y} width={row === 3 ? 60 : 92} height="8" rx="4"
+          className={row === 2
+            ? "fill-blue-500 dark:fill-blue-400"
+            : "fill-slate-200 dark:fill-slate-600"} />
+      ))
+    ))}
+    <path d="M172 68 L228 68" strokeWidth="2" strokeLinecap="round"
+      className="stroke-blue-500 dark:stroke-blue-400" />
+    <path d="M220 62 L228 68 L220 74" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+      className="stroke-blue-500 dark:stroke-blue-400" />
+    <path d="M228 88 L172 88" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 5"
+      className="stroke-slate-300 dark:stroke-slate-600" />
+    <path d="M180 82 L172 88 L180 94" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+      className="stroke-slate-300 dark:stroke-slate-600" />
+  </Frame>
+);
+
 const COVERS = {
   flights: Flights,
+  sync: Sync,
   stack: Stack,
   graph: Graph,
   pose: Pose

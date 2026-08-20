@@ -5,6 +5,8 @@ Cropped to 1000x380 and re-encoded as WebP.
 | File | Source | Licence |
 | --- | --- | --- |
 | `aerostream.webp` | Own work — `docs/images/chart-state-delay-map.png` from [aerostream-flight-analytics](https://github.com/TungNamNguyen/aerostream-flight-analytics), cropped to the mainland. The route map was tried first and abandoned: a hairball of thin arcs turns to noise at card size, while flat areas of colour survive the downscale | — |
+| `sparkev.webp` | Own work — the Finance dashboard from [sparkev-case-study](https://github.com/TungNamNguyen/sparkev-case-study)'s README | — |
+| `refugees.webp` | Own work — the Sankey view captured from the deployed [refugees-migration-data-visualization](https://github.com/TungNamNguyen/refugees-migration-data-visualization) site | — |
 | `templates.webp` | Docker's own lockup, knocked out white over its brand blue — [*Docker (container engine) logo.svg*](https://commons.wikimedia.org/wiki/File:Docker_(container_engine)_logo.svg) | Apache 2.0 |
 | `gitlab.webp` | StockSnap.io `1STVFMTBJY` — syntax-highlighted source | CC0 |
 | `fall-detection.webp` | StockSnap.io `E8U0GNCPI8` — dome surveillance camera | CC0 |

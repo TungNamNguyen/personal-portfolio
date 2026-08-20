@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { Award, Calendar, ExternalLink, MapPin } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+import { TechIcon } from "../techIcons";
 import { useLang } from "../i18n";
 import type { Text } from "../i18n";
 
@@ -43,6 +44,12 @@ export type TimelineEntry = {
   current?: boolean;
   /** What the role actually produced, one achievement per line. */
   points?: Text[];
+  /**
+   * The stack the role was actually worked in. Names must match the keys in
+   * `techIcons`, so the same tool is drawn the same way here, under Skills, and
+   * on a project card.
+   */
+  tech?: string[];
   /*
     Study entries carry facts of three different kinds, and flattening all of
     them into one bullet list makes the reader parse every line to find the one
@@ -193,6 +200,26 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
                     <span className="text-sm sm:text-[15px] leading-relaxed text-slate-600 transition-colors duration-200 group-hover/point:text-slate-800 dark:text-slate-400 dark:group-hover/point:text-slate-300">
                       {t(point)}
                     </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/*
+              The stack sits under the achievements, not above them: it answers
+              "with what" once the reader already knows what was built. Same
+              pill as the project cards, a size down — here it is a footnote to
+              the bullets rather than the card's own summary.
+            */}
+            {entry.tech && entry.tech.length > 0 && (
+              <ul className="mt-4 flex flex-wrap gap-2 border-t border-slate-100 pt-4 dark:border-slate-700/50">
+                {entry.tech.map((tech, k) => (
+                  <li
+                    key={k}
+                    className="inline-flex items-center gap-1.5 rounded-md bg-slate-100 px-2.5 py-1 font-mono text-xs text-slate-600 transition-colors group-hover:bg-blue-50 group-hover:text-blue-700 dark:bg-slate-700 dark:text-slate-300 dark:group-hover:bg-blue-900/30 dark:group-hover:text-blue-300"
+                  >
+                    <TechIcon name={tech} className="text-[13px]" />
+                    {tech}
                   </li>
                 ))}
               </ul>

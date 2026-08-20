@@ -36,6 +36,11 @@ import IconSqlServer from "~icons/devicon/microsoftsqlserver";
 import IconDbeaver from "~icons/devicon/dbeaver";
 import IconSqlite from "~icons/devicon/sqlite";
 import IconOpenApi from "~icons/logos/openapi-icon";
+import IconStreamlit from "~icons/logos/streamlit";
+import IconGoogleDrive from "~icons/logos/google-drive";
+import IconD3 from "~icons/logos/d3";
+import IconJavaScript from "~icons/logos/javascript";
+import IconTailwind from "~icons/logos/tailwindcss-icon";
 
 // Monochrome marks: these inherit colour from the wrapper, tinted per theme.
 import IconDatabricks from "~icons/simple-icons/databricks";
@@ -44,6 +49,8 @@ import IconClickHouse from "~icons/simple-icons/clickhouse";
 import IconRedshift from "~icons/simple-icons/amazonredshift";
 import IconMinio from "~icons/simple-icons/minio";
 import IconSqlAlchemy from "~icons/simple-icons/sqlalchemy";
+import IconNifi from "~icons/simple-icons/apachenifi";
+import IconExcel from "~icons/simple-icons/microsoftexcel";
 
 /**
  * Apache Superset's mark is 2:1, so the icon-set version renders twice as wide
@@ -78,8 +85,13 @@ export const TECH_ICONS: Record<string, ReactNode> = {
   "dlt": <LocalIcon src="/icons/dlt.svg" />,
   "Spark": <IconSpark />,
   "Airflow": <IconAirflow />,
+  // NiFi's brand slate reads at 3.16:1 on the light pill but drops to 2.99:1
+  // on the dark one, so the dark theme takes a lighter tint of the same hue.
+  "NiFi": <span className="text-[#728E9B] dark:text-[#9DB3BE]"><IconNifi /></span>,
   "Power BI": <IconPowerBi />,
   "Tableau": <IconTableau />,
+  // Prep is part of the Tableau suite and carries the same mark.
+  "Tableau Prep": <IconTableau />,
   "Superset": <span className="text-[#484848] dark:text-slate-300"><SupersetIcon /></span>,
   "Metabase": <IconMetabase />,
   "Postgres": <IconPostgres />,
@@ -110,6 +122,12 @@ export const TECH_ICONS: Record<string, ReactNode> = {
   "SQLite": <IconSqlite />,
   "SQLAlchemy": <span className="text-[#B4372E] dark:text-[#E08C82]"><IconSqlAlchemy /></span>,
   "OpenAPI": <IconOpenApi />,
+  "Streamlit": <IconStreamlit />,
+  "Google Drive": <IconGoogleDrive />,
+  "D3": <IconD3 />,
+  "JavaScript": <IconJavaScript />,
+  "Tailwind": <IconTailwind />,
+  "Excel": <span className="text-[#217346] dark:text-[#4CAF7D]"><IconExcel /></span>,
   // Full-colour MySQL and AWS are dark-ink marks drawn for light backgrounds:
   // on the dark pill the "aws" wordmark falls under 3:1 and effectively
   // vanishes. Monochrome version instead, carrying a brand colour per theme.

@@ -206,6 +206,17 @@ export const PROJECTS: { title: string; description: Text; image?: string; tags:
     cover: "stack"
   },
   {
+    title: "Local \u2194 Google Drive Sync",
+    description: {
+      en: "Self-hosted Streamlit app that compares a mounted disk against Google Drive and syncs either way. From the second scan on it only asks Drive what changed, so a rescan takes seconds rather than minutes.",
+      vi: "Ứng dụng Streamlit tự host, đối chiếu ổ đĩa gắn ngoài với Google Drive rồi đồng bộ theo cả hai chiều. Từ lần quét thứ hai, nó chỉ hỏi Drive những gì đã đổi, nên quét lại mất vài giây thay vì vài phút."
+    },
+    tags: ["infra"],
+    tech: ["Python", "Streamlit", "Docker Compose", "Google Drive"],
+    link: "https://github.com/TungNamNguyen/gdrive-local-sync",
+    cover: "sync"
+  },
+  {
     title: "GitLab API Data Pipeline",
     description: {
       en: "CLI that pulls GitLab project data into a SQLAlchemy-backed store, with OpenAPI-generated clients, full CRUD and credentials kept out of source.",
@@ -215,6 +226,20 @@ export const PROJECTS: { title: string; description: Text; image?: string; tags:
     tags: ["pipeline"],
     tech: ["Python", "SQLAlchemy", "OpenAPI", "SQLite"],
     link: "https://github.com/TungNamNguyen/gitlab-api-data-pipeline",
+    cover: "graph"
+  },
+  {
+    title: "SparkEV Case Study",
+    description: {
+      en: "Five linked Tableau dashboards for an EV maker — performance, finance, operations, forecast — fed by a Tableau Prep cleaning flow. University case study.",
+      vi: "Năm dashboard Tableau liên kết cho một hãng xe điện — hiệu suất, tài chính, vận hành, dự báo — lấy dữ liệu từ luồng làm sạch bằng Tableau Prep. Case study ở trường."
+    },
+    image: "/projects/sparkev.webp",
+    tags: ["bi"],
+    tech: ["Tableau", "Tableau Prep", "Excel"],
+    // Points at the published workbook rather than the repo: a reader can look
+    // at that, where the repo would only offer a .twb file to download.
+    link: "https://public.tableau.com/app/profile/tung.nguyen.nam/viz/SparkEVCaseStudyAnalysis/Performance",
     cover: "graph"
   },
   {
@@ -228,6 +253,19 @@ export const PROJECTS: { title: string; description: Text; image?: string; tags:
     tech: ["Python", "YOLOv8", "MediaPipe", "MoveNet"],
     link: "https://github.com/TungNamNguyen/fall-detection-system",
     cover: "pose"
+  },
+  {
+    title: "Refugee Migration Flows",
+    description: {
+      en: "Where refugees left from and where they arrived in 2021, as a Sankey and a set of heatmaps. Written in D3 and plain JavaScript, no charting library. University project, built with Bill Pham.",
+      vi: "Người tị nạn rời đi từ đâu và đến đâu trong năm 2021, thể hiện bằng Sankey và các heatmap. Viết bằng D3 và JavaScript thuần, không dùng thư viện biểu đồ. Đồ án ở trường, làm cùng Bill Pham."
+    },
+    image: "/projects/refugees.webp",
+    tags: ["bi"],
+    tech: ["JavaScript", "D3", "Tailwind"],
+    // The deployed site rather than the repo — this one has something to look at.
+    link: "https://datavisualization-github-io.vercel.app/src/home.html",
+    cover: "graph"
   }
 ];
 
@@ -257,7 +295,8 @@ export const EXPERIENCE: TimelineEntry[] = [
         en: "Analyzed SME loan-processing turnaround time (TAT) across 15+ workflow stages, identifying process bottlenecks and delivering actionable insights to business leadership to prioritize workflow improvements.",
         vi: "Phân tích thời gian xử lý hồ sơ vay SME (TAT) qua hơn 15 bước quy trình, chỉ ra chỗ nào đang tắc và đề xuất với ban lãnh đạo nên cải tiến khâu nào trước."
       }
-    ]
+    ],
+    tech: ["SQL", "SQL Server", "NiFi", "Redshift", "Power BI"]
   },
   {
     title: { en: "Data Engineer", vi: "Kỹ sư Dữ liệu" },
@@ -283,7 +322,8 @@ export const EXPERIENCE: TimelineEntry[] = [
         en: "Implemented 60+ SQL-based data validation checks across Bronze, Silver, and Gold tables, validating transformation logic, record consistency, and key business metrics across layers.",
         vi: "Dựng hơn 60 phép kiểm tra dữ liệu bằng SQL trên cả ba tầng Bronze, Silver và Gold, soát lại logic biến đổi, độ khớp bản ghi và các chỉ số nghiệp vụ quan trọng giữa các tầng."
       }
-    ]
+    ],
+    tech: ["SQL", "Spark", "Python"]
   },
   {
     title: { en: "Data Engineer Intern", vi: "Thực tập sinh Kỹ sư Dữ liệu" },
@@ -308,7 +348,8 @@ export const EXPERIENCE: TimelineEntry[] = [
         en: "Built 4 Superset dashboards, improving access to operational insights and reducing decision-making time by 25%.",
         vi: "Dựng 4 dashboard Superset, giúp bộ phận vận hành nắm số liệu nhanh hơn và rút 25% thời gian ra quyết định."
       }
-    ]
+    ],
+    tech: ["Python", "Airflow", "Postgres", "Superset"]
   },
   {
     title: { en: "Data Engineer Intern", vi: "Thực tập sinh Kỹ sư Dữ liệu" },
@@ -330,7 +371,8 @@ export const EXPERIENCE: TimelineEntry[] = [
         en: "Delivered 3 Power BI dashboards with 50+ DAX measures for 4 stakeholders, reducing report preparation time from 3 days to 1 day and enabling faster performance tracking.",
         vi: "Bàn giao 3 dashboard Power BI với hơn 50 measure DAX cho 4 bên liên quan, rút thời gian làm báo cáo từ 3 ngày xuống còn 1 ngày."
       }
-    ]
+    ],
+    tech: ["Fabric", "SQL", "Power BI"]
   }
 ];
 
