@@ -79,16 +79,30 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 transition-colors duration-300">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+      {/*
+        Three zones on one grid rather than two on a flex row. The outer columns
+        are equal, so the nav sits on the page's centre line instead of being
+        shoved against the controls with a void where the short logo leaves off.
+        With the nav hidden its column collapses and the same grid still holds
+        the logo left and the controls right — provided each zone names its own
+        column, since auto-placement would otherwise slide the controls into the
+        middle track the moment the nav stops rendering.
+      */}
+      <div className="max-w-5xl mx-auto grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 sm:px-6 py-4">
         <a
           href="#about"
-          className={`flex items-center gap-2 font-mono font-bold text-lg tracking-tighter text-slate-900 dark:text-white ${linkClass}`}
+          className={`col-start-1 justify-self-start flex items-center gap-2 font-mono font-bold text-lg tracking-tighter text-slate-900 dark:text-white ${linkClass}`}
         >
           <span>TN.</span>
         </a>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-5 text-sm font-medium text-slate-600 dark:text-slate-400">
+        {/*
+          Held back to `lg`. At `md` the six links, the language control and the
+          theme control together overrun the container: in English the theme
+          switch was clipped by the right edge, and in Vietnamese every label
+          broke onto a second line.
+        */}
+        <nav className="col-start-2 hidden lg:flex items-center gap-5 text-sm font-medium text-slate-600 dark:text-slate-400">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
@@ -103,24 +117,21 @@ export default function Header() {
               {t(item.label)}
             </a>
           ))}
-          <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 mx-1"></div>
-          <LanguageToggle />
-          <ThemeToggle />
         </nav>
 
-        {/* Mobile Menu Toggle */}
-        <div className="flex items-center gap-2.5 md:hidden">
+        {/* One cluster for both breakpoints — only the menu button comes and goes. */}
+        <div className="col-start-3 justify-self-end flex items-center gap-2">
           <LanguageToggle />
           <ThemeToggle />
           <button
             ref={toggleButtonRef}
             onClick={() => setIsMobileMenuOpen((open) => !open)}
-            className={`text-slate-600 dark:text-slate-400 ${linkClass}`}
+            className={`lg:hidden flex h-8 w-8 items-center justify-center text-slate-600 dark:text-slate-400 ${linkClass}`}
             aria-label={isMobileMenuOpen ? ui.closeMenu : ui.openMenu}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-nav"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
@@ -135,7 +146,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={reduceMotion ? { duration: 0 } : undefined}
-            className="md:hidden overflow-hidden bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700"
+            className="lg:hidden overflow-hidden bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700"
           >
             <nav className="flex flex-col px-4 sm:px-6 py-4 space-y-4 text-sm font-medium text-slate-600 dark:text-slate-400">
               {NAV_ITEMS.map((item) => (
