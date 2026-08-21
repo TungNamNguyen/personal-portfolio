@@ -433,7 +433,13 @@ export type CertificationEntry = {
   issuer: string;
   logo: string;
   url?: string;
-  date: Text;
+  /**
+   * Optional because a credential does not always state one — DataCamp prints
+   * the ID on the certificate but not the issue date. Note that nothing renders
+   * this yet, nor `level` or `credentialId`; the card shows the logo, issuer,
+   * name, a Verify link and the skill pills.
+   */
+  date?: Text;
   level?: Text;
   credentialId?: string;
   skills?: string[];
@@ -447,6 +453,15 @@ export const CERTIFICATIONS: CertificationEntry[] = [
     url: "https://www.hackerrank.com/certificates/90d9344785a0",
     date: { en: "2024", vi: "2024" },
     level: { en: "Advanced", vi: "Nâng cao" },
+    skills: ["SQL"]
+  },
+  {
+    name: "SQL Associate",
+    issuer: "DataCamp",
+    logo: "/icons/datacamp.svg",
+    url: "https://www.datacamp.com/certificate/SQA0016435583306",
+    level: { en: "Associate", vi: "Associate" },
+    credentialId: "SQA0016435583306",
     skills: ["SQL"]
   }
 ];
