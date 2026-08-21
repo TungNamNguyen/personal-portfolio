@@ -1,5 +1,10 @@
-/* Only the weights actually used: Inter 400/500/600/700, JetBrains Mono 400/600/700. */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap');
+/*
+  The Google Fonts stylesheet is linked from index.html, not imported here. An
+  @import is only discovered once this file has been downloaded and parsed, so
+  it serialises four round trips before the first glyph: HTML, this stylesheet,
+  the fonts stylesheet, then the font files themselves. The <link> in the head
+  is visible to the preload scanner immediately, alongside the preconnects.
+*/
 @import "tailwindcss";
 
 @theme {

@@ -19,7 +19,7 @@ export default function Skills() {
           whileHover={reduceMotion ? undefined : { y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
           viewport={{ once: true }}
           transition={{ delay: reduceMotion ? 0 : i * 0.1, duration: 0.3 }}
-          className={`${category.wide ? "lg:col-span-3" : ""} space-y-4 bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:border-blue-200 dark:hover:border-blue-900/50 hover:shadow-xl hover:shadow-blue-900/10 dark:hover:shadow-none transition-all duration-200`}
+          className={`${category.wide ? "lg:col-span-3" : ""} space-y-4 bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:border-blue-200 dark:hover:border-blue-900/50 hover:shadow-xl hover:shadow-blue-900/10 dark:hover:shadow-none transition-[color,background-color,border-color,box-shadow] duration-200`}
         >
           <div className="flex items-center gap-3 text-slate-900 dark:text-white">
             <div className="text-blue-600 dark:text-blue-400">{category.icon}</div>

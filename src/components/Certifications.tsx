@@ -26,7 +26,7 @@ export default function Certifications() {
             whileHover={reduceMotion ? undefined : { y: -4, transition: { type: "spring", stiffness: 300, damping: 20 } }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ delay: reduceMotion ? 0 : i * 0.05, duration: 0.3 }}
-            className="group rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm transition-all duration-200 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-900/5 dark:border-slate-700 dark:bg-slate-800 dark:shadow-none dark:hover:border-blue-900/50"
+            className="group rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm transition-[color,background-color,border-color,box-shadow] duration-200 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-900/5 dark:border-slate-700 dark:bg-slate-800 dark:shadow-none dark:hover:border-blue-900/50"
           >
             <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
               <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">

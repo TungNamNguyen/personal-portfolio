@@ -12,6 +12,28 @@
     <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
 
     <!--
+      Fonts. Linked here rather than @import-ed from index.css so the preload
+      scanner sees them while the HTML is still streaming, instead of only after
+      the app stylesheet has downloaded and parsed. Two origins are involved —
+      googleapis.com serves the CSS, gstatic.com the font files — so both are
+      warmed up front. Only the weights actually used: Inter 400/500/600/700,
+      JetBrains Mono 400/600/700.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
+    />
+
+    <!--
+      The hero portrait, the largest thing above the fold. Without this it is
+      only requested once React has mounted — i.e. after the whole bundle has
+      downloaded, parsed and run. Preloading lets it travel alongside the JS.
+    -->
+    <link rel="preload" as="image" href="/106413417.jpeg" fetchpriority="high" />
+
+    <!--
       Link previews. The crawlers behind LinkedIn, Slack and the rest never run
       the bundle, so whatever they show has to be spelled out here. og:image has
       to be an absolute URL — a relative path is ignored by most of them, which

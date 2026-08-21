@@ -161,11 +161,15 @@ export default function Hero() {
           head read as a floating cut-out. A pale slate ring closes the shape
           without drawing attention to itself.
         */}
+        {/* Matches the preload in index.html — never lazy, and high priority so
+            it is not queued behind the lazy images further down the page. */}
         <img
           src="/106413417.jpeg"
           alt={SITE.name}
-          width={256}
-          height={256}
+          width={400}
+          height={400}
+          fetchPriority="high"
+          decoding="async"
           className="w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-slate-200 dark:border-slate-700 shadow-xl shadow-slate-200 dark:shadow-none"
         />
       </motion.div>

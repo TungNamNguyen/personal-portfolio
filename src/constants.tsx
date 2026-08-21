@@ -132,7 +132,7 @@ export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[]; 
   {
     name: { en: "Databases", vi: "Cơ sở dữ liệu" },
     icon: <Database size={20} />,
-    skills: ["Postgres", "MySQL", "SQL Server"]
+    skills: ["Postgres", "MySQL", "SQL Server", "SQLite"]
   },
   {
     // Both halves stay in English: nobody in the field says "kho dữ liệu" for
@@ -185,14 +185,22 @@ export type ProjectTag = keyof typeof PROJECT_TAGS;
  * `link` may be an empty string — the card then renders without an
  * external-link affordance.
  */
-export const PROJECTS: { title: string; description: Text; image?: string; featured?: boolean; tags: ProjectTag[]; tech: string[]; link: string; cover: CoverName }[] = [
+/**
+ * `imageSize` is the file's own [width, height] in pixels, and must be the real
+ * figures — the card crops every cover to the same band with `object-cover`, so
+ * these ratios differ from each other and from what ends up on screen. Check a
+ * new cover with `identify` or the file inspector rather than copying a
+ * neighbour's numbers.
+ */
+export const PROJECTS: { title: string; description: Text; image?: string; imageSize?: [number, number]; featured?: boolean; tags: ProjectTag[]; tech: string[]; link: string; cover: CoverName }[] = [
   {
     title: "AeroStream Flight Analytics",
     description: {
-      en: "Medallion warehouse over 38.3M US flights, built with dlt, ClickHouse and dbt, orchestrated by 12 Airflow DAGs and surfaced in Superset.",
-      vi: "Kho dữ liệu Medallion cho 38,3 triệu chuyến bay nội địa Mỹ, dựng bằng dlt, ClickHouse và dbt, điều phối bởi 12 DAG Airflow và trình bày trên Superset."
+      en: "Medallion warehouse over 38.3M US flights, built with dlt, ClickHouse and dbt, orchestrated by 12 Airflow DAGs and visualised in Superset.",
+      vi: "Kho dữ liệu Medallion cho 38,3 triệu chuyến bay nội địa Mỹ, dựng bằng dlt, ClickHouse và dbt, điều phối bởi 12 DAG Airflow và trực quan hóa trên Superset."
     },
     image: "/projects/aerostream.webp",
+    imageSize: [1376, 768],
     featured: true,
     tags: ["de", "bi"],
     tech: ["dlt", "ClickHouse", "dbt", "Airflow", "Superset"],
@@ -206,6 +214,7 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
       vi: "Bộ template Docker Compose ghim sẵn phiên bản cho hơn chục công cụ dữ liệu như Airflow, ClickHouse, dbt, Superset và MinIO."
     },
     image: "/projects/templates.webp",
+    imageSize: [1000, 440],
     featured: true,
     tags: ["de"],
     tech: ["Docker Compose", "Airflow", "ClickHouse", "dbt", "MinIO"],
@@ -219,6 +228,7 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
       vi: "Ứng dụng Streamlit tự host, đối chiếu ổ đĩa gắn ngoài với Google Drive và đồng bộ hai chiều, quét lại theo kiểu tăng dần."
     },
     image: "/projects/gdrive-sync.webp",
+    imageSize: [1376, 768],
     featured: true,
     tags: ["de"],
     tech: ["Python", "Streamlit", "Docker Compose", "Google Drive"],
@@ -232,6 +242,7 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
       vi: "CLI Python kéo dữ liệu project từ GitLab về kho SQLAlchemy, với client sinh từ OpenAPI và CRUD đầy đủ."
     },
     image: "/projects/gitlab.webp",
+    imageSize: [1000, 440],
     tags: ["de"],
     tech: ["Python", "SQLAlchemy", "OpenAPI", "SQLite"],
     link: "https://github.com/TungNamNguyen/gitlab-api-data-pipeline",
@@ -244,6 +255,7 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
       vi: "Năm dashboard Tableau liên kết cho một hãng xe điện, bao quát hiệu suất, tài chính, vận hành và dự báo."
     },
     image: "/projects/sparkev.webp",
+    imageSize: [1000, 440],
     featured: true,
     tags: ["bi"],
     tech: ["Tableau", "Tableau Prep", "Excel"],
@@ -259,8 +271,9 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
       vi: "Dashboard Tableau phân tích tỷ lệ rời mạng của một nhà mạng, bóc tách theo lý do, loại hợp đồng và bang."
     },
     image: "/projects/databel.webp",
+    imageSize: [1000, 440],
     tags: ["bi"],
-    tech: ["Tableau"],
+    tech: ["Tableau", "Tableau Prep"],
     link: "https://public.tableau.com/app/profile/tung.nguyen.nam/viz/DatabelCaseStudyAnalysis-CustomerChurning/ChurnAnalysis",
     cover: "graph"
   },
@@ -271,6 +284,7 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
       vi: "Phát hiện té ngã theo thời gian thực từ camera RGB, so sánh YOLOv8, MediaPipe và MoveNet sau giao diện Tkinter."
     },
     image: "/projects/fall-detection.webp",
+    imageSize: [1376, 768],
     tags: ["ml"],
     tech: ["Python", "YOLOv8", "MediaPipe", "MoveNet"],
     link: "https://github.com/TungNamNguyen/fall-detection-system",
@@ -283,6 +297,7 @@ export const PROJECTS: { title: string; description: Text; image?: string; featu
       vi: "Trực quan hoá tương tác bằng D3 về dòng người tị nạn toàn cầu, gồm bản đồ choropleth, biểu đồ Sankey và heatmap theo năm."
     },
     image: "/projects/refugees.webp",
+    imageSize: [1024, 612],
     tags: ["bi"],
     tech: ["JavaScript", "D3", "Tailwind"],
     link: "https://github.com/TungNamNguyen/refugees-migration-data-visualization",

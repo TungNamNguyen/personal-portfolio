@@ -88,7 +88,7 @@ export default function Projects() {
             whileHover={reduceMotion ? undefined : { y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: reduceMotion ? 0 : 0.3 }}
-            className="group flex flex-col overflow-hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-2xl hover:shadow-2xl hover:shadow-blue-900/10 dark:hover:shadow-none hover:border-blue-300 dark:hover:border-blue-900/50 transition-all duration-200"
+            className="group flex flex-col overflow-hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-2xl hover:shadow-2xl hover:shadow-blue-900/10 dark:hover:shadow-none hover:border-blue-300 dark:hover:border-blue-900/50 transition-[color,background-color,border-color,box-shadow] duration-200"
           >
             {/*
               The drawn band. Tags and the outbound link ride on top of it the
@@ -98,18 +98,20 @@ export default function Projects() {
             */}
             <div className={`relative h-44 sm:h-52 shrink-0 border-b border-slate-100 dark:border-slate-700 ${COVER_BG}`}>
               {project.image ? (
-                <>
-                  {/* Decorative: the title directly below already names the
-                      project, so a description here would only be read twice. */}
-                  <img
-                    src={project.image}
-                    alt=""
-                    width={1000}
-                    height={380}
-                    loading="lazy"
-                    className="h-full w-full object-cover"
-                  />
-                </>
+                /* Decorative: the title directly below already names the
+                   project, so a description here would only be read twice.
+                   The dimensions are the file's own, not the band's — the
+                   covers are drawn at several ratios and `object-cover` crops
+                   each one to fit, so a single hard-coded pair would describe
+                   none of them. */
+                <img
+                  src={project.image}
+                  alt=""
+                  width={project.imageSize?.[0]}
+                  height={project.imageSize?.[1]}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
               ) : (
                 <ProjectCover name={project.cover} />
               )}
