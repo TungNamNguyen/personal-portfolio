@@ -11,7 +11,7 @@ import { TechIcon, TECH_URLS } from "../techIcons";
  */
 export default function Certifications() {
   const reduceMotion = useReducedMotion();
-  const { t, ui } = useLang();
+  const { ui } = useLang();
 
   return (
     <section id="certifications" className="space-y-8 sm:space-y-10">
