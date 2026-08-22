@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { Award, Calendar, ExternalLink, MapPin } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+import Logo from "./Logo";
+import type { LogoSource } from "./Logo";
 import { TechIcon, TECH_URLS } from "../techIcons";
 import { useLang } from "../i18n";
 import type { Text } from "../i18n";
@@ -17,8 +19,11 @@ export type TimelineEntry = {
   subtitle: Text;
   /** Company/school homepage. Omit to render the name as plain text. */
   url?: string;
-  /** Path under public/icons. Falls back to the section's generic icon. */
-  logo?: string;
+  /**
+   * The company/school mark: an inlined SVG component, or a path under
+   * public/icons for the raster ones. Falls back to the section's generic icon.
+   */
+  logo?: LogoSource;
   /**
    * True when the artwork is an opaque tile rather than a mark on transparency.
    * Those bleed to the tile edge; padding them inside a white square would read
@@ -109,12 +114,11 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
                     themes. Opaque tiles already carry their own.
                   */}
                   {entry.logo ? (
-                    <img
-                      src={entry.logo}
-                      alt=""
+                    <Logo
+                      source={entry.logo}
                       width={entry.logoWide ? 118 : 44}
                       height={44}
-                      loading="lazy"
+                      fill={entry.logoFill}
                       className={`h-11 shrink-0 rounded-lg ring-1 ring-slate-900/10 dark:ring-white/15 ${
                         entry.logoWide
                           ? "w-auto object-contain"

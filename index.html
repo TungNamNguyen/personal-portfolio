@@ -9,7 +9,16 @@
       name="description"
       content="Portfolio of Tung Nguyen, a Data and Analytics Engineer building data pipelines, warehouses, and business intelligence."
     />
+    <!--
+      Two formats on purpose. The SVG is the crisp one, but `image/svg+xml` is a
+      MIME type corporate proxies and several content blockers drop outright, and
+      a blocked favicon leaves the tab showing a blank sheet. The .ico sits at the
+      root path browsers fall back to on their own, so the raster copy is picked
+      up whether or not the SVG ever arrives.
+    -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!--
       Fonts. Linked here rather than @import-ed from index.css so the preload

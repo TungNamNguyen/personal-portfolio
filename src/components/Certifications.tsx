@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import { ExternalLink } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+import Logo from "./Logo";
 import { CERTIFICATIONS } from "../constants";
 import { useLang } from "../i18n";
 import { TechIcon, TECH_URLS } from "../techIcons";
@@ -30,12 +31,10 @@ export default function Certifications() {
           >
             <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
               <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
-                <img
-                  src={cert.logo}
-                  alt=""
+                <Logo
+                  source={cert.logo}
                   width={44}
                   height={44}
-                  loading="lazy"
                   className="h-11 w-11 shrink-0 rounded-lg bg-slate-900 p-2 ring-1 ring-slate-900/10 dark:bg-slate-700 dark:ring-white/15"
                 />
 

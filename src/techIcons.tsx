@@ -52,6 +52,10 @@ import IconSqlAlchemy from "~icons/simple-icons/sqlalchemy";
 import IconNifi from "~icons/simple-icons/apachenifi";
 import IconExcel from "~icons/simple-icons/microsoftexcel";
 
+// Vendor brand assets, inlined the same way (see localIconClass below).
+import IconDlt from "./assets/icons/dlt.svg?react";
+import IconFabric from "./assets/icons/microsoft-fabric.svg?react";
+
 /**
  * Apache Superset's mark is 2:1, so the icon-set version renders twice as wide
  * as everything else. Same artwork, re-centred in a square viewBox: full width,
@@ -69,12 +73,11 @@ const SupersetIcon = () => (
 );
 
 /**
- * Marks that no icon set carries, taken from the vendor's own brand assets and
- * served from public/icons.
+ * Marks that no icon set carries, taken from the vendor's own brand assets.
+ * Imported through `?react` rather than pointed at from an <img src>, so they
+ * travel inside the bundle as markup — see the note in vite.config.ts.
  */
-const LocalIcon = ({ src }: { src: string }) => (
-  <img src={src} alt="" width={16} height={16} className="w-[1em] h-[1em] object-contain" />
-);
+const localIconClass = "w-[1em] h-[1em]";
 
 export const TECH_ICONS: Record<string, ReactNode> = {
   // SQL is a language standard, not a product — there is no official mark.
@@ -82,7 +85,7 @@ export const TECH_ICONS: Record<string, ReactNode> = {
   "Python": <IconPython />,
   "Bash": <IconBash />,
   "dbt": <IconDbt />,
-  "dlt": <LocalIcon src="/icons/dlt.svg" />,
+  "dlt": <IconDlt className={localIconClass} />,
   "Spark": <IconSpark />,
   "Airflow": <IconAirflow />,
   // NiFi's brand slate reads at 3.16:1 on the light pill but drops to 2.99:1
@@ -113,7 +116,7 @@ export const TECH_ICONS: Record<string, ReactNode> = {
   // own, held at Redshift's violet, is one shape in both themes.
   "Redshift": <span className="text-[#8C4FFF]"><IconRedshift /></span>,
   "Databricks": <span className="text-[#FF3621]"><IconDatabricks /></span>,
-  "Fabric": <LocalIcon src="/icons/microsoft-fabric.svg" />,
+  "Fabric": <IconFabric className={localIconClass} />,
   "Git": <IconGit />,
   "Docker": <IconDocker />,
   // Compose ships with Docker and has no mark of its own.

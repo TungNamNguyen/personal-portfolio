@@ -111,7 +111,15 @@ export default function Hero() {
               <motion.a
                 whileTap={reduceMotion ? undefined : { scale: 0.98 }}
                 href={SITE.resumeUrl}
-                download
+                /*
+                  An explicit filename rather than a bare `download`: bare, the
+                  name is taken from whatever comes back, so a proxy that answers
+                  a blocked PDF with an HTML notice lands in Downloads as
+                  TungNguyen_Resume.htm. Naming it here keeps the .pdf name, and
+                  the type hint lets a browser skip the sniffing that renames it.
+                */
+                download="TungNguyen_Resume.pdf"
+                type="application/pdf"
                 className={resumeClass}
               >
                 {resumeLabel(ui.downloadResume)}

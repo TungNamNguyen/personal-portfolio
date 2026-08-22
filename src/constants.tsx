@@ -1,5 +1,17 @@
 import type { ReactNode } from "react";
 import { Terminal, Database, GitBranch, LineChart, Wrench, Cloud, Layers } from "lucide-react";
+/*
+  Company, school and issuer marks. The SVG ones are imported through `?react`
+  so they ride inside the bundle as markup instead of being fetched as
+  `image/svg+xml` files — see the note in vite.config.ts. The remaining marks
+  are only available as raster and stay in public/icons as plain paths.
+*/
+import CmcGlobalLogo from "./assets/icons/cmcglobal.svg?react";
+import DataCampLogo from "./assets/icons/datacamp.svg?react";
+import HackerRankLogo from "./assets/icons/hackerrank.svg?react";
+import SwinburneLogo from "./assets/icons/swinburne.svg?react";
+import VpbankLogo from "./assets/icons/vpbank.svg?react";
+import type { LogoSource } from "./components/Logo";
 import type { TimelineEntry } from "./components/TimelineSection";
 import type { CoverName } from "./projectCovers";
 import type { Localized, Text } from "./i18n";
@@ -309,7 +321,7 @@ export const EXPERIENCE: TimelineEntry[] = [
   {
     title: { en: "Business Intelligence Engineer", vi: "Kỹ sư Business Intelligence" },
     subtitle: "VPBank",
-    logo: "/icons/vpbank.svg",
+    logo: VpbankLogo,
     url: "https://www.vpbank.com.vn",
     location: { en: "Hanoi Capital Region, Vietnam", vi: "Hà Nội, Việt Nam" },
     companyNote: {
@@ -327,7 +339,7 @@ export const EXPERIENCE: TimelineEntry[] = [
   {
     title: { en: "Data Engineer", vi: "Kỹ sư Dữ liệu" },
     subtitle: "CMC Global",
-    logo: "/icons/cmcglobal.svg",
+    logo: CmcGlobalLogo,
     url: "https://cmcglobal.com.vn",
     location: { en: "Hanoi Capital Region, Vietnam", vi: "Hà Nội, Việt Nam" },
     companyNote: {
@@ -384,7 +396,7 @@ export const EDUCATION: TimelineEntry[] = [
   {
     title: { en: "Bachelor of Data Science", vi: "Cử nhân Khoa học Dữ liệu" },
     subtitle: "Swinburne University of Technology",
-    logo: "/icons/swinburne.svg",
+    logo: SwinburneLogo,
     logoFill: true,
     url: "https://www.swinburne.edu.au",
     location: { en: "Melbourne, VIC, Australia", vi: "Melbourne, VIC, Úc" },
@@ -431,7 +443,7 @@ export const EDUCATION: TimelineEntry[] = [
 export type CertificationEntry = {
   name: string;
   issuer: string;
-  logo: string;
+  logo: LogoSource;
   url?: string;
   /**
    * Optional because a credential does not always state one — DataCamp prints
@@ -449,7 +461,7 @@ export const CERTIFICATIONS: CertificationEntry[] = [
   {
     name: "SQL (Advanced)",
     issuer: "HackerRank",
-    logo: "/icons/hackerrank.svg",
+    logo: HackerRankLogo,
     url: "https://www.hackerrank.com/certificates/90d9344785a0",
     date: { en: "2024", vi: "2024" },
     level: { en: "Advanced", vi: "Nâng cao" },
@@ -458,7 +470,7 @@ export const CERTIFICATIONS: CertificationEntry[] = [
   {
     name: "SQL Associate",
     issuer: "DataCamp",
-    logo: "/icons/datacamp.svg",
+    logo: DataCampLogo,
     url: "https://www.datacamp.com/certificate/SQA0016435583306",
     level: { en: "Associate", vi: "Associate" },
     credentialId: "SQA0016435583306",
