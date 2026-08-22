@@ -34,6 +34,12 @@ export const UI = {
   certifications: { en: "Certifications", vi: "Chứng chỉ" },
   getInTouch: { en: "Get in touch", vi: "Liên hệ" },
   downloadResume: { en: "Download resume", vi: "Tải CV" },
+  /**
+   * Shown on the résumé button while its chunk is in flight. The label itself
+   * does not change — only the icon does — so this is the accessible name for
+   * that moment rather than something a sighted reader sees.
+   */
+  preparingResume: { en: "Preparing resume", vi: "Đang chuẩn bị CV" },
   current: { en: "Current", vi: "Hiện tại" },
   /** Joins a person to their employer: "General Manager at Prompcorp". */
   at: { en: "at", vi: "tại" },

@@ -55,9 +55,44 @@ function svgrPlugin(): Plugin {
   };
 }
 
+/**
+ * The résumé, as base64 in its own lazily-imported chunk.
+ *
+ * Same reasoning as the SVGs above, applied to the other MIME type those
+ * filters drop: `application/pdf`. A blocked PDF comes back as the proxy's own
+ * HTML notice, which `<a download>` then saves as TungNguyen_Resume.htm — a
+ * file that opens on "Access Denied" rather than a résumé. Base64 inside a JS
+ * chunk is neither that MIME type nor recognisable by the magic-byte sniffing
+ * such appliances fall back on, and the bytes it carries are reassembled into a
+ * blob: URL in the page, which no network filter ever sees.
+ *
+ * A virtual module rather than a checked-in .b64 file, so the PDF in public/
+ * stays the single source of truth and the two can never drift.
+ */
+const RESUME_FILE = 'TungNguyen_Resume.pdf';
+const RESUME_MODULE = 'virtual:resume-payload';
+
+function resumePayloadPlugin(): Plugin {
+  const resolved = '\0' + RESUME_MODULE;
+  return {
+    name: 'resume-payload',
+    resolveId: (id) => (id === RESUME_MODULE ? resolved : null),
+    async load(id) {
+      if (id !== resolved) return null;
+      const file = path.resolve(__dirname, 'public', RESUME_FILE);
+      // Deliberately unguarded: renaming the PDF should fail the build here
+      // rather than ship a download button that resolves to nothing.
+      const pdf = await fs.readFile(file);
+      this.addWatchFile(file);
+      return `export default ${JSON.stringify(pdf.toString('base64'))};`;
+    },
+  };
+}
+
 export default defineConfig({
   plugins: [
     svgrPlugin(),
+    resumePayloadPlugin(),
     react(),
     tailwindcss(),
     // Compiles `~icons/<collection>/<name>` imports into inline SVG components at

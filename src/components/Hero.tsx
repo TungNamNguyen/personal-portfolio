@@ -1,10 +1,12 @@
+import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { Mail, Download } from "lucide-react";
+import { Mail, Download, LoaderCircle } from "lucide-react";
 // Monochrome marks so they inherit the link's text colour in both themes.
 import SiGithub from "~icons/simple-icons/github";
 import FaLinkedin from "~icons/simple-icons/linkedin";
 import SiTableau from "~icons/simple-icons/tableau";
 import { SITE } from "../constants";
+import { downloadResume } from "../resumeDownload";
 import { useLang } from "../i18n";
 
 const buttonBase =
@@ -15,12 +17,22 @@ const buttonBase =
 // pair can never drift apart visually.
 const resumeClass = `${buttonBase} border border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800`;
 
-const resumeLabel = (label: string) => (
+const resumeLabel = (label: string, preparing = false) => (
   <>
-    <Download size={18} aria-hidden="true" />
+    {/* The icon carries the pending state on its own: swapping the words would
+        change the button's width mid-click, and it is the one control on the
+        page a reader is watching when they press it. */}
+    {preparing ? (
+      <LoaderCircle size={18} aria-hidden="true" className="animate-spin" />
+    ) : (
+      <Download size={18} aria-hidden="true" />
+    )}
     {label}
   </>
 );
+
+/** What the saved file is called, taken from the path so the two cannot drift. */
+const resumeFilename = SITE.resumeUrl.split("/").pop() || "resume.pdf";
 
 // Profiles, not calls to action. An empty value in constants.tsx drops the
 // link rather than rendering a dead one.
@@ -47,6 +59,32 @@ export default function Hero() {
   // Resolved up front: the badge hides on an empty string, and an unresolved
   // { en: "", vi: "" } pair is an object, which is always truthy.
   const openTo = t(SITE.openTo);
+  const [preparing, setPreparing] = useState(false);
+
+  /*
+    The href stays a plain link to the PDF, so right-click Save-As, middle-click
+    and a JS-less reader all keep working, and so there is somewhere to fall
+    back to. A left click is taken over instead: see resumeDownload.ts for why
+    the file is assembled in the page rather than fetched as one.
+  */
+  const onResumeClick = async (event: React.MouseEvent<HTMLAnchorElement>) => {
+    // Modified clicks are the reader asking the browser for something specific
+    // — a new tab, a save-as — and are none of our business.
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    if (preparing) return;
+
+    setPreparing(true);
+    try {
+      await downloadResume(resumeFilename);
+    } catch {
+      // Chunk unreachable: do what the href would have done. That request can
+      // still be blocked, but a visible failure beats a click that does nothing.
+      window.location.href = SITE.resumeUrl;
+    } finally {
+      setPreparing(false);
+    }
+  };
 
   return (
     // The hero doubles as the About section, so it owns the #about anchor.
@@ -117,12 +155,17 @@ export default function Hero() {
                   a blocked PDF with an HTML notice lands in Downloads as
                   TungNguyen_Resume.htm. Naming it here keeps the .pdf name, and
                   the type hint lets a browser skip the sniffing that renames it.
+                  Both only matter on the fallback path — the click handler names
+                  the file itself.
                 */
-                download="TungNguyen_Resume.pdf"
+                download={resumeFilename}
                 type="application/pdf"
-                className={resumeClass}
+                onClick={onResumeClick}
+                aria-busy={preparing}
+                aria-label={preparing ? ui.preparingResume : undefined}
+                className={`${resumeClass} ${preparing ? "cursor-wait" : ""}`}
               >
-                {resumeLabel(ui.downloadResume)}
+                {resumeLabel(ui.downloadResume, preparing)}
               </motion.a>
             ) : (
               <motion.button
