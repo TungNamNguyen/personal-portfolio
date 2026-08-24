@@ -37,15 +37,6 @@ export const SITE = {
   github: "https://github.com/TungNamNguyen",
   linkedin: "https://www.linkedin.com/in/nguyennamtung2003/",
   tableau: "https://public.tableau.com/app/profile/tung.nguyen.nam/vizzes",
-  /**
-   * Two sentences for the hero. Deliberately free of project specifics — the
-   * Projects section carries those — and it never repeats the role or location
-   * printed directly above it.
-   */
-  bio: {
-    en: "Pipelines that land the data, models that make it trustworthy, dashboards that get it used. I work the full span of data engineering, analytics engineering and BI, not one slice.",
-    vi: "Mình theo dữ liệu suốt chặng đường: từ lúc nó còn nằm trong hệ thống nguồn, qua pipeline và model, tới khi thành cái dashboard sáng nào cũng có người mở. Data engineering, analytics engineering hay BI — với mình vẫn là một việc, không phải ba."
-  },
   /** Short availability line. Set both languages to "" to hide the badge. */
   openTo: { en: "", vi: "" },
   /**
@@ -331,8 +322,8 @@ export const EXPERIENCE: TimelineEntry[] = [
     period: { en: "Dec 2025 — Present", vi: "12/2025 — Hiện tại" },
     current: true,
     summary: {
-      en: "Runs the reporting behind SME lending — how debt gets classified, where credit quality is heading, and where in the approval process loan applications bottleneck.",
-      vi: "Phụ trách mảng báo cáo tín dụng SME — nợ được phân loại ra sao, chất lượng tín dụng đang đi về đâu, và hồ sơ vay đang bị tắc ở khâu nào trong quy trình phê duyệt."
+      en: "Owns the data and reporting behind SME lending — from credit quality and debt classification to loan portfolio performance and where in the approval process applications bottleneck.",
+      vi: "Phụ trách dữ liệu và báo cáo cho mảng cho vay SME — từ chất lượng tín dụng, phân loại nợ, hiệu quả danh mục cho vay, tới việc hồ sơ đang tắc ở khâu nào trong quy trình phê duyệt."
     },
     tech: ["SQL", "SQL Server", "NiFi", "Redshift", "Power BI"]
   },
@@ -348,8 +339,8 @@ export const EXPERIENCE: TimelineEntry[] = [
     },
     period: { en: "Jul 2025 — Dec 2025", vi: "07/2025 — 12/2025" },
     summary: {
-      en: "Built the transformation layer of a lakehouse — deciding what each source system becomes downstream, then testing that every layer still tells the same story.",
-      vi: "Dựng tầng transformation cho lakehouse — quyết định dữ liệu từ mỗi hệ thống nguồn sẽ thành gì ở downstream, rồi viết test để đảm bảo các tầng luôn khớp nhau."
+      en: "Built the transformation layer of a lakehouse, standardising data from multiple source systems into validated models for downstream analytics.",
+      vi: "Dựng tầng transformation cho lakehouse, chuẩn hoá dữ liệu từ nhiều hệ thống nguồn thành các model đã được kiểm định để phục vụ phân tích ở downstream."
     },
     tech: ["SQL", "Spark", "Python"]
   },
@@ -368,8 +359,8 @@ export const EXPERIENCE: TimelineEntry[] = [
     },
     period: { en: "Mar 2024 — May 2024", vi: "03/2024 — 05/2024" },
     summary: {
-      en: "Pulled HubSpot into a single database and gave the operations team dashboards over it, so an answer no longer depended on who had exported what.",
-      vi: "Gom dữ liệu HubSpot về một database duy nhất rồi dựng dashboard cho bộ phận vận hành, để câu trả lời không còn phụ thuộc vào việc ai export cái gì."
+      en: "Centralised HubSpot data and built dashboards for the operations team, replacing scattered exports with one reliable source of truth.",
+      vi: "Gom dữ liệu HubSpot về một mối rồi dựng dashboard cho bộ phận vận hành, thay những file export rời rạc bằng một nguồn dữ liệu đáng tin duy nhất."
     },
     tech: ["Python", "Airflow", "Postgres", "Superset"]
   },
@@ -385,8 +376,8 @@ export const EXPERIENCE: TimelineEntry[] = [
     },
     period: { en: "Jan 2024 — Mar 2024", vi: "01/2024 — 03/2024" },
     summary: {
-      en: "Backfilled years of Dynamics 365 Business Central history into a Fabric warehouse, put it on a daily refresh, and replaced the hand-built report pack with dashboards.",
-      vi: "Nạp bù nhiều năm dữ liệu Dynamics 365 Business Central vào warehouse trên Fabric, cho chạy refresh hằng ngày, rồi thay bộ báo cáo làm tay bằng dashboard."
+      en: "Backfilled years of Dynamics 365 Business Central data into a Fabric warehouse, automated the daily refresh, and replaced manually maintained reports with dashboards.",
+      vi: "Nạp bù nhiều năm dữ liệu Dynamics 365 Business Central vào warehouse trên Fabric, tự động hoá refresh hằng ngày, rồi thay những báo cáo làm tay bằng dashboard."
     },
     tech: ["Fabric", "SQL", "Power BI"]
   }

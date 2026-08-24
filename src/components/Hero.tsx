@@ -100,7 +100,7 @@ export default function Hero() {
         {/*
           The name opens the page on its own line. Nothing sits above it: a
           greeting would only delay the one word a visitor came for, and the
-          role, location and bio below already carry everything else. Colour
+          role and location below already carry everything else. Colour
           accent lives on the role, so there is one blue focal point.
         */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.05]">
@@ -119,10 +119,6 @@ export default function Hero() {
             </span>
           )}
         </div>
-
-        <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-          {t(SITE.bio)}
-        </p>
 
         <motion.div
           initial={reduceMotion ? false : { opacity: 0 }}
