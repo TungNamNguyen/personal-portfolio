@@ -100,10 +100,10 @@ export default function Hero() {
         {/*
           The name opens the page on its own line. Nothing sits above it: a
           greeting would only delay the one word a visitor came for, and the
-          role and location below already carry everything else. Colour
+          role, location and bio below already carry everything else. Colour
           accent lives on the role, so there is one blue focal point.
         */}
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.05]">
+        <h1 className="text-5xl sm:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.05]">
           {SITE.name}
         </h1>
 
@@ -119,6 +119,12 @@ export default function Hero() {
             </span>
           )}
         </div>
+
+        {/* Measure-capped: the buttons below set the column's width, and a
+            paragraph run to that full width is well past a comfortable line. */}
+        <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+          {t(SITE.bio)}
+        </p>
 
         <motion.div
           initial={reduceMotion ? false : { opacity: 0 }}

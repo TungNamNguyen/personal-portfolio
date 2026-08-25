@@ -37,6 +37,16 @@ export const SITE = {
   github: "https://github.com/TungNamNguyen",
   linkedin: "https://www.linkedin.com/in/nguyennamtung2003/",
   tableau: "https://public.tableau.com/app/profile/tung.nguyen.nam/vizzes",
+  /**
+   * The About section, which is the hero. One sentence: where the work sits —
+   * between the source systems and the decisions — then the span it covers.
+   * Written as a tagline rather than a paragraph, and deliberately short on
+   * adjectives, so every slot carries a noun a reader could check.
+   */
+  bio: {
+    en: "Building the data layer between source systems and business decisions — from data pipelines and analytics models to BI.",
+    vi: "Dựng tầng dữ liệu nằm giữa hệ thống nguồn và quyết định kinh doanh — từ data pipeline, model phân tích cho tới BI."
+  },
   /** Short availability line. Set both languages to "" to hide the badge. */
   openTo: { en: "", vi: "" },
   /**
@@ -53,10 +63,10 @@ export const SITE = {
  */
 export const NAV_ITEMS: { id: string; label: Localized }[] = [
   { id: "about", label: UI.about },
-  { id: "skills", label: UI.skills },
   { id: "experience", label: UI.experience },
-  { id: "education", label: UI.education },
   { id: "projects", label: UI.projects },
+  { id: "skills", label: UI.skills },
+  { id: "education", label: UI.education },
   { id: "recommendations", label: UI.recommendations },
   { id: "certifications", label: UI.certifications }
 ];
@@ -107,16 +117,15 @@ export const RECOMMENDATIONS: {
  * Skill names themselves are product names — they key TECH_ICONS and never
  * translate.
  *
- * Storage used to be one card of eight. On a three-column grid that made it two
- * pill-rows taller than the two cards beside it, which stretch to match, so both
- * of those ended in a band of empty white. Splitting it along the line a data
- * engineer would draw anyway — the databases you serve from, the warehouses you
- * analyse in — balances the row and says more than the merged card did.
+ * Storage is split rather than kept as one bucket of eight, along the line a
+ * data engineer would draw anyway: the databases you serve from, the warehouses
+ * you analyse in. Two named categories say more than one merged one.
  *
- * `wide` runs a card across all three columns. The seventh would otherwise sit
- * alone at a third of the width with six pills wrapping inside it.
+ * Order is read top to bottom now that Skills renders as a list, so it runs
+ * most central to least — what he writes in, what he builds with, what he
+ * presents in, then the stores, the platform and the everyday tools.
  */
-export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[]; wide?: boolean }[] = [
+export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[] }[] = [
   {
     name: { en: "Languages", vi: "Ngôn ngữ" },
     icon: <Terminal size={20} />,
@@ -152,8 +161,7 @@ export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[]; 
   {
     name: { en: "Tools & Collaboration", vi: "Công cụ & Làm việc nhóm" },
     icon: <Wrench size={20} />,
-    skills: ["DBeaver", "Jira", "Confluence", "Trello", "Teams", "Slack"],
-    wide: true
+    skills: ["DBeaver", "Jira", "Confluence", "Trello", "Teams", "Slack"]
   }
 ];
 

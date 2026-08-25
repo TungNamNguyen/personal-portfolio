@@ -10,7 +10,7 @@ import type { Text } from "../i18n";
 
 /** Shared by the stat labels and the grades heading so the two align in weight. */
 const statLabelClass =
-  "text-[11px] font-medium uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400";
+  "text-xs font-medium uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400";
 
 export type TimelineEntry = {
   /** Job title or degree. */
@@ -98,11 +98,11 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
         {entries.map((entry, i) => (
           <motion.article
             key={i}
-            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={reduceMotion ? false : { opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             whileHover={reduceMotion ? undefined : { y: -4, transition: { type: "spring", stiffness: 300, damping: 20 } }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ delay: reduceMotion ? 0 : i * 0.05, duration: 0.3 }}
+            transition={{ duration: reduceMotion ? 0 : 0.3 }}
             className="group rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm transition-[color,background-color,border-color,box-shadow] duration-200 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-900/5 dark:border-slate-700 dark:bg-slate-800 dark:shadow-none dark:hover:border-blue-900/50"
           >
             <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-3">
@@ -138,13 +138,13 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
                       href={entry.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1 rounded-sm font-semibold text-blue-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:text-blue-400 dark:focus-visible:ring-offset-slate-800"
+                      className="inline-flex items-center gap-1 rounded-sm text-lg font-semibold text-blue-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:text-blue-400 dark:focus-visible:ring-offset-slate-800"
                     >
                       {t(entry.subtitle)}
                       <ExternalLink size={13} aria-hidden="true" className="shrink-0 opacity-70" />
                     </a>
                   ) : (
-                    <span className="font-semibold text-blue-600 dark:text-blue-400">
+                    <span className="text-lg font-semibold text-blue-600 dark:text-blue-400">
                       {t(entry.subtitle)}
                     </span>
                   )}
@@ -159,10 +159,10 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
                     •
                   </span>
 
-                  <h3 className="font-semibold text-slate-900 dark:text-white">{t(entry.title)}</h3>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{t(entry.title)}</h3>
 
                   {entry.current && (
-                    <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400">
+                    <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400">
                       {ui.current}
                     </span>
                   )}
@@ -200,7 +200,7 @@ export default function TimelineSection({ id, heading, subtitleIcon, entries }: 
               full width they are laid out against.
             */}
             {entry.summary && (
-              <p className="mt-4 max-w-[70ch] text-sm sm:text-[15px] leading-relaxed text-slate-600 dark:text-slate-400">
+              <p className="mt-4 max-w-[70ch] text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-400">
                 {t(entry.summary)}
               </p>
             )}

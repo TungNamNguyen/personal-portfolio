@@ -147,10 +147,16 @@ export const TECH_ICONS: Record<string, ReactNode> = {
 
 /**
  * Homepage URLs for each technology. When present the pill becomes a link;
- * when absent (model names like YOLOv8) it stays plain text.
+ * when absent it stays plain text.
+ *
+ * Absent covers two cases. Model names like YOLOv8 and MoveNet have nowhere of
+ * their own to point at. So does SQL: it is a language standard rather than a
+ * product, so there is no vendor page for it, and every other pill here goes to
+ * an official one — sending the most important skill on the site to Wikipedia
+ * instead made it the odd link out. JavaScript keeps its MDN entry because MDN
+ * is that language's canonical reference; SQL has no equivalent.
  */
 export const TECH_URLS: Record<string, string> = {
-  "SQL": "https://en.wikipedia.org/wiki/SQL",
   "Python": "https://www.python.org",
   "Bash": "https://www.gnu.org/software/bash/",
   "dbt": "https://www.getdbt.com",

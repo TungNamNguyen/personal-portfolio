@@ -22,11 +22,11 @@ export default function Certifications() {
         {CERTIFICATIONS.map((cert, i) => (
           <motion.div
             key={i}
-            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={reduceMotion ? false : { opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             whileHover={reduceMotion ? undefined : { y: -4, transition: { type: "spring", stiffness: 300, damping: 20 } }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ delay: reduceMotion ? 0 : i * 0.05, duration: 0.3 }}
+            transition={{ duration: reduceMotion ? 0 : 0.3 }}
             className="group rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm transition-[color,background-color,border-color,box-shadow] duration-200 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-900/5 dark:border-slate-700 dark:bg-slate-800 dark:shadow-none dark:hover:border-blue-900/50"
           >
             <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
@@ -38,7 +38,7 @@ export default function Certifications() {
                   className="h-11 w-11 shrink-0 rounded-lg bg-slate-900 p-2 ring-1 ring-slate-900/10 dark:bg-slate-700 dark:ring-white/15"
                 />
 
-                <span className="font-semibold text-slate-900 dark:text-white">
+                <span className="text-lg font-semibold text-slate-900 dark:text-white">
                   {cert.issuer}
                 </span>
 
@@ -46,7 +46,7 @@ export default function Certifications() {
                   •
                 </span>
 
-                <h3 className="font-semibold text-slate-900 dark:text-white">{cert.name}</h3>
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{cert.name}</h3>
               </div>
 
               {cert.url && (

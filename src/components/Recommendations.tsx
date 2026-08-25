@@ -20,8 +20,8 @@ export default function Recommendations() {
           // with its attribution.
           <motion.figure
             key={i}
-            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={reduceMotion ? false : { opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             whileHover={reduceMotion ? undefined : { y: -4, transition: { type: "spring", stiffness: 300, damping: 20 } }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: reduceMotion ? 0 : 0.4 }}

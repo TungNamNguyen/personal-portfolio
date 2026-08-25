@@ -83,8 +83,8 @@ export default function Projects() {
           // in place rather than replacing the card.
           <motion.div
             key={project.title}
-            initial={reduceMotion ? false : { opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={reduceMotion ? false : { opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             whileHover={reduceMotion ? undefined : { y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: reduceMotion ? 0 : 0.3 }}
@@ -124,7 +124,7 @@ export default function Projects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-white px-2.5 py-1 text-[11px] font-medium text-slate-700 shadow-sm ring-1 ring-slate-900/10 dark:bg-slate-900 dark:text-slate-200 dark:ring-white/15"
+                      className="rounded-full bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm ring-1 ring-slate-900/10 dark:bg-slate-900 dark:text-slate-200 dark:ring-white/15"
                     >
                       {t(PROJECT_TAGS[tag])}
                     </span>

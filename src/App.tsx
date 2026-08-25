@@ -36,14 +36,20 @@ export default function App() {
       <main className="max-w-5xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10 md:pt-14 pb-10 sm:pb-16 md:pb-24 space-y-20 sm:space-y-24 md:space-y-32">
         <Hero />
 
+        {/*
+          Recruiter order: what he has done, then what he has built, and only
+          then the stack behind both. Skills used to open the page, which meant
+          a wall of ~35 pills stood between the hero and the first employer.
+        */}
+        <Experience />
+        <Projects />
+
         <section id="skills" className="space-y-8 sm:space-y-10">
           <SectionHeading>{ui.skills}</SectionHeading>
           <Skills />
         </section>
 
-        <Experience />
         <Education />
-        <Projects />
         <Recommendations />
         <Certifications />
       </main>
