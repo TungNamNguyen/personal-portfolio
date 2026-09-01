@@ -37,6 +37,7 @@ import IconDbeaver from "~icons/devicon/dbeaver";
 import IconSqlite from "~icons/devicon/sqlite";
 import IconOpenApi from "~icons/logos/openapi-icon";
 import IconStreamlit from "~icons/logos/streamlit";
+import IconDuckDb from "~icons/devicon/duckdb";
 import IconGoogleDrive from "~icons/logos/google-drive";
 import IconD3 from "~icons/logos/d3";
 import IconJavaScript from "~icons/logos/javascript";
@@ -110,6 +111,12 @@ export const TECH_ICONS: Record<string, ReactNode> = {
   // ClickHouse's yellow is drawn for dark grounds and disappears on the light
   // pill, so the light theme takes the black half of the same brand pair.
   "ClickHouse": <span className="text-slate-900 dark:text-[#FAFF69]"><IconClickHouse /></span>,
+  // The monochrome DuckDB mark draws the duck as a hole in a filled disc, and
+  // at 14px negative space does not read — it looks like a chipped dot. The
+  // two-colour version makes the duck the figure instead. Its disc is held at
+  // ink in both themes: inverting it for the dark pill would put the brand
+  // yellow on a light ground, where the duck is the part that disappears.
+  "DuckDB": <span className="text-slate-900"><IconDuckDb /></span>,
   "Snowflake": <IconSnowflake />,
   // The AWS architecture tile is a filled purple square, which reads as a
   // button next to the bare marks either side of it. The cylinder glyph on its
@@ -173,6 +180,7 @@ export const TECH_URLS: Record<string, string> = {
   "MySQL": "https://www.mysql.com",
   "SQL Server": "https://www.microsoft.com/en-us/sql-server",
   "ClickHouse": "https://clickhouse.com",
+  "DuckDB": "https://duckdb.org",
   "Snowflake": "https://www.snowflake.com",
   "Redshift": "https://aws.amazon.com/redshift/",
   "Databricks": "https://www.databricks.com",

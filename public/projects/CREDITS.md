@@ -10,6 +10,7 @@ it replaced could only ever hold a corner of one.
 | `sparkev.webp` | Own work — the whole Performance dashboard, rendered from Tableau Public so the cover matches where the card's link goes | — |
 | `databel.webp` | Own work — the Churn Analysis dashboard, rendered from Tableau Public | — |
 | `refugees.webp` | Own work — the choropleth and its colour scale on the deployed site's main page, captured headless. The Sankey was tried first but it is one view of several, not the headline one | — |
+| `connection-lens.webp` | Own work — the Network Stats tab of Connection Lens, cropped from the repository's own screenshot. The warehouse behind it is synthetic, so no real connection appears on the cover | — |
 | `templates.webp` | Docker's own lockup, knocked out white over its brand blue — [*Docker (container engine) logo.svg*](https://commons.wikimedia.org/wiki/File:Docker_(container_engine)_logo.svg) | Apache 2.0 |
 | `gitlab.webp` | GitLab's lockup over its brand dark, wordmark lifted to white — [*GitLab logo.svg*](https://commons.wikimedia.org/wiki/File:GitLab_logo.svg) | MIT |
 | `fall-detection.webp` | StockSnap.io `E8U0GNCPI8` — dome surveillance camera | CC0 |

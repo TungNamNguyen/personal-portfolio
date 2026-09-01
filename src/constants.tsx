@@ -233,6 +233,20 @@ export const PROJECTS: { title: string; description: Text; image?: string; image
     cover: "stack"
   },
   {
+    title: "Connection Lens",
+    description: {
+      en: "Event-driven pipeline that turns a LinkedIn connections export into network analytics and referral signal, from a MinIO landing zone through Airflow and dbt on DuckDB to Streamlit.",
+      vi: "Pipeline hướng sự kiện, biến bản export danh sách kết nối LinkedIn thành phân tích mạng lưới và tín hiệu giới thiệu, từ vùng đệm MinIO qua Airflow và dbt trên DuckDB tới Streamlit."
+    },
+    image: "/projects/connection-lens.webp",
+    imageSize: [1000, 440],
+    featured: true,
+    tags: ["de"],
+    tech: ["Airflow", "dbt", "DuckDB", "MinIO", "Streamlit"],
+    link: "https://github.com/TungNamNguyen/connection_lens",
+    cover: "stack"
+  },
+  {
     title: "Local \u2194 Google Drive Sync",
     description: {
       en: "Self-hosted Streamlit app that compares a mounted disk against Google Drive and syncs either way, with incremental rescans.",
@@ -240,7 +254,6 @@ export const PROJECTS: { title: string; description: Text; image?: string; image
     },
     image: "/projects/gdrive-sync.webp",
     imageSize: [1376, 768],
-    featured: true,
     tags: ["de"],
     tech: ["Python", "Streamlit", "Docker Compose", "Google Drive"],
     link: "https://github.com/TungNamNguyen/gdrive-local-sync",
