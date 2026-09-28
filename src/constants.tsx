@@ -487,5 +487,14 @@ export const CERTIFICATIONS: CertificationEntry[] = [
     level: { en: "Associate", vi: "Associate" },
     credentialId: "SQA0016435583306",
     skills: ["SQL"]
+  },
+  {
+    name: "Data Engineer",
+    issuer: "DataCamp",
+    logo: DataCampLogo,
+    url: "https://www.datacamp.com/certificate/DE0015350475223",
+    level: { en: "Professional", vi: "Professional" },
+    credentialId: "DE0015350475223",
+    skills: ["SQL", "Python", "Data Engineering"]
   }
 ];
