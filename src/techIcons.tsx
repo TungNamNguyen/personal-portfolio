@@ -47,7 +47,6 @@ import IconTailwind from "~icons/logos/tailwindcss-icon";
 import IconDatabricks from "~icons/simple-icons/databricks";
 import IconAws from "~icons/simple-icons/amazonwebservices";
 import IconClickHouse from "~icons/simple-icons/clickhouse";
-import IconRedshift from "~icons/simple-icons/amazonredshift";
 import IconMinio from "~icons/simple-icons/minio";
 import IconSqlAlchemy from "~icons/simple-icons/sqlalchemy";
 import IconNifi from "~icons/simple-icons/apachenifi";
@@ -56,6 +55,12 @@ import IconExcel from "~icons/simple-icons/microsoftexcel";
 // Vendor brand assets, inlined the same way (see localIconClass below).
 import IconDlt from "./assets/icons/dlt.svg?react";
 import IconFabric from "./assets/icons/microsoft-fabric.svg?react";
+// Alteryx's own favicon: the white "a" on its blue disc. The simple-icons entry
+// is the full wordmark, which shrinks to an unreadable line at pill size.
+import IconAlteryx from "./assets/icons/alteryx.svg?react";
+// The classic blue Redshift mark, from AWS Simple Icons v17.1.19 — vector, so
+// it stays sharp at any size. viewBox is cropped square to the artwork.
+import IconRedshift from "./assets/icons/redshift.svg?react";
 
 /**
  * Apache Superset's mark is 2:1, so the icon-set version renders twice as wide
@@ -92,6 +97,7 @@ export const TECH_ICONS: Record<string, ReactNode> = {
   // NiFi's brand slate reads at 3.16:1 on the light pill but drops to 2.99:1
   // on the dark one, so the dark theme takes a lighter tint of the same hue.
   "NiFi": <span className="text-[#728E9B] dark:text-[#9DB3BE]"><IconNifi /></span>,
+  "Alteryx": <IconAlteryx className={localIconClass} />,
   "Power BI": <IconPowerBi />,
   "Tableau": <IconTableau />,
   // Prep is part of the Tableau suite and carries the same mark.
@@ -118,10 +124,7 @@ export const TECH_ICONS: Record<string, ReactNode> = {
   // yellow on a light ground, where the duck is the part that disappears.
   "DuckDB": <span className="text-slate-900"><IconDuckDb /></span>,
   "Snowflake": <IconSnowflake />,
-  // The AWS architecture tile is a filled purple square, which reads as a
-  // button next to the bare marks either side of it. The cylinder glyph on its
-  // own, held at Redshift's violet, is one shape in both themes.
-  "Redshift": <span className="text-[#8C4FFF]"><IconRedshift /></span>,
+  "Redshift": <IconRedshift className={localIconClass} />,
   "Databricks": <span className="text-[#FF3621]"><IconDatabricks /></span>,
   "Fabric": <IconFabric className={localIconClass} />,
   "Git": <IconGit />,
@@ -171,6 +174,7 @@ export const TECH_URLS: Record<string, string> = {
   "Spark": "https://spark.apache.org",
   "Airflow": "https://airflow.apache.org",
   "NiFi": "https://nifi.apache.org",
+  "Alteryx": "https://www.alteryx.com",
   "Power BI": "https://powerbi.microsoft.com",
   "Tableau": "https://www.tableau.com",
   "Tableau Prep": "https://www.tableau.com/products/prep",
