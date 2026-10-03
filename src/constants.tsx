@@ -134,7 +134,7 @@ export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[] }
   {
     name: { en: "Data Engineering", vi: "Kỹ thuật dữ liệu" },
     icon: <GitBranch size={20} />,
-    skills: ["dbt", "dlt", "Spark", "Airflow", "NiFi"]
+    skills: ["dbt", "dlt", "Spark", "Airflow", "NiFi", "Alteryx"]
   },
   {
     name: { en: "BI & Analytics", vi: "BI & Phân tích" },
