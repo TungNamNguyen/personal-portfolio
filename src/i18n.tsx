@@ -57,7 +57,16 @@ export const UI = {
   darkMode: { en: "Dark mode", vi: "Chế độ tối" },
   openMenu: { en: "Open menu", vi: "Mở menu" },
   closeMenu: { en: "Close menu", vi: "Đóng menu" },
-  language: { en: "Language", vi: "Ngôn ngữ" }
+  language: { en: "Language", vi: "Ngôn ngữ" },
+  connectPrefix: { en: "Connect With ", vi: "Kết nối cùng " },
+  connectHighlight: { en: "Me", vi: "Tôi" },
+  connectBody: {
+    en: "I’m always open to discussing anything data-related, interesting projects, or new opportunities — feel free to reach out anytime.",
+    vi: "Tôi luôn sẵn sàng trao đổi về mọi chủ đề xoay quanh dữ liệu, các dự án thú vị hay những cơ hội hợp tác mới — đừng ngần ngại liên hệ bất cứ lúc nào."
+  },
+  orConnectVia: { en: "OR REACH ME ON", vi: "HOẶC LIÊN HỆ QUA" },
+  email: { en: "Email", vi: "Email" },
+  sourceOnGithub: { en: "Source on GitHub", vi: "Mã nguồn trên GitHub" }
 } satisfies Record<string, Localized>;
 
 type UiKey = keyof typeof UI;

@@ -54,7 +54,8 @@ export const SITE = {
    * hero button and the header link. Both stay hidden while it is empty, so the
    * site never ships a dead download.
    */
-  resumeUrl: "/TungNguyen_Resume.pdf"
+  resumeUrl: "/TungNguyen_Resume.pdf",
+  repoUrl: "https://github.com/TungNamNguyen/personal-portfolio"
 };
 
 /**
