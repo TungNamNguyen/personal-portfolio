@@ -471,6 +471,24 @@ export type CertificationEntry = {
 
 export const CERTIFICATIONS: CertificationEntry[] = [
   {
+    name: "Certified Data Engineer",
+    issuer: "DataCamp",
+    logo: DataCampLogo,
+    url: "https://www.datacamp.com/certificate/DE0015350475223",
+    level: { en: "Professional", vi: "Professional" },
+    credentialId: "DE0015350475223",
+    skills: ["SQL", "Python", "Data Engineering"]
+  },
+  {
+    name: "Certified SQL Associate",
+    issuer: "DataCamp",
+    logo: DataCampLogo,
+    url: "https://www.datacamp.com/certificate/SQA0016435583306",
+    level: { en: "Associate", vi: "Associate" },
+    credentialId: "SQA0016435583306",
+    skills: ["SQL"]
+  },
+  {
     name: "SQL (Advanced)",
     issuer: "HackerRank",
     logo: HackerRankLogo,
@@ -480,21 +498,12 @@ export const CERTIFICATIONS: CertificationEntry[] = [
     skills: ["SQL"]
   },
   {
-    name: "SQL Associate",
+    name: "Certified Python Data Associate",
     issuer: "DataCamp",
     logo: DataCampLogo,
-    url: "https://www.datacamp.com/certificate/SQA0016435583306",
+    url: "https://www.datacamp.com/certificate/PDA0016131929765",
     level: { en: "Associate", vi: "Associate" },
-    credentialId: "SQA0016435583306",
-    skills: ["SQL"]
-  },
-  {
-    name: "Data Engineer",
-    issuer: "DataCamp",
-    logo: DataCampLogo,
-    url: "https://www.datacamp.com/certificate/DE0015350475223",
-    level: { en: "Professional", vi: "Professional" },
-    credentialId: "DE0015350475223",
-    skills: ["SQL", "Python", "Data Engineering"]
+    credentialId: "PDA0016131929765",
+    skills: ["Python"]
   }
 ];
