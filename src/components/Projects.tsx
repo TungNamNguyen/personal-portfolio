@@ -8,14 +8,14 @@ import { useLang } from "../i18n";
 import { TechIcon, TECH_URLS } from "../techIcons";
 import { COVER_BG, ProjectCover } from "../projectCovers";
 
-type Filter = ProjectTag | "featured";
+type Filter = ProjectTag | "featured" | "all";
 
 export default function Projects() {
   const reduceMotion = useReducedMotion();
   const { t, ui } = useLang();
-  // Opens on the picked subset rather than on everything: with seven projects,
-  // four chosen ones say more than all seven at once. Every project still
-  // carries a category tag, so none of them is unreachable.
+  // Opens on the picked subset rather than on everything: with nine projects,
+  // four chosen ones say more than all nine at once. Every project still
+  // carries a category tag, and the "All" chip shows the full set.
   const [filter, setFilter] = useState<Filter>("featured");
 
   /*
@@ -35,14 +35,21 @@ export default function Projects() {
         key: tag as Filter,
         label: t(PROJECT_TAGS[tag]),
         count: PROJECTS.filter((project) => project.tags.includes(tag)).length
-      }))
+      })),
+      {
+        key: "all" as Filter,
+        label: ui.allProjects,
+        count: PROJECTS.length
+      }
     ].filter((chip) => chip.count > 0);
-  }, [t, ui.featured]);
+  }, [t, ui.featured, ui.allProjects]);
 
   const visible =
-    filter === "featured"
-      ? PROJECTS.filter((project) => project.featured)
-      : PROJECTS.filter((project) => project.tags.includes(filter));
+    filter === "all"
+      ? PROJECTS
+      : filter === "featured"
+        ? PROJECTS.filter((project) => project.featured)
+        : PROJECTS.filter((project) => project.tags.includes(filter));
 
   return (
     <section id="projects" className="space-y-8 sm:space-y-10">
@@ -97,13 +104,35 @@ export default function Projects() {
               what it was built with.
             */}
             <div className={`relative h-44 sm:h-52 shrink-0 border-b border-slate-100 dark:border-slate-700 ${COVER_BG}`}>
-              {project.image ? (
-                /* Decorative: the title directly below already names the
-                   project, so a description here would only be read twice.
-                   The dimensions are the file's own, not the band's — the
-                   covers are drawn at several ratios and `object-cover` crops
-                   each one to fit, so a single hard-coded pair would describe
-                   none of them. */
+              {project.link ? (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className="block h-full w-full"
+                >
+                  {project.image ? (
+                    /* Decorative: the title directly below already names the
+                       project, so a description here would only be read twice.
+                       The dimensions are the file's own, not the band's — the
+                       covers are drawn at several ratios and `object-cover` crops
+                       each one to fit, so a single hard-coded pair would describe
+                       none of them. */
+                    <img
+                      src={project.image}
+                      alt=""
+                      width={project.imageSize?.[0]}
+                      height={project.imageSize?.[1]}
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <ProjectCover name={project.cover} />
+                  )}
+                </a>
+              ) : project.image ? (
                 <img
                   src={project.image}
                   alt=""
@@ -116,7 +145,7 @@ export default function Projects() {
                 <ProjectCover name={project.cover} />
               )}
 
-              <div className="absolute inset-x-4 top-4 flex items-start justify-between gap-3">
+              <div className="pointer-events-none absolute inset-x-4 top-4 flex items-start justify-between gap-3">
                 {/* Category tags only, never a "Featured" badge: a card that
                     announces its own importance reads as a boast, and the chip
                     row above already says which ones were picked. */}
@@ -139,7 +168,7 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-slate-600 shadow-sm ring-1 ring-slate-900/10 transition-colors hover:text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:bg-slate-900 dark:text-slate-300 dark:ring-white/15 dark:hover:text-blue-400"
+                    className="pointer-events-auto flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-slate-600 shadow-sm ring-1 ring-slate-900/10 transition-colors hover:text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:bg-slate-900 dark:text-slate-300 dark:ring-white/15 dark:hover:text-blue-400"
                     aria-label={`${ui.open} ${project.title}`}
                   >
                     <ExternalLink size={16} />
@@ -150,7 +179,18 @@ export default function Projects() {
 
             <div className="flex flex-1 flex-col p-6">
               <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                {project.title}
+                {project.link ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-sm hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-800"
+                  >
+                    {project.title}
+                  </a>
+                ) : (
+                  project.title
+                )}
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-8 text-sm sm:text-base leading-relaxed flex-1">
                 {t(project.description)}
