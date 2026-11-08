@@ -38,7 +38,7 @@ export default function Certifications() {
                   className="h-11 w-11 shrink-0 rounded-lg bg-slate-900 p-2 ring-1 ring-slate-900/10 dark:bg-slate-700 dark:ring-white/15"
                 />
 
-                <span className="text-lg font-semibold text-slate-900 dark:text-white">
+                <span className="text-lg font-semibold text-blue-600 dark:text-blue-400">
                   {cert.issuer}
                 </span>
 
