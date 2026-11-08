@@ -140,7 +140,7 @@ export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[] }
   {
     name: { en: "BI & Analytics", vi: "BI & Phân tích" },
     icon: <LineChart size={20} />,
-    skills: ["Power BI", "Tableau", "Superset", "Metabase"]
+    skills: ["Power BI", "Tableau", "Excel", "Superset", "Metabase"]
   },
   {
     name: { en: "Databases", vi: "Cơ sở dữ liệu" },

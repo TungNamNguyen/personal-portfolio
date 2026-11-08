@@ -104,6 +104,7 @@
     <td>
       <a href="https://powerbi.microsoft.com"><img src="https://img.shields.io/badge/-Power_BI-333d4b?style=flat-square&logo=powerbi&logoColor=F2C811" alt="Power BI" /></a>
       <a href="https://www.tableau.com"><img src="https://img.shields.io/badge/-Tableau-43334c?style=flat-square&logo=tableau&logoColor=E97627" alt="Tableau" /></a>
+      <a href="https://www.microsoft.com/en-us/microsoft-365/excel"><img src="https://img.shields.io/badge/-Excel-333d4b?style=flat-square&logo=microsoftexcel&logoColor=217346" alt="Microsoft Excel" /></a>
       <a href="https://superset.apache.org"><img src="https://img.shields.io/badge/-Superset-333d4b?style=flat-square&logo=apachesuperset&logoColor=20A7C9" alt="Apache Superset" /></a>
       <a href="https://www.metabase.com"><img src="https://img.shields.io/badge/-Metabase-333d4b?style=flat-square&logo=metabase&logoColor=509EE3" alt="Metabase" /></a>
       <a href="https://streamlit.io"><img src="https://img.shields.io/badge/-Streamlit-333d4b?style=flat-square&logo=streamlit&logoColor=FF4B4B" alt="Streamlit" /></a>
