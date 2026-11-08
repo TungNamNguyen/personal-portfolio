@@ -37,7 +37,6 @@ import IconDbeaver from "~icons/devicon/dbeaver";
 import IconSqlite from "~icons/devicon/sqlite";
 import IconOpenApi from "~icons/logos/openapi-icon";
 import IconStreamlit from "~icons/logos/streamlit";
-import IconDuckDb from "~icons/devicon/duckdb";
 import IconGoogleDrive from "~icons/logos/google-drive";
 import IconD3 from "~icons/logos/d3";
 import IconJavaScript from "~icons/logos/javascript";
@@ -75,6 +74,24 @@ const SupersetIcon = () => (
       <path fill="currentColor" d="M190.219 0c-21.95 0-42.17 12.349-61.71 33.925C109.307 12.01 88.749 0 65.78 0C27.751 0 0 27.14 0 63.678s27.75 63.338 65.781 63.338c23.375 0 41.49-10.958 61.71-32.806c19.541 21.916 39.421 32.874 62.728 32.874c38.03-.068 65.781-26.767 65.781-63.406C256 27.038 228.25 0 190.219 0M66.052 88.68c-16.114 0-25.715-10.618-25.715-24.663s9.601-24.969 25.715-24.969c13.57 0 24.664 10.924 36.674 25.647c-11.331 13.706-23.307 23.986-36.674 23.986m123.013 0c-13.366 0-24.663-10.618-36.673-24.663c12.35-14.724 22.968-24.969 36.673-24.969c16.115 0 25.614 11.06 25.614 24.969s-9.499 24.664-25.614 24.664" />
       <path fill="#20a7c9" d="m156.124 117.958l25.58-30.533c-10.178-3.053-19.575-12.213-29.312-23.578l-24.9 30.363a111.9 111.9 0 0 0 28.632 23.748m-27.615-84.067a115.1 115.1 0 0 0-28.463-24.29L74.432 40.473c9.737 3.392 18.354 12.145 27.513 23.306l1.018.713z" />
     </g>
+  </svg>
+);
+
+/**
+ * Official DuckDB mark: yellow rubber-duck silhouette on a dark disc.
+ * In the upstream asset, a thin negative-space gap separates the beak from the head circle;
+ * at 14px in a pill, that sub-pixel gap causes a raster break, making the head look chipped
+ * and the beak a detached speck. Seamlessly bridging the beak into the head preserves the
+ * 100% original DuckDB brand geometry and brand yellow (#FFF100) without the chipped artifact.
+ */
+const DuckDbIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 38" width="1.2em" height="1.2em" className="shrink-0">
+    <circle cx="19" cy="19" r="19" className="fill-slate-900" />
+    <path
+      fill="#FFF100"
+      d="M20 16.17h9.16a2.81 2.81 0 0 1 0 5.62H20z"
+    />
+    <circle cx="15.045" cy="19" r="7.872" fill="#FFF100" />
   </svg>
 );
 
@@ -117,12 +134,9 @@ export const TECH_ICONS: Record<string, ReactNode> = {
   // ClickHouse's yellow is drawn for dark grounds and disappears on the light
   // pill, so the light theme takes the black half of the same brand pair.
   "ClickHouse": <span className="text-slate-900 dark:text-[#FAFF69]"><IconClickHouse /></span>,
-  // The monochrome DuckDB mark draws the duck as a hole in a filled disc, and
-  // at 14px negative space does not read — it looks like a chipped dot. The
-  // two-colour version makes the duck the figure instead. Its disc is held at
-  // ink in both themes: inverting it for the dark pill would put the brand
-  // yellow on a light ground, where the duck is the part that disappears.
-  "DuckDB": <span className="text-slate-900"><IconDuckDb /></span>,
+  // DuckDB's icon in a pill: custom-crafted without the detached gap artifact
+  // so the duck silhouette reads cleanly in both themes.
+  "DuckDB": <DuckDbIcon />,
   "Snowflake": <IconSnowflake />,
   "Redshift": <IconRedshift className={localIconClass} />,
   "Databricks": <span className="text-[#FF3621]"><IconDatabricks /></span>,
