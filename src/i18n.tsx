@@ -47,6 +47,7 @@ export const UI = {
   open: { en: "Open", vi: "Mở" },
   /** The chip the project grid opens on — a picked subset, not everything. */
   featured: { en: "Featured", vi: "Nổi bật" },
+  allProjects: { en: "All", vi: "Tất cả" },
   filterProjects: { en: "Filter projects by category", vi: "Lọc dự án theo nhóm" },
   /**
    * Flags the recommendation as a translation in the view where it is one.
