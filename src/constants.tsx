@@ -407,7 +407,10 @@ export const EXPERIENCE: TimelineEntry[] = [
 
 export const EDUCATION: TimelineEntry[] = [
   {
-    title: { en: "Bachelor of Data Science", vi: "Cử nhân Khoa học Dữ liệu" },
+    title: {
+      en: "Bachelor of Computer Science, Major in Data Science",
+      vi: "Cử nhân Khoa học Máy tính, Chuyên ngành Khoa học Dữ liệu"
+    },
     subtitle: "Swinburne University of Technology",
     logo: SwinburneLogo,
     logoFill: true,
@@ -415,7 +418,7 @@ export const EDUCATION: TimelineEntry[] = [
     location: { en: "Melbourne, VIC, Australia", vi: "Melbourne, VIC, Úc" },
     period: { en: "Feb 2022 — Dec 2024", vi: "02/2022 — 12/2024" },
     stats: [
-      { label: "GPA", value: "3.542 / 4.0" },
+      { label: "GPA", value: "3.54 / 4.0" },
       // "High Distinction" is the formal grade name on the transcript, so it is
       // left standing rather than paraphrased into a Vietnamese equivalent.
       { label: { en: "Result", vi: "Xếp loại" }, value: "High Distinction" }
