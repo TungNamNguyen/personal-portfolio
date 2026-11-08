@@ -155,8 +155,8 @@
   <tr>
     <td width="22%">Feb 2022 – Dec 2024</td>
     <td width="28%"><a href="https://www.swinburne.edu.au"><b>Swinburne University of Technology</b></a></td>
-    <td width="24%">Bachelor of Data Science</td>
-    <td width="26%">GPA 3.542/4.0 (High Distinction) · 75% Excellence Scholarship</td>
+    <td width="24%">Bachelor of Computer Science (Data Science)</td>
+    <td width="26%">GPA 3.54/4.0 (High Distinction) · 75% Excellence Scholarship</td>
   </tr>
   <tr>
     <td>Sep 2018 – May 2021</td>
