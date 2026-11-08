@@ -61,8 +61,8 @@ export const UI = {
   connectPrefix: { en: "Connect With ", vi: "Kết nối cùng " },
   connectHighlight: { en: "Me", vi: "Tôi" },
   connectBody: {
-    en: "I’m always open to discussing anything data-related, interesting projects, or new opportunities — feel free to reach out anytime.",
-    vi: "Tôi luôn sẵn sàng trao đổi về mọi chủ đề xoay quanh dữ liệu, các dự án thú vị hay những cơ hội hợp tác mới — đừng ngần ngại liên hệ bất cứ lúc nào."
+    en: "I'm always open to connecting with fellow data professionals, discussing interesting projects, and exploring new opportunities. Feel free to reach out!",
+    vi: "Tôi luôn sẵn lòng kết nối với các đồng nghiệp trong ngành dữ liệu, trao đổi về những dự án thú vị và khám phá các cơ hội hợp tác mới. Đừng ngần ngại liên hệ!"
   },
   orConnectVia: { en: "OR REACH ME ON", vi: "HOẶC LIÊN HỆ QUA" },
   email: { en: "Email", vi: "Email" },
