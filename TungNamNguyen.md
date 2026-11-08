@@ -117,6 +117,7 @@
       <a href="https://www.postgresql.org"><img src="https://img.shields.io/badge/-PostgreSQL-333d4b?style=flat-square&logo=postgresql&logoColor=4169E1" alt="PostgreSQL" /></a>
       <a href="https://www.mysql.com"><img src="https://img.shields.io/badge/-MySQL-333d4b?style=flat-square&logo=mysql&logoColor=4479A1" alt="MySQL" /></a>
       <a href="https://www.microsoft.com/en-us/sql-server"><img src="https://img.shields.io/badge/-SQL_Server-43334c?style=flat-square&logo=microsoftsqlserver&logoColor=CC2927" alt="SQL Server" /></a>
+      <a href="https://duckdb.org"><img src="https://img.shields.io/badge/-DuckDB-333d4b?style=flat-square&logo=duckdb&logoColor=FFF100" alt="DuckDB" /></a>
       <a href="https://www.sqlite.org"><img src="https://img.shields.io/badge/-SQLite-333d4b?style=flat-square&logo=sqlite&logoColor=003B57" alt="SQLite" /></a>
     </td>
   </tr>
