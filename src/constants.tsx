@@ -145,7 +145,7 @@ export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[] }
   {
     name: { en: "Databases", vi: "Cơ sở dữ liệu" },
     icon: <Database size={20} />,
-    skills: ["Postgres", "MySQL", "SQL Server", "SQLite"]
+    skills: ["Postgres", "MySQL", "SQL Server", "DuckDB", "SQLite"]
   },
   {
     // Both halves stay in English: nobody in the field says "kho dữ liệu" for
