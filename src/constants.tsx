@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Terminal, Database, GitBranch, LineChart, Wrench, Cloud, Layers } from "lucide-react";
+import { Terminal, Database, GitBranch, LineChart, Wrench, Cloud, Layers, Sparkles } from "lucide-react";
 /*
   Company, school and issuer marks. The SVG ones are imported through `?react`
   so they ride inside the bundle as markup instead of being fetched as
@@ -163,6 +163,11 @@ export const SKILL_CATEGORIES: { name: Text; icon: ReactNode; skills: string[] }
     name: { en: "Tools & Collaboration", vi: "Công cụ & Làm việc nhóm" },
     icon: <Wrench size={20} />,
     skills: ["DBeaver", "Jira", "Confluence", "Trello", "Teams", "Slack"]
+  },
+  {
+    name: "AI-Assisted Development",
+    icon: <Sparkles size={20} />,
+    skills: ["Claude Code", "Google Antigravity", "Kiro"]
   }
 ];
 
