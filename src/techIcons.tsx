@@ -41,6 +41,7 @@ import IconGoogleDrive from "~icons/logos/google-drive";
 import IconD3 from "~icons/logos/d3";
 import IconJavaScript from "~icons/logos/javascript";
 import IconTailwind from "~icons/logos/tailwindcss-icon";
+import IconClaude from "~icons/logos/claude-icon";
 
 // Monochrome marks: these inherit colour from the wrapper, tinted per theme.
 import IconDatabricks from "~icons/simple-icons/databricks";
@@ -60,6 +61,8 @@ import IconAlteryx from "./assets/icons/alteryx.svg?react";
 // The classic blue Redshift mark, from AWS Simple Icons v17.1.19 — vector, so
 // it stays sharp at any size. viewBox is cropped square to the artwork.
 import IconRedshift from "./assets/icons/redshift.svg?react";
+import IconGoogleAntigravity from "./assets/icons/google-antigravity.svg?react";
+import IconKiro from "./assets/icons/kiro.svg?react";
 
 /**
  * Apache Superset's mark is 2:1, so the icon-set version renders twice as wide
@@ -166,7 +169,10 @@ export const TECH_ICONS: Record<string, ReactNode> = {
   "Confluence": <IconConfluence />,
   "Trello": <IconTrello />,
   "Teams": <IconTeams />,
-  "Slack": <IconSlack />
+  "Slack": <IconSlack />,
+  "Claude Code": <IconClaude />,
+  "Google Antigravity": <IconGoogleAntigravity className={localIconClass} />,
+  "Kiro": <IconKiro className={localIconClass} />
 };
 
 /**
@@ -225,6 +231,9 @@ export const TECH_URLS: Record<string, string> = {
   "Trello": "https://trello.com",
   "Teams": "https://www.microsoft.com/en-us/microsoft-teams",
   "Slack": "https://slack.com",
+  "Claude Code": "https://claude.com/product/claude-code",
+  "Google Antigravity": "https://antigravity.google",
+  "Kiro": "https://kiro.dev",
   "HackerRank": "https://www.hackerrank.com"
 };
 
