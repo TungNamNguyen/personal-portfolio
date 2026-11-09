@@ -71,7 +71,7 @@ export default function Skills() {
           return (
             <Fragment key={i}>
               <dt
-                className={`flex items-center gap-2.5 pb-2 text-slate-900 sm:pr-8 sm:pb-5 dark:text-white ${openRow}`}
+                className={`flex items-center gap-2.5 pb-2 text-slate-900 sm:pr-8 ${i === last ? "sm:pb-0" : "sm:pb-5"} dark:text-white ${openRow}`}
               >
                 <span className="shrink-0 text-blue-600 dark:text-blue-400">{category.icon}</span>
                 <span className="font-mono text-sm font-semibold uppercase tracking-wide">
