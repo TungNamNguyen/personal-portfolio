@@ -143,6 +143,14 @@
       <a href="https://slack.com"><img src="https://img.shields.io/badge/-Slack-43334c?style=flat-square&logo=slack&logoColor=4A154B" alt="Slack" /></a>
     </td>
   </tr>
+  <tr>
+    <td><b>✨ AI-Assisted Development</b></td>
+    <td>
+      <a href="https://claude.com/product/claude-code"><img src="https://img.shields.io/badge/-Claude_Code-333d4b?style=flat-square&logo=claude&logoColor=D97757" alt="Claude Code" /></a>
+      <a href="https://antigravity.google"><img src="https://img.shields.io/badge/-Google_Antigravity-43334c?style=flat-square&logo=google&logoColor=4285F4" alt="Google Antigravity" /></a>
+      <a href="https://kiro.dev"><img src="https://img.shields.io/badge/-Kiro-333d4b?style=flat-square&logoColor=9046FF" alt="Kiro" /></a>
+    </td>
+  </tr>
 </table>
 
 ### 🎓 Education & Certifications
